@@ -76,6 +76,8 @@ To align with the framework’s architecture and pipeline, the component-based a
 
 That said, it is still possible to integrate any DI framework into the project if needed. A Service Locator is used as the tool for dependency injection in the project.
 
+An implementation of an approach with minimal use of `MonoBehaviour` with Zenject can be found in my repository [Modular Unity Game Template](https://github.com/NintendaDev/modular-unity-game-template)
+
 ![Architecture Schema](images/game-architecture-schema.png)
 
 ### Game Loader
