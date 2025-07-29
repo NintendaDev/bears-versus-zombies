@@ -1,0 +1,26 @@
+Photon Fusion FSM Addon - Release History
+
+Last tested with Fusion SDK 2.0.4 Stable 880
+
+Version 2.0.5
+- BREAKING: Improved handling of child machine states. Active states in child machines are now properly deactivated and reactivated based on the parent machine's active state. The active state in a child machine will now be null when parent state is inactive.
+- Added the ability to change the default FSM state
+- Child machines are now displayed recursively in the StateMachineController inspector
+- Support for Fusion 2.0.4
+
+Version 2.0.4
+- Support for Fusion 2.0.2
+
+Version 2.0.3
+- Fixed missing assembly definition for editor part
+- Assembly definitions reference other assemblies by name
+
+Version 2.0.2
+- Added assembly definition to allow unsafe code automatically
+- FSM does not tick on proxies even when NetworkObject is set to simulated (this is to prevent unwanted ticking when adding KCC component)
+
+Version 2.0.1
+- Changed root namespace from Fusion.FSM to Fusion.Addons.FSM.
+
+Version 2.0.0
+- Initial release

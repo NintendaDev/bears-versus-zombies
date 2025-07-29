@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 84ead5dc664fd394490f4874012ed099
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 14884
+  packageName: I2 Localization
+  packageVersion: 2.8.22 f6
+  assetPath: Assets/I2/Localization/Scripts/Manager/LocalizationManager_Targets.cs
+  uploadId: 695195

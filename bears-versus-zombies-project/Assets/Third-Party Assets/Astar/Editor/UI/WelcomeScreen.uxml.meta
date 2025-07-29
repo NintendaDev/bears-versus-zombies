@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: f270bacb724b66246a7f31e2a8e71fe1
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 13804, guid: 0000000000000000e000000000000000, type: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Editor/UI/WelcomeScreen.uxml
+  uploadId: 764484

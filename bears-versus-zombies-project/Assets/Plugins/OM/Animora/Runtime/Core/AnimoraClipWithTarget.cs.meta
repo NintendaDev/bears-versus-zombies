@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 3c6ce73977424a2e943e8286d8cd9419
+timeCreated: 1745319207
+AssetOrigin:
+  serializedVersion: 1
+  productId: 180030
+  packageName: Animora UI Animation (Tweening Timeline)
+  packageVersion: 1.2
+  assetPath: Assets/Plugins/OM/Animora/Runtime/Core/AnimoraClipWithTarget.cs
+  uploadId: 757363

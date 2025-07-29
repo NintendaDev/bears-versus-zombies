@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634c810200014738809424b3da8f120c, type: 3}
+  m_Name: ZombieConfig
+  m_EditorClassIdentifier: 
+  _prefabReference:
+    RawGuidValue: 13bfbf56b6c93d24ba71434e35ef4200
+  _minReward: 1
+  _maxReward: 5

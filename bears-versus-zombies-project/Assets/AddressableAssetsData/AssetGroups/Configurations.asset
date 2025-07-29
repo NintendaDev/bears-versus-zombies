@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Configurations
+  m_EditorClassIdentifier: 
+  m_GroupName: Configurations
+  m_GUID: fe231c9593ea23c42a523a6588c025f6
+  m_SerializeEntries:
+  - m_GUID: 13e9586a10e66f34eaeef02aa9264791
+    m_Address: Assets/Game/Configs/Gameplay/TrapsSettings.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c16b9e5d7d51a746994e48230844460
+    m_Address: Assets/Game/Configs/App/MainMenuAssets.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 511f6e623663f5f4d857ea95856f3351
+    m_Address: Assets/Modules/AudioManagement/Configurations/AudioMixerConfiguration.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e55bfe1da2c46654c896c52db43579a8
+    m_Address: Assets/Game/Configs/App/2LanguagesMapping.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6e767a00a2828341b694627ccac36cf
+    m_Address: Assets/Game/Configs/Gameplay/GameplayAssets.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe3ca8f4348698344becb4ccdf2a56e3
+    m_Address: LocalizeRegionsConfig
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 351b96b472149844b8e6f70e7669443b, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: c39681164c822ac44af33378555976d7, type: 2}
+    - {fileID: 11400000, guid: c66e4e94b6182314493bb056eb00511c, type: 2}

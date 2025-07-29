@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 183e10f9cadca424792b5f940ce3fe3d
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Graphs/Navmesh/AABBTree.cs
+  uploadId: 764484

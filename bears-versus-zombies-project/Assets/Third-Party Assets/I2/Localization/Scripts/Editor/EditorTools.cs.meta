@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: df33c1000ac895241a433812e40a2096
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 14884
+  packageName: I2 Localization
+  packageVersion: 2.8.22 f6
+  assetPath: Assets/I2/Localization/Scripts/Editor/EditorTools.cs
+  uploadId: 695195

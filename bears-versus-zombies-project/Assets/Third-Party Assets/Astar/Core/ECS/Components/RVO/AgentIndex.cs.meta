@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: cd00f859416fc5c4f984c5680d19fc7d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Core/ECS/Components/RVO/AgentIndex.cs
+  uploadId: 764484

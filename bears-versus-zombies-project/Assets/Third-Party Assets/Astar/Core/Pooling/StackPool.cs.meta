@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: de467bbbb1ff84668ae8262caad00941
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Core/Pooling/StackPool.cs
+  uploadId: 764484

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6865b0d3859fe4641ad0839b829e00d2
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Core/AI/RichPath.cs
+  uploadId: 764484

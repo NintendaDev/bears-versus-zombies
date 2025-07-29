@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 4aef007a0dd474c20872caa35fbbc8a7
+timeCreated: 1462714767
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Graphs/Point/PointKDTree.cs
+  uploadId: 764484

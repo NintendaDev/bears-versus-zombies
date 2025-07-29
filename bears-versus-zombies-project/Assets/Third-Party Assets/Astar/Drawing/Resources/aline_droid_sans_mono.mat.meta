@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fb8c9e73fc8f8b86e9310790cf7e9df5
+timeCreated: 1442945121
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Drawing/Resources/aline_droid_sans_mono.mat
+  uploadId: 764484

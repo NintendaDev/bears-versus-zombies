@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 95febb4c5ed8c46939368f03ecf4b3b0
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Editor/SeekerEditor.cs
+  uploadId: 764484

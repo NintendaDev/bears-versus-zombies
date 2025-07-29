@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: de4e6084e6d474788bb8c799d6b461eb
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Drawing/ALINE.asmdef
+  uploadId: 764484

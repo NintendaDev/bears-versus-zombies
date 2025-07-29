@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 15d2e30895de4167bb68abe06afb5986
+timeCreated: 1746102735
+AssetOrigin:
+  serializedVersion: 1
+  productId: 180030
+  packageName: Animora UI Animation (Tweening Timeline)
+  packageVersion: 1.2
+  assetPath: Assets/Plugins/OM/Animora/Modules/Camera/Actions/AnimoraActionSetCameraOrthographicSize.cs
+  uploadId: 757363

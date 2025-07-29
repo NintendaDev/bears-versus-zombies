@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: ce754b44fa448624dac9bbefe12d03e9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Core/ECS/Systems/FollowerControlSystem.cs
+  uploadId: 764484

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 006708d33bd2e45c085dcb6a28c2b724
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 180030
+  packageName: Animora UI Animation (Tweening Timeline)
+  packageVersion: 1.2
+  assetPath: Assets/Plugins/OM/Animora/Demos/Demo 6/Demo6Switcher.cs
+  uploadId: 757363

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 104713279df05ac4b96f5a76ab621c8a
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 14884
+  packageName: I2 Localization
+  packageVersion: 2.8.22 f6
+  assetPath: Assets/I2/Localization/Scripts/Editor/Localization/LocalizationEditor_Tools_CharSet.cs
+  uploadId: 695195

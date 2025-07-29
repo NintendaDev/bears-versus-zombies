@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 3a01172c07874b7681a619422d2f3235
+timeCreated: 1743014177
+AssetOrigin:
+  serializedVersion: 1
+  productId: 180030
+  packageName: Animora UI Animation (Tweening Timeline)
+  packageVersion: 1.2
+  assetPath: Assets/Plugins/OM/Animora/Editor/Drawers/AnimoraValueDrawer.cs
+  uploadId: 757363

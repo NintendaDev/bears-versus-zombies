@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 53d5ed87a66514e439dddd19568adedd
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 14884
+  packageName: I2 Localization
+  packageVersion: 2.8.22 f6
+  assetPath: Assets/I2/Localization/Scripts/Targets/LocalizeTarget_2DToolKit_Sprite.cs
+  uploadId: 695195

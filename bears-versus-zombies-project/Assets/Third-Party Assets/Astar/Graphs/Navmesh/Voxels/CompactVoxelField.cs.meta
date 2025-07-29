@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: ddc46f5b05337b6ba8eae5dd4906634d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Graphs/Navmesh/Voxels/CompactVoxelField.cs
+  uploadId: 764484

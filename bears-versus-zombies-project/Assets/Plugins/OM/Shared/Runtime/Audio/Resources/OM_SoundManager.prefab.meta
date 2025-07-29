@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 63ca65947986046bb8d7fc20af8e3518
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 180030
+  packageName: Animora UI Animation (Tweening Timeline)
+  packageVersion: 1.2
+  assetPath: Assets/Plugins/OM/Shared/Runtime/Audio/Resources/OM_SoundManager.prefab
+  uploadId: 757363

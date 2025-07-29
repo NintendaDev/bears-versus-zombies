@@ -1,0 +1,33 @@
+.jt-switcher-container{
+    width: 30px;
+    height: 16px;
+    background-color: rebeccapurple;
+    border-radius: 7px;
+    cursor: link;
+    border-color: #1f1f1f;
+    align-items: flex-start;
+}
+
+.jt-switcher-handle{
+    background-color: #353535;
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    transition: left 0.2s ease-out-back;
+    min-width: 13px;
+    min-height: 14px;
+    top: 1px;
+
+}
+
+.jt-switcher .unity-base-field__input{
+    display: none;
+}
+
+.jt-switcher-label{
+    position: absolute;
+}
+
+.no-animation{
+    transition-duration: 0s;
+}

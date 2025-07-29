@@ -1,0 +1,22 @@
+{
+    "name": "AnimoraEditor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e18551f1fa3b94b20a10e6ffb756586a",
+        "GUID:6f06f7bc90a9a4423bc4467152087b1e",
+        "GUID:4ae89db7f8eb34ecfa05bc30f0162358",
+        "GUID:b62e7de798d864a2fa8cee24acf3a3a6",
+        "GUID:b2189558d420a46e3a7e1421892020e5"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 426beb6f8d635447fadad7ee0a592fe0
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Editor/RVOSquareObstacleEditor.cs
+  uploadId: 764484

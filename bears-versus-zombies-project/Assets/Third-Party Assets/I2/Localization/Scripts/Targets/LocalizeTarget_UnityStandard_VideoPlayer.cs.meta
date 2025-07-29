@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 5fcaa99c1874460eb953851cbf4bfad2
+timeCreated: 1601759602
+AssetOrigin:
+  serializedVersion: 1
+  productId: 14884
+  packageName: I2 Localization
+  packageVersion: 2.8.22 f6
+  assetPath: Assets/I2/Localization/Scripts/Targets/LocalizeTarget_UnityStandard_VideoPlayer.cs
+  uploadId: 695195

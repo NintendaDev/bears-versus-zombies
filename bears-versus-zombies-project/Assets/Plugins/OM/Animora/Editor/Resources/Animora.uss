@@ -1,0 +1,102 @@
+.inspector{
+    padding: 5px ;
+    background-color: #313131;
+    border-radius: 5px;
+    margin-top: 10px;
+    border-width: 1px;
+    border-color: rgb(30, 30, 30);
+}
+
+.inspector-header{
+    flex-direction: row;
+    padding: 0;
+    padding-bottom: 5px;
+    border-radius: 3px;
+    border-width: 0;
+    border-color: rgb(30, 30, 30);
+    align-items: center;
+}
+
+.context-menu-button{
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    background-color: #3f3f3f;
+    border-radius: 5px;
+    border-width: 1px;
+}
+
+.context-menu-button:hover{
+    background-color: #4f4f4f;
+}
+
+.inspector-label{
+    -unity-text-align: middle-center;
+    color: #8f8f8f;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.inspector-header TextField{
+    height: 22px;
+}
+
+.inspector-header-name-field{
+    padding-left: 10px;
+    flex-grow: 1;
+}
+
+.inspector-header-context-menu-button{
+    margin-left: 10px;
+    width: 30px;
+}
+
+
+.main-settings-group{
+    margin-bottom: 20px !important;
+}
+
+@keyframes flash-border {
+    0% { border-color: red; }
+    50% { border-color: transparent; }
+    100% { border-color: red; }
+}
+
+.flashing-border {
+    border-width: 3px;
+    border-color: red;
+}
+
+.control-section{
+    padding: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+    background-color: #3f3f3f;
+    border-width: 1px;
+    border-color: rgb(30, 30, 30);
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-section-btn{
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #3f3f3f;
+    border-width: 1px;
+    border-color: rgb(30, 30, 30);
+    min-width: 30px;
+    min-height: 30px;
+}
+
+.control-section-btn:hover{
+    background-color: #4f4f4f;
+}
+
+.control-section-btn #Icon{
+    width: 20px;
+    height: 20px;
+}

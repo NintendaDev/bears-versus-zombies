@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e319126bc237fb142beacf68e9a5e88e
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213594
+  packageName: OmniShade Pro - Mobile Optimized Shader
+  packageVersion: 1.9.3
+  assetPath: Assets/OmniShade/Samples/Vertex Paint Ground/Prefabs/Ground.prefab
+  uploadId: 767746

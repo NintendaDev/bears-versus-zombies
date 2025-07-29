@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2006bb8ffadf54c04ac4550f47be20b2
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Pathfinders/RandomPath.cs
+  uploadId: 764484

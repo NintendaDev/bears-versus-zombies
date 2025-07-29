@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: b8919e7027aa842d2b0f4d6c525a9d18
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 180030
+  packageName: Animora UI Animation (Tweening Timeline)
+  packageVersion: 1.2
+  assetPath: Assets/Plugins/OM/Animora/Demos/Demo 3/Demo3Button.cs
+  uploadId: 757363

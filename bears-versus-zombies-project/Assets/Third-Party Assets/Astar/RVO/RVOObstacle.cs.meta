@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b5c46b71c11fa41a08c1d9b79aabd500
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/RVO/RVOObstacle.cs
+  uploadId: 764484

@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 15636ad0aa8924f299ba050f6cd77a1c
+timeCreated: 1729582429
+AssetOrigin:
+  serializedVersion: 1
+  productId: 180030
+  packageName: Animora UI Animation (Tweening Timeline)
+  packageVersion: 1.2
+  assetPath: Assets/Plugins/OM/Shared/Editor/Attributes/OM_MinMaxSliderDrawer.cs
+  uploadId: 757363

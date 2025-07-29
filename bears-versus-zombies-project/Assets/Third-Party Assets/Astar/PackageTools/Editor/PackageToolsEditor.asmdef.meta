@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 774e21169c4ac4ec8a01db9cdb98d33b
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/PackageTools/Editor/PackageToolsEditor.asmdef
+  uploadId: 764484

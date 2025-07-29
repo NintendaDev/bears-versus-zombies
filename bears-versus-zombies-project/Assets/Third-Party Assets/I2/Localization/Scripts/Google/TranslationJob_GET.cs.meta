@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 13df42f7287eccc4399bc757d577030e
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 14884
+  packageName: I2 Localization
+  packageVersion: 2.8.22 f6
+  assetPath: Assets/I2/Localization/Scripts/Google/TranslationJob_GET.cs
+  uploadId: 695195

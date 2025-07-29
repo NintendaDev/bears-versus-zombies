@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 65dc186b9c5b43f9a0853a259102ed17
+timeCreated: 1746103883
+AssetOrigin:
+  serializedVersion: 1
+  productId: 180030
+  packageName: Animora UI Animation (Tweening Timeline)
+  packageVersion: 1.2
+  assetPath: Assets/Plugins/OM/Animora/Modules/TMP/Actions/AnimoraActionSetTmpWordSpacing.cs
+  uploadId: 757363

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 537f9312ab33ad434a5484e558bbbca2
+timeCreated: 1442945130
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Drawing/Resources/aline_text.shader
+  uploadId: 764484

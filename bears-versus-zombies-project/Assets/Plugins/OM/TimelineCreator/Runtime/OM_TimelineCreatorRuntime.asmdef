@@ -1,0 +1,16 @@
+{
+    "name": "OM_TimelineCreatorRuntime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6f06f7bc90a9a4423bc4467152087b1e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

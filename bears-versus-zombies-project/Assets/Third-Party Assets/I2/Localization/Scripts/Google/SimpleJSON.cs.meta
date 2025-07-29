@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: c6bd173cd8524b04daa3dabce666b456
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 14884
+  packageName: I2 Localization
+  packageVersion: 2.8.22 f6
+  assetPath: Assets/I2/Localization/Scripts/Google/SimpleJSON.cs
+  uploadId: 695195

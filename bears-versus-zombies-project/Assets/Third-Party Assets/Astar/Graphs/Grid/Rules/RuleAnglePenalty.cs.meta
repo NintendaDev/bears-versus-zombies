@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 40d5c4aeb2276457f8fe040e4c5d71fe
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Graphs/Grid/Rules/RuleAnglePenalty.cs
+  uploadId: 764484

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 8488ebda4a4bc5343b6fcd2158af0360
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 14884
+  packageName: I2 Localization
+  packageVersion: 2.8.22 f6
+  assetPath: Assets/I2/Localization/Scripts/Targets/LocalizeTarget_NGUI_Texture.cs
+  uploadId: 695195

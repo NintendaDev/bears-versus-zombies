@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 6b30aa8ff756d44008247c6f4f1b94fd
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/link.xml
+  uploadId: 764484

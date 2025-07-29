@@ -1,0 +1,51 @@
+.actions-manager-container{
+    padding-bottom: 30px;
+}
+
+.drop-area{
+    padding: 5px;
+    border-radius: 5px 5px 0 5px;
+    border-width: 1px;
+    border-color: #818181;
+    min-height: 50px;
+}
+
+.drop-area-add-button{
+    position: absolute;
+    right: -4px;
+    bottom: -26px;
+    width: 30px;
+    height: 25px;
+    background-color: rgba(255,0,0,0);
+    border-radius: 0 0 5px 5px;
+    color: white;
+    justify-content: center;
+    border-width: 1px;
+    border-color: #818181;
+    cursor: link;
+}
+
+.drop-area-add-button:hover{
+    background-color: #afa79e;
+}
+
+.drop-area-header{
+    -unity-text-align: middle-center;
+    color: #8f8f8f;
+    justify-content: center;
+    align-items: center;
+}
+
+.drop-area-header-line{
+    width: 1px;
+    height: 8px;
+    background-color: #818181;
+}
+
+.top-layer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}

@@ -1,0 +1,21 @@
+{
+    "name": "OM_TimelineCreator",
+    "rootNamespace": "",
+    "references": [
+        "GUID:343deaaf83e0cee4ca978e7df0b80d21",
+        "GUID:6f06f7bc90a9a4423bc4467152087b1e",
+        "GUID:b2189558d420a46e3a7e1421892020e5",
+        "GUID:b62e7de798d864a2fa8cee24acf3a3a6"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

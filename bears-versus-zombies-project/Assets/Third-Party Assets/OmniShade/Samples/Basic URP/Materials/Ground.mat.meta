@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 678520dfb9b254527acd00af585e9c7d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213594
+  packageName: OmniShade Pro - Mobile Optimized Shader
+  packageVersion: 1.9.3
+  assetPath: Assets/OmniShade/Samples/Basic URP/Materials/Ground.mat
+  uploadId: 767746

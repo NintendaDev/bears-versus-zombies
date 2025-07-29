@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: cc4d0073f9e452047bd31b01de2bbd82
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 14884
+  packageName: I2 Localization
+  packageVersion: 2.8.22 f6
+  assetPath: Assets/I2/Localization/Scripts/Google/GoogleTranslation.cs
+  uploadId: 695195

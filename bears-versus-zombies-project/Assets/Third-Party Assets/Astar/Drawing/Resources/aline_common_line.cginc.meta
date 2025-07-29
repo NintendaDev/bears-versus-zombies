@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 605d8a659194d1a2695d7c0ecd7f1c36
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Drawing/Resources/aline_common_line.cginc
+  uploadId: 764484

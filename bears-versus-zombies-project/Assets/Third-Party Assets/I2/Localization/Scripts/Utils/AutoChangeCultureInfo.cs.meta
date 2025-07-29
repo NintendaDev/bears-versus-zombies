@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 9d7ad57256fd47940aba8035315bd2ca
+timeCreated: 1478233236
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 14884
+  packageName: I2 Localization
+  packageVersion: 2.8.22 f6
+  assetPath: Assets/I2/Localization/Scripts/Utils/AutoChangeCultureInfo.cs
+  uploadId: 695195

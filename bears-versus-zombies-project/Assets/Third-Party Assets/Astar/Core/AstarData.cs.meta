@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 38d211caa07cb44ef886481aa1cf755c
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Core/AstarData.cs
+  uploadId: 764484

@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: bebeca7d51934be49c865501adf125c0
+timeCreated: 1746102577
+AssetOrigin:
+  serializedVersion: 1
+  productId: 180030
+  packageName: Animora UI Animation (Tweening Timeline)
+  packageVersion: 1.2
+  assetPath: Assets/Plugins/OM/Animora/Modules/Camera/Actions/AnimoraActionSetCameraColor.cs
+  uploadId: 757363

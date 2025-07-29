@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: caa5e39f619447a581259a2364e1c087
+timeCreated: 1746045136
+AssetOrigin:
+  serializedVersion: 1
+  productId: 180030
+  packageName: Animora UI Animation (Tweening Timeline)
+  packageVersion: 1.2
+  assetPath: Assets/Plugins/OM/Animora/Modules/UI/Actions/AnimoraActionSetPivot.cs
+  uploadId: 757363

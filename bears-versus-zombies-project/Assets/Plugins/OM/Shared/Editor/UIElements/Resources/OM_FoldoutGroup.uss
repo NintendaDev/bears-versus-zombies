@@ -1,0 +1,64 @@
+.foldout-group{
+    background-color: #353535;
+    border-radius: 5px;
+    margin: 2px 0;
+    border-width: 2px;
+    border-color: #1f1f1f;
+    overflow: hidden;
+}
+
+.foldout-group-header{
+    -unity-font-style: normal;
+    height: 30px;
+    background-color: #292929;
+    border-radius: 5px;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    padding: 0 5px;
+    -unity-text-align: middle-center;
+    cursor: link;
+}
+
+.foldout-group-header:hover{
+    color: cyan;
+}
+
+.foldout-group-active .foldout-group-header{
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+.foldout-group-content{
+    padding: 5px 5px 5px 10px;
+}
+
+.foldout-group-arrow{
+    width: 20px;
+    height: 20px;
+    transition: rotate 0.2s ease;
+}
+
+.foldout-group-menu{
+    min-width: 20px;
+    height: 20px;
+    margin-right: 0;
+}
+
+.foldout-group-line{
+    height: 100%;
+    width: 3px;
+    position: absolute;
+    left: 0;
+}
+
+.foldout-group-header-container{
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.foldout-group-header-container>VisualElement{
+    margin: 0 5px;
+}

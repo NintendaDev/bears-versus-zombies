@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ec7eea22fd1c74193aa7d047949503e7
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/PackageTools/Editor/OptimizationHandler.cs
+  uploadId: 764484

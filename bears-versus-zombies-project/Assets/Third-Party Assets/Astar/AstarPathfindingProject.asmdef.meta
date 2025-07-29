@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: efa45043feb7e4147a305b73b5cea642
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/AstarPathfindingProject.asmdef
+  uploadId: 764484

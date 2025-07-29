@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f122762c1b11f43a3a31ef25d443e4c2
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213594
+  packageName: OmniShade Pro - Mobile Optimized Shader
+  packageVersion: 1.9.3
+  assetPath: Assets/OmniShade/Samples/Basic/Materials/Normal Map.mat
+  uploadId: 767746

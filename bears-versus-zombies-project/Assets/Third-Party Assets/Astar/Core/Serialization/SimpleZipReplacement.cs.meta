@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e4ab3c0aea7564a9c9af3bf72ed95858
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Core/Serialization/SimpleZipReplacement.cs
+  uploadId: 764484

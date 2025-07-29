@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8acce46c1e3f04585bb11f05243f94e8
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213594
+  packageName: OmniShade Pro - Mobile Optimized Shader
+  packageVersion: 1.9.3
+  assetPath: Assets/OmniShade/Samples/Unity-chan Cel/Materials/OutlineHideInterior.mat
+  uploadId: 767746

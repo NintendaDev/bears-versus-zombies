@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 91035448860ba4e708919485c73f7edc
+timeCreated: 1442945121
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Drawing/Resources/aline_outline.mat
+  uploadId: 764484

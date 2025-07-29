@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: fc07e1f3f3714c6478e6e4501098a0b5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213594
+  packageName: OmniShade Pro - Mobile Optimized Shader
+  packageVersion: 1.9.3
+  assetPath: Assets/OmniShade/Scripts/Editor/OmniShadePreprocess.cs
+  uploadId: 767746

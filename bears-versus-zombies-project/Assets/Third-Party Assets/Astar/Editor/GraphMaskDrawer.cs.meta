@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: fcb22d8838af78c3b8b72d6cfbaa7f9f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Editor/GraphMaskDrawer.cs
+  uploadId: 764484

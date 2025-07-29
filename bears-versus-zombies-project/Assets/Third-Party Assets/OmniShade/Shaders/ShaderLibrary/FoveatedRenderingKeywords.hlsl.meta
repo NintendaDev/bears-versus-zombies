@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: beb2e9f6e4f08434ab3fda0587ef07d6
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213594
+  packageName: OmniShade Pro - Mobile Optimized Shader
+  packageVersion: 1.9.3
+  assetPath: Assets/OmniShade/Shaders/ShaderLibrary/FoveatedRenderingKeywords.hlsl
+  uploadId: 767746

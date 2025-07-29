@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7c4297fc55c734c9bad31126dc81e49b
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Editor/RecastMeshObjEditor.cs
+  uploadId: 764484

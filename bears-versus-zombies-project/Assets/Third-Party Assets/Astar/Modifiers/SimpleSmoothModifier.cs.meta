@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: cb6a34d769a1e4ac7b0b30e433aa443c
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Modifiers/SimpleSmoothModifier.cs
+  uploadId: 764484

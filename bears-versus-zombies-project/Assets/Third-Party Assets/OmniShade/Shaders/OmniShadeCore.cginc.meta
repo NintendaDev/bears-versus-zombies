@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 81c9824bf6e9543afb028b75f8d514c1
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213594
+  packageName: OmniShade Pro - Mobile Optimized Shader
+  packageVersion: 1.9.3
+  assetPath: Assets/OmniShade/Shaders/OmniShadeCore.cginc
+  uploadId: 767746

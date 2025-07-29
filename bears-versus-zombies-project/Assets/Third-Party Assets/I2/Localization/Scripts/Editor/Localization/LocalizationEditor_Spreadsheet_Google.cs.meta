@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 800caf7e364ec2947be099b4f9ed976d
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 14884
+  packageName: I2 Localization
+  packageVersion: 2.8.22 f6
+  assetPath: Assets/I2/Localization/Scripts/Editor/Localization/LocalizationEditor_Spreadsheet_Google.cs
+  uploadId: 695195

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b56789f958bf1496ba91f7e2b4147166
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Graphs/Utilities/NavMeshRenderer.cs
+  uploadId: 764484

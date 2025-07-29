@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 647f36bb3041d47db82d1dfdbb24eac1
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 180030
+  packageName: Animora UI Animation (Tweening Timeline)
+  packageVersion: 1.2
+  assetPath: Assets/Plugins/OM/Animora/Modules/TMP/Animora_TMP.asmdef
+  uploadId: 757363

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7d2571132df96c34cb1b410d32c77f73
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213594
+  packageName: OmniShade Pro - Mobile Optimized Shader
+  packageVersion: 1.9.3
+  assetPath: Assets/OmniShade/Samples/Ellen/Models/@EllenIdle.controller
+  uploadId: 767746

@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 130c782c10b1456b9c7ebd920f0ad1c5
+timeCreated: 1746029835
+AssetOrigin:
+  serializedVersion: 1
+  productId: 180030
+  packageName: Animora UI Animation (Tweening Timeline)
+  packageVersion: 1.2
+  assetPath: Assets/Plugins/OM/Animora/Modules/UI/AnimoraClipAnchorPosition.cs
+  uploadId: 757363

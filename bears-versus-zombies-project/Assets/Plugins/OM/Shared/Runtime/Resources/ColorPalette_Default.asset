@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0d8973d0bce4cdabced21a42bdb1715, type: 3}
+  m_Name: ColorPalette_Default
+  m_EditorClassIdentifier: 
+  paletteName: default
+  colors:
+  - key: default
+    color: {r: 1, g: 1, b: 1, a: 1}
+  - key: red
+    color: {r: 1, g: 0.29, b: 0.45, a: 1}
+  - key: green
+    color: {r: 0.45, g: 1, b: 0.51, a: 1}
+  - key: blue
+    color: {r: 0.33, g: 0.65, b: 1, a: 1}
+  - key: yellow
+    color: {r: 1, g: 0.99, b: 0.51, a: 1}
+  - key: cyan
+    color: {r: 0.41, g: 1, b: 0.98, a: 1}
+  - key: magenta
+    color: {r: 0.98, g: 0.46, b: 1, a: 1}
+  - key: black
+    color: {r: 0, g: 0, b: 0, a: 1}
+  - key: white
+    color: {r: 1, g: 1, b: 1, a: 1}
+  - key: gray
+    color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  - key: grey
+    color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  - key: clear
+    color: {r: 0, g: 0, b: 0, a: 0}
+  - key: pink
+    color: {r: 0.97, g: 0.42, b: 1, a: 1}

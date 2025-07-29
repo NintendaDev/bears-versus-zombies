@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: eaa919dd06da3464082b8f16759a5b16
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 14884
+  packageName: I2 Localization
+  packageVersion: 2.8.22 f6
+  assetPath: Assets/I2/Localization/Scripts/LanguageSource/LanguageSourceData_Misc.cs
+  uploadId: 695195

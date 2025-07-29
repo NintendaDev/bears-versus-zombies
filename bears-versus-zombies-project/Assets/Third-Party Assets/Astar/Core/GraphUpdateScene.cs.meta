@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: efee954c69f0d421086729bb8df1137f
+timeCreated: 1490044676
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: -221
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Core/GraphUpdateScene.cs
+  uploadId: 764484

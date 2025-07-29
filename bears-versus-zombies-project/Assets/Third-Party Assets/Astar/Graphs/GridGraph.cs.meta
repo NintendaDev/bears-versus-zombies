@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d5d28978e568e40429b2981fab3e380e
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Graphs/GridGraph.cs
+  uploadId: 764484

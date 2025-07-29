@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: c08d8f057aca4437b74658e744a76445
+timeCreated: 1734862307
+AssetOrigin:
+  serializedVersion: 1
+  productId: 180030
+  packageName: Animora UI Animation (Tweening Timeline)
+  packageVersion: 1.2
+  assetPath: Assets/Plugins/OM/Shared/Editor/Manipulators/OM_RectangleSelector.cs
+  uploadId: 757363

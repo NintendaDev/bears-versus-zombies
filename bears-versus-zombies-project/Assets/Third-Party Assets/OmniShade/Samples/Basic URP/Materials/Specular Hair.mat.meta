@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c80b810c21f835f41ac0c1ffd3d35a58
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213594
+  packageName: OmniShade Pro - Mobile Optimized Shader
+  packageVersion: 1.9.3
+  assetPath: Assets/OmniShade/Samples/Basic URP/Materials/Specular Hair.mat
+  uploadId: 767746

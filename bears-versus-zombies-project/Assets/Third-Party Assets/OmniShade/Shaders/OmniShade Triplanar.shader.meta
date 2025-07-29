@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 4ff0d3935f47048098f876abc1475e13
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213594
+  packageName: OmniShade Pro - Mobile Optimized Shader
+  packageVersion: 1.9.3
+  assetPath: Assets/OmniShade/Shaders/OmniShade Triplanar.shader
+  uploadId: 767746

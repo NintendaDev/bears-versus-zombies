@@ -1,0 +1,17 @@
+{
+    "name": "Modules.VFX",
+    "rootNamespace": "Modules.VFX",
+    "references": [
+        "GUID:d350cba0b908dd34fb34346dab07f1fb",
+        "GUID:f457018bfaf50d444a48363057302277"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

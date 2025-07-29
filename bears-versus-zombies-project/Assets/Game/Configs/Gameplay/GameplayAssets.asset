@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c68ae0563fba428db5c636cee1f4b172, type: 3}
+  m_Name: GameplayAssets
+  m_EditorClassIdentifier: 
+  _zombiePrefabReference:
+    m_AssetGUID: 13bfbf56b6c93d24ba71434e35ef4200
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 1
+  _turretPrefabReference:
+    m_AssetGUID: 7a1ef46ee7b8f324b815d943b995afa2
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 1
+  _minePrefabReference:
+    m_AssetGUID: 3fc2a5a472fe0d647913e11c1b906fbd
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 1

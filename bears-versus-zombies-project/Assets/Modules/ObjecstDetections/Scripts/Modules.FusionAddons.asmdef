@@ -1,0 +1,17 @@
+{
+    "name": "Modules.ObjectsDetections",
+    "rootNamespace": "Modules.ObjectsDetections",
+    "references": [
+        "GUID:361641e7fbce222489bf17136962e1e0",
+        "GUID:2035a98caa974cc42abcb5d5d406783e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

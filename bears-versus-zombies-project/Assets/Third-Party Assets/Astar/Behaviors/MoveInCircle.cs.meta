@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 3124c7cfbe5ac4b1cbe42bd6b1e4279d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {fileID: 2800000, guid: 8cf8c12a4f0221b438c0d7ffa0eab6f4, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Behaviors/MoveInCircle.cs
+  uploadId: 764484

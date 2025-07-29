@@ -1,0 +1,261 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f0b0c553be8edd4682e9180fdd13e37, type: 3}
+  m_Name: I2Languages
+  m_EditorClassIdentifier: 
+  mSource:
+    UserAgreesToHaveItOnTheScene: 0
+    UserAgreesToHaveItInsideThePluginsFolder: 0
+    GoogleLiveSyncIsUptoDate: 1
+    mTerms:
+    - Term: Common/GameTitle
+      TermType: 0
+      Description: 
+      Languages:
+      - Bears Versus Zombies
+      - "\u041C\u0435\u0434\u0432\u0435\u0434\u0438 \u043F\u0440\u043E\u0442\u0438\u0432
+        \u0417\u043E\u043C\u0431\u0438"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Regions/eu
+      TermType: 0
+      Description: 
+      Languages:
+      - Europe
+      - "\u0415\u0432\u0440\u043E\u043F\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Regions/us
+      TermType: 0
+      Description: 
+      Languages:
+      - USA
+      - "\u0421\u0428\u0410"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Regions/asia
+      TermType: 0
+      Description: 
+      Languages:
+      - Asia
+      - "\u0410\u0437\u0438\u044F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Main Menu/Single game
+      TermType: 0
+      Description: 
+      Languages:
+      - Single game
+      - "\u041E\u0434\u0438\u043D\u043E\u0447\u043D\u0430\u044F \u0438\u0433\u0440\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Main Menu/Lobby
+      TermType: 0
+      Description: 
+      Languages:
+      - Lobby
+      - "\u041B\u043E\u0431\u0431\u0438"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Main Menu/Create session
+      TermType: 0
+      Description: 
+      Languages:
+      - Create session
+      - "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u0441\u0435\u0441\u0441\u0438\u044E"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Main Menu/Connect
+      TermType: 0
+      Description: 
+      Languages:
+      - Connect
+      - "\u041F\u043E\u0434\u043A\u043B\u044E\u0447\u0438\u0442\u044C\u0441\u044F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Main Menu/Enter session name
+      TermType: 0
+      Description: 
+      Languages:
+      - Enter session name...
+      - "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0438\u043C\u044F \u0441\u0435\u0441\u0441\u0438\u0438..."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Fonts/GameFonts
+      TermType: 9
+      Description: 
+      Languages:
+      - NEXON Football Gothic B SDF
+      - Robloxian2-Black
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Main Menu/Region
+      TermType: 0
+      Description: 
+      Languages:
+      - Region
+      - "\u0420\u0435\u0433\u0438\u043E\u043D"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Measures/Milliseconds
+      TermType: 0
+      Description: 
+      Languages:
+      - ms
+      - "\u043C\u0441"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Main Menu/Session name
+      TermType: 0
+      Description: 
+      Languages:
+      - Session name
+      - "\u0418\u043C\u044F \u0441\u0435\u0441\u0441\u0438\u0438"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Main Menu/Players
+      TermType: 0
+      Description: 
+      Languages:
+      - Players
+      - "\u0418\u0433\u0440\u043E\u043A\u0438"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Gameplay/Wait for players connection
+      TermType: 0
+      Description: 
+      Languages:
+      - Wait for players connection
+      - "\u041E\u0436\u0438\u0434\u0430\u043D\u0438\u0435 \u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u044F
+        \u0438\u0433\u0440\u043E\u043A\u043E\u0432"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Gameplay/You Lose
+      TermType: 0
+      Description: 
+      Languages:
+      - You lose
+      - "\u0422\u044B \u043F\u0440\u043E\u0438\u0433\u0440\u0430\u043B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Gameplay/Timeout Players Message
+      TermType: 0
+      Description: 
+      Languages:
+      - The timeout for waiting for other players has expired
+      - "\u041D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u0434\u043E\u0436\u0434\u0430\u0442\u044C\u0441\u044F
+        \u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u044F \u0434\u0440\u0443\u0433\u0438\u0445
+        \u0438\u0433\u0440\u043E\u043A\u043E\u0432"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Gameplay/Exit To Main Menu
+      TermType: 0
+      Description: 
+      Languages:
+      - Exit To Main Menu
+      - "\u0412\u044B\u0439\u0442\u0438 \u0432 \u043C\u0435\u043D\u044E"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Gameplay/You Win
+      TermType: 0
+      Description: 
+      Languages:
+      - You Win
+      - "\u041F\u043E\u0431\u0435\u0434\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Gameplay/Win Message
+      TermType: 0
+      Description: 
+      Languages:
+      - You managed to survive and protect the bus
+      - "\u0412\u044B \u0441\u043C\u043E\u0433\u043B\u0438 \u0432\u044B\u0436\u0438\u0442\u044C
+        \u0438 \u0437\u0430\u0449\u0438\u0442\u0438\u0442\u044C \u0441\u0432\u043E\u0439
+        \u0430\u0432\u0442\u043E\u0431\u0443\u0441"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Gameplay/GameOver
+      TermType: 0
+      Description: 
+      Languages:
+      - Game Over
+      - "\u041A\u043E\u043D\u0435\u0446 \u0438\u0433\u0440\u044B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Gameplay/YouLose
+      TermType: 0
+      Description: 
+      Languages:
+      - You Lose
+      - "\u041F\u0440\u043E\u0438\u0433\u0440\u0430\u043B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Gameplay/BusDestroyLoseMessage
+      TermType: 0
+      Description: 
+      Languages:
+      - The bus has been destroyed
+      - "\u0410\u0432\u0442\u043E\u0431\u0443\u0441 \u0443\u043D\u0438\u0447\u0442\u043E\u0436\u0435\u043D"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Gameplay/PlayerKillLoseMessage
+      TermType: 0
+      Description: 
+      Languages:
+      - You or your partner were killed by zombies. You failed to protect the bus
+      - "\u0412\u0430\u0441 \u0438\u043B\u0438 \u0432\u0430\u0448\u0435\u0433\u043E
+        \u043D\u0430\u043F\u0430\u0440\u043D\u0438\u043A\u0430 \u0443\u0431\u0438\u043B\u0438
+        \u0437\u043E\u043C\u0431\u0438. \u0412\u044B \u043D\u0435 \u0441\u043C\u043E\u0433\u043B\u0438
+        \u0437\u0430\u0449\u0438\u0442\u0438\u0442\u044C \u0430\u0432\u0442\u043E\u0431\u0443\u0441"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Gameplay/PlayerDisconnectMessage
+      TermType: 0
+      Description: 
+      Languages:
+      - Your partner chickened out and ran away. You failed to protect the bus and
+        died
+      - "\u0412\u0430\u0448 \u043D\u0430\u043F\u0430\u0440\u043D\u0438\u043A \u0442\u0440\u0443\u0441\u0438\u043B
+        \u0438 \u0443\u0431\u0435\u0436\u0430\u043B. \u0412\u044B \u043D\u0435 \u0441\u043C\u043E\u0433\u043B\u0438
+        \u0437\u0430\u0449\u0438\u0442\u0438\u0442\u044C \u0430\u0432\u0442\u043E\u0431\u0443\u0441
+        \u0438 \u043F\u043E\u0433\u0438\u0431\u043B\u0438"
+      Flags: 0000
+      Languages_Touch: []
+    CaseInsensitiveTerms: 0
+    OnMissingTranslation: 1
+    mTerm_AppName: 
+    mLanguages:
+    - Name: English
+      Code: en
+      Flags: 0
+    - Name: Russian
+      Code: ru
+      Flags: 0
+    IgnoreDeviceLanguage: 1
+    _AllowUnloadingLanguages: 0
+    Google_WebServiceURL: 
+    Google_SpreadsheetKey: 
+    Google_SpreadsheetName: 
+    Google_LastUpdatedVersion: 
+    Google_Password: change_this
+    GoogleUpdateFrequency: 3
+    GoogleInEditorCheckFrequency: 2
+    GoogleUpdateSynchronization: 1
+    GoogleUpdateDelay: 0
+    Assets:
+    - {fileID: 11400000, guid: d9b454495b7d24a7a933eb61bdfa0607, type: 2}
+    - {fileID: 11400000, guid: f87d5100e2f6d1749907a5668ca6a247, type: 2}
+    Spreadsheet_LocalFileName: 
+    Spreadsheet_LocalCSVSeparator: ','
+    Spreadsheet_LocalCSVEncoding: utf-8
+    Spreadsheet_SpecializationAsRows: 1
+    Spreadsheet_SortRows: 1

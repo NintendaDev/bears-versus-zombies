@@ -1,0 +1,23 @@
+{
+    "name": "Fusion.Addons.FSM",
+    "rootNamespace": "Fusion.Addons.FSM",
+    "references": [
+        "Fusion.Unity",
+        "Fusion.Unity.Editor"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "Unity",
+            "expression": "",
+            "define": "FUSION_FORCE_WEAVING"
+        }
+    ],
+    "noEngineReferences": false
+}

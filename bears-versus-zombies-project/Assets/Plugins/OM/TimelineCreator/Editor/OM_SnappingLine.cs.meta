@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 1b9055fc24b94002850f29ba6ab65de5
+timeCreated: 1734812504
+AssetOrigin:
+  serializedVersion: 1
+  productId: 180030
+  packageName: Animora UI Animation (Tweening Timeline)
+  packageVersion: 1.2
+  assetPath: Assets/Plugins/OM/TimelineCreator/Editor/OM_SnappingLine.cs
+  uploadId: 757363

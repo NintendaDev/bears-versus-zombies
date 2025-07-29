@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 1a6b05d256dc8534b8ccac65746b73bb
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213594
+  packageName: OmniShade Pro - Mobile Optimized Shader
+  packageVersion: 1.9.3
+  assetPath: Assets/OmniShade/Samples/Vertex Paint Ground/Vertex Paint Ground.unity
+  uploadId: 767746

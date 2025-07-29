@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a537d958aa5bb4f35b0d7b40d72278f2
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Modifiers/AlternativePath.cs
+  uploadId: 764484

@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 60e593d7fe1604476b9f3c32810f103c
+timeCreated: 1728887529
+AssetOrigin:
+  serializedVersion: 1
+  productId: 180030
+  packageName: Animora UI Animation (Tweening Timeline)
+  packageVersion: 1.2
+  assetPath: Assets/Plugins/OM/Shared/Runtime/Easing/EasingHelper.cs
+  uploadId: 757363

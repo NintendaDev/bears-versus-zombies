@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5d8cb97ed98d94ccda5bcf93f1fca489
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213594
+  packageName: OmniShade Pro - Mobile Optimized Shader
+  packageVersion: 1.9.3
+  assetPath: Assets/OmniShade/Samples/Basic URP/UniversalRenderPipelineGlobalSettings.asset
+  uploadId: 767746

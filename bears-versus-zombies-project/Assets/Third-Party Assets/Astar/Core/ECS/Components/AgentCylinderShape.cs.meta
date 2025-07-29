@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: e9dd6a4018eb50a48b69d83cb69a09b9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Core/ECS/Components/AgentCylinderShape.cs
+  uploadId: 764484

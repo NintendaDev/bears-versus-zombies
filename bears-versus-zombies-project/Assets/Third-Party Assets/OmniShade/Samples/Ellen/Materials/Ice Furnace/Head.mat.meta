@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 07c9d78726a05214189096b898dc2052
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213594
+  packageName: OmniShade Pro - Mobile Optimized Shader
+  packageVersion: 1.9.3
+  assetPath: Assets/OmniShade/Samples/Ellen/Materials/Ice Furnace/Head.mat
+  uploadId: 767746

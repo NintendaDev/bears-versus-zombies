@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 514e841e8417b9644ade12cec70b0ad7
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213594
+  packageName: OmniShade Pro - Mobile Optimized Shader
+  packageVersion: 1.9.3
+  assetPath: Assets/OmniShade/Samples/Ellen/Materials/Blue Glass/Head.mat
+  uploadId: 767746

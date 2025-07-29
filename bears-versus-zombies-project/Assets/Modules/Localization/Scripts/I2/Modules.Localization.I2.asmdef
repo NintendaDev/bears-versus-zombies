@@ -1,0 +1,20 @@
+{
+    "name": "Modules.Localization.I2System",
+    "rootNamespace": "Modules.Localization.I2System",
+    "references": [
+        "GUID:1f4adc00a4a4f9043b57aebb52326fea",
+        "GUID:8e2578b3f14c06d429d502658c1dbe95",
+        "GUID:6fe671a63a3d94245a0cafd0a8d07884",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:a1394e044482765449ce7a4bd4fd2869"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 960fd9020b1f74f939fee737c3c0f491
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Core/AstarMath.cs
+  uploadId: 764484

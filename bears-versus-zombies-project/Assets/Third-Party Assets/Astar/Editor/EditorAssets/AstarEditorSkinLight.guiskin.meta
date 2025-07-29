@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 66428235a3cda4584bd90de6998ad4d2
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Editor/EditorAssets/AstarEditorSkinLight.guiskin
+  uploadId: 764484

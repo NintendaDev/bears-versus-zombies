@@ -1,0 +1,80 @@
+:root {
+    --header-bar-color : #2d2d2d;
+    --header-bar-outline-color : #2d2d2d;
+
+    --om-btn-color : #4a4a4a;
+}
+
+.default-editor-header-bar{
+    background-color: var(--header-bar-color);
+    border-color: var(--header-bar-outline-color);
+    width: 100%;
+    min-height: 30px;
+    border-radius: 5px;
+    border-width: 2px;
+    padding: 5px;
+    flex-direction: row;
+    margin: 10px 0;
+    justify-content: space-between;
+}
+
+.default-editor-header-bar>VisualElement{
+    flex-direction: row;
+}
+
+.default-editor-header-title{
+    width: 100%;
+    height: 100%;
+    -unity-text-align: middle-left;
+    -unity-font-style: bold;
+    font-size: 16px;
+    color: rgb(168, 168, 168);
+}
+
+.default-editor-header-icon{
+    min-width: 20px;
+    height: 20px;
+    margin: 0 5px;
+}
+
+.om-btn{
+    min-width: 40px;
+    background-color: var(--header-bar-color);
+    border-radius: 5px;
+    margin: 0 5px;
+    cursor: link;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    -unity-text-align: middle-center;
+    border-color: var(--header-bar-outline-color);
+    border-width: 1px;
+    -unity-font-style: bold;
+    color: white;
+    background-size: 20px;
+}
+
+.om-btn:hover{
+    background-color: #404040;
+}
+
+.om-btn:active {
+    background-color: #303030;
+}
+
+.default-editor-header-menu-button{
+    min-width: 20px;
+    height: 100%;
+}
+
+.default-editor-header-section{
+    
+}
+
+.default-editor-header-right-section{
+    justify-content: flex-end;
+}
+
+.default-editor-header-left-section{
+    justify-content: flex-start;
+}

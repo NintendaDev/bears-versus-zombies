@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c306b1bfc824f40909c5a91e06e4090f
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Utilities/DotNetReplacements.cs
+  uploadId: 764484

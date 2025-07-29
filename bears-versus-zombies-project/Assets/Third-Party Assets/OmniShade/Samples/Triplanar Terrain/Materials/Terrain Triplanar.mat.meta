@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 41a5a0888a0540445b5c5a83d436f195
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213594
+  packageName: OmniShade Pro - Mobile Optimized Shader
+  packageVersion: 1.9.3
+  assetPath: Assets/OmniShade/Samples/Triplanar Terrain/Materials/Terrain Triplanar.mat
+  uploadId: 767746

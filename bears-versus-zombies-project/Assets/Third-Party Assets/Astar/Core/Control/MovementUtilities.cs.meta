@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 0a6cffd9895f94907aa43f18b0904587
+timeCreated: 1490097740
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Core/Control/MovementUtilities.cs
+  uploadId: 764484

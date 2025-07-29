@@ -1,0 +1,93 @@
+Photon Fusion Simple KCC Addon - Release History
+
+Last tested with Fusion SDK 2.0.6 Stable 1034
+
+2.0.14
+- Fixed Transform and Rigidbody position when simulating forward tick next frame after Render().
+- Fixed incorrect step-up activation when touching wall colliders but not pushing against.
+
+2.0.13
+- Compatibility fixes for shared mode plugin export.
+- RealVelocity and RealSpeed now resets to zero after calling SimpleKCC.SetActive(false).
+- SimpleKCC.ResetVelocity() now also resets RealVelocity and RealSpeed.
+
+2.0.12
+- KCC editor scripts compatibility with Fusion SDK 2.0.2.
+
+2.0.11
+- Improved teleport - the information is now reliably synchronized over the network.
+- Removed TeleportThreshold from KCC Settings.
+- Max prediction error and anti-jitter distance check is now set to 1 meter.
+- Fixed SimpleKCC.HasTeleported and SimpleKCC.HasJumped for proxy objects (reliable implementation based on counters).
+- Fixed SimpleKCC.HasTeleported and SimpleKCC.HasJumped - they are now set only once in first Render after FUN in which teleport/jump happened.
+- SimpleKCC.SetPosition() now accepts optional parameters 'teleport' and 'allowAntiJitter'.
+
+2.0.10
+- Exposed MaxPenetrationSteps and CCDRadiusMultiplier in Simple KCC settings.
+- Increased range of CCD radius multiplier from 25-75% to 10-90%.
+- Improved precision of collision resolver for specific cases (corridors, 3 collisions with almost perpendicular penetration vectors).
+- Refactoring of penetration correction algorithm, improved performance scalability.
+- Added SimpleKCC.ResetVelocity() to reset state.
+- Fixed proxy collider being destroyed on clients when SimpleKCC.IsActive is false.
+
+2.0.9
+- Improved multi-collider penetration correction.
+- Fixes step-up. Now it requires horizontal movement push-back to activate.
+
+2.0.8
+- KCCSettings.ForcePredictedLookRotation is now synchronized over network by default and affects input authority only.
+- Fixed teleport detection in network transform only interpolation.
+- Look rotation is now snapped when teleport is detected.
+- Removed temporary fix for incorrect interpolation data - fixed in 2.0.0 Stable 834.
+
+Version 2.0.7
+- KCC collider is now also controlled by KCC.IsActive. If the flag is set to false, the collider will be despawned.
+- Exposed KCC.InvokeOnSpawn() - can be used for initialization upon KCC.Spawned() callback.
+- Added KCC.SetLookRotation() with min/max pitch look rotation.
+- Removed RenderTimeframe override on proxy interpolation.
+
+Version 2.0.6
+- Fixed stuck on the edge when finishing step-up.
+- Added input accumulators - FloatAccumulator, Vector2Accumulator, Vector3Accumulator.
+    - These classes support accumulation of raw values, their smoothing and tick-aligned delta consumption.
+    - Typical use-case is accumulation of mouse delta passed through a network struct.
+    - The tick-aligned accumulation ensures that snapshot interpolated value in Render() will be smooth.
+- Fixed downward sphere cast check in step-up.
+- Added SimpleKCC.ProjectOnGround(). This is useful when calculating XZ input => XYZ velocity to move along ground tangent.
+
+Version 2.0.5
+Important
+============================================================
+! Simple KCC proxy is no longer simulated by default. If you call Runner.SetIsSimulated(Object, true) from other script, the KCC will behave as predicted.
+! Jump impulse vector in Move() function converted to float => XZ is not supported.
+! Gravity vector in SetGravity() function converted to float => XZ is not supported.
+
+Changes
+============================================================
+- Added gizmos when KCC is selected.
+- Added KCCSettings.ForcePredictedLookRotation - skips look rotation interpolation in render for local character and can be used for extra look responsiveness with other properties being interpolated.
+- Added KCCSettings.ProxyInterpolation - controls interpolations of networked properties from network buffer, and propagation to Collider, Transform and Rigidbody components.
+- Added KCCSettings.CompressNetworkPosition - optional network traffic reduction for non-player characters. Full precision position is synchronized by default.
+- Improved step detection configuration (added min push-back to trigger step-up, toggle to require ground target point, variable ground check radius). Backport from Advanced KCC 2.0.
+- Removed Runner.SetIsSimulated(Object, true) from KCC - proxies are no longer simulated.
+- Removed networked keep-alive flag.
+- Performance optimizations for proxies.
+- Fixed projection of depenetration vector, resulting in jitter on slopes.
+
+Version 2.0.4
+- Changed root namespace from Fusion.SimpleKCC to Fusion.Addons.SimpleKCC.
+
+Version 2.0.3
+- Performance and network traffic optimizations.
+- Fixed interpolation in Shared Mode.
+- Added support for position and rotation handles.
+- Compatibility with latest Fusion SDK.
+
+Version 2.0.2
+- Performance optimizations.
+
+Version 2.0.1
+- Exposed KCC Settings.
+
+Version 2.0.0
+- Initial release.

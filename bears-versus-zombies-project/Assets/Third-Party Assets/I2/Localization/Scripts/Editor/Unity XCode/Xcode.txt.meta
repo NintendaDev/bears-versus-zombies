@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8f2eff1a75746804db6c0240420ebed9
+timeCreated: 1489466907
+licenseType: Store
+TextScriptImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 14884
+  packageName: I2 Localization
+  packageVersion: 2.8.22 f6
+  assetPath: Assets/I2/Localization/Scripts/Editor/Unity XCode/Xcode.txt
+  uploadId: 695195

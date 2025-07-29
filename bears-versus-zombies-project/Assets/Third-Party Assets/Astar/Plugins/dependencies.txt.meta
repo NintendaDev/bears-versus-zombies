@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: cfd9baf6289e54259afb1420c5bee619
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Plugins/dependencies.txt
+  uploadId: 764484

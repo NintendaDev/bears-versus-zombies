@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 893c292e5fa149cf965cc68e2d471396
+timeCreated: 1601758486
+AssetOrigin:
+  serializedVersion: 1
+  productId: 14884
+  packageName: I2 Localization
+  packageVersion: 2.8.22 f6
+  assetPath: Assets/I2/Localization/Scripts/Utils/RegisterCallback_AllowSyncFromGoogle.cs
+  uploadId: 695195

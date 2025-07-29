@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4777e4e500a981c4eac1a2b308e16b73
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Core/Geometry/Triangulation/LICENSE.md
+  uploadId: 764484

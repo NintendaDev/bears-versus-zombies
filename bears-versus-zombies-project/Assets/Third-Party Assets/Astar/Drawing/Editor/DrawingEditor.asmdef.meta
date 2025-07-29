@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: cc297fb7ca30549a8b58bbc1a40d808a
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Drawing/Editor/DrawingEditor.asmdef
+  uploadId: 764484

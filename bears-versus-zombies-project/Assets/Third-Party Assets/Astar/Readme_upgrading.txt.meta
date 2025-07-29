@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 893b17192239c453594fc4d8e250d5e8
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Readme_upgrading.txt
+  uploadId: 764484

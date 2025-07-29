@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b2189558d420a46e3a7e1421892020e5
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 180030
+  packageName: Animora UI Animation (Tweening Timeline)
+  packageVersion: 1.2
+  assetPath: Assets/Plugins/OM/Shared/Editor/OM_SharedEditor.asmdef
+  uploadId: 757363

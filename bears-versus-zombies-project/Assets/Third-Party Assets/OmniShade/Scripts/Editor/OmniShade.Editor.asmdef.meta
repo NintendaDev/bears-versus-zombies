@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a5e550829f8084fb6a2ed5cb130e43e0
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213594
+  packageName: OmniShade Pro - Mobile Optimized Shader
+  packageVersion: 1.9.3
+  assetPath: Assets/OmniShade/Scripts/Editor/OmniShade.Editor.asmdef
+  uploadId: 767746

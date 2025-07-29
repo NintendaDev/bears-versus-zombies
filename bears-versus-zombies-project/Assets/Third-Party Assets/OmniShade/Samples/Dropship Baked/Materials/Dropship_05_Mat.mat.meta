@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 1c4cffe9877845349940f71100042f8f
+timeCreated: 1503332201
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213594
+  packageName: OmniShade Pro - Mobile Optimized Shader
+  packageVersion: 1.9.3
+  assetPath: Assets/OmniShade/Samples/Dropship Baked/Materials/Dropship_05_Mat.mat
+  uploadId: 767746

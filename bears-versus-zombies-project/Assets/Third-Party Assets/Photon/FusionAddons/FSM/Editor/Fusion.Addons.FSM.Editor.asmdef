@@ -1,0 +1,20 @@
+{
+    "name": "Fusion.Addons.FSM.Editor",
+    "rootNamespace": "Fusion.Addons.FSM.Editor",
+    "references": [
+        "Fusion.Unity",
+        "Fusion.Unity.Editor",
+        "Fusion.Addons.FSM"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

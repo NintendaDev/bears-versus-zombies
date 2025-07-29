@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: 0efbe2d04dbb642a8833e41b8e8c7275
+TextScriptImporter:
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/defines.csv
+  uploadId: 764484

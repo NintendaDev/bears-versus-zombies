@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 57cbf9e23c8cc40a0b0b8ec1b7916159
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 180030
+  packageName: Animora UI Animation (Tweening Timeline)
+  packageVersion: 1.2
+  assetPath: Assets/Plugins/OM/Shared/Editor/Manipulators/OM_ElementShortcutsManipulator.cs
+  uploadId: 757363

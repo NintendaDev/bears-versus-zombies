@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0dc713e3092854edfaf34a3009c18576
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213594
+  packageName: OmniShade Pro - Mobile Optimized Shader
+  packageVersion: 1.9.3
+  assetPath: Assets/OmniShade/Samples/Basic URP/Materials/Plant Sway.mat
+  uploadId: 767746

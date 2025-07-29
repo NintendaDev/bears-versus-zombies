@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: df02f422bb4449b980bc709cce8a239e
+timeCreated: 1734192512
+AssetOrigin:
+  serializedVersion: 1
+  productId: 180030
+  packageName: Animora UI Animation (Tweening Timeline)
+  packageVersion: 1.2
+  assetPath: Assets/Plugins/OM/Shared/Editor/RenamePopup/OM_RenamePopup.cs
+  uploadId: 757363

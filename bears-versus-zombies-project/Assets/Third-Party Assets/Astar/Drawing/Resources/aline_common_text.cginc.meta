@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a4bc56dd8cf7ec1bebb90e3a60d73472
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/Drawing/Resources/aline_common_text.cginc
+  uploadId: 764484

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 29ea0b0c40b80a246b02b4918d240b87
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213594
+  packageName: OmniShade Pro - Mobile Optimized Shader
+  packageVersion: 1.9.3
+  assetPath: Assets/OmniShade/Samples/Vertex Paint Ground/Materials/Vertex Paint.mat
+  uploadId: 767746
