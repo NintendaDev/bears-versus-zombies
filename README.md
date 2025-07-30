@@ -45,7 +45,7 @@ In the lobby menu, you can either create a new session or join an existing one
 - I2 Localization
 
 **AI and Movement:**  
-- **Zombie AI:** Utilizes the FSM (Finite State Machine) addon and Unity's **NavMesh Agent** for pathfinding and behavior.  
+- **Zombie AI:** Utilizes the FSM (Finite State Machine) addon and **A* Pathfinding Project Pro** for pathfinding.  
 - **Player Movement:** Powered by the **SimpleKCC** (Kinematic Character Controller) addon for smooth and responsive movement.
 
 ## Project Sctucture
