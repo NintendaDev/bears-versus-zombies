@@ -23,7 +23,7 @@ namespace SampleGame.App
             CreateNetworkComponents();
             
             _actualSessions.Clear();
-            _lobbyCancellationTokenSource = _tokenSourceService.DisposeAndCreate(_lobbyCancellationTokenSource);
+            _lobbyCancellationTokenSource = _cancelTokenSourceService.DisposeAndCreate(_lobbyCancellationTokenSource);
             
             FusionAppSettings settings = CreateAppSettings();
             

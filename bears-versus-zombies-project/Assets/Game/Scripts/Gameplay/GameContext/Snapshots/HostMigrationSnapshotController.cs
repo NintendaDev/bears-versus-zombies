@@ -1,22 +1,27 @@
 ﻿using Cysharp.Threading.Tasks;
 using Fusion;
-using Modules.Services;
 using SampleGame.App;
+using Zenject;
 
 namespace SampleGame.Gameplay.GameContext.Snapshots
 {
-    public sealed class HostMigrationSnapshotController : SceneSimulationBehaviour, ISpawned, IDespawned
+    public sealed class HostMigrationSnapshotController : SimulationBehaviour, ISpawned, IDespawned
     {
         private GameFacade _gameFacade;
         private PlayersService _playersService;
         private IGameCycleState _gameCycleState;
         private UniTask _migrationTask;
 
+        [Inject]
+        private void Construct(GameFacade gameFacade)
+        {
+            _gameFacade = gameFacade;
+        }
+
         void ISpawned.Spawned()
         {
-            _gameFacade = ServiceLocator.Instance.Get<GameFacade>();
-            _playersService = ServiceLocator.Instance.Get<PlayersService>();
-            _gameCycleState = ServiceLocator.Instance.Get<IGameCycleState>();
+            _playersService = GameContextService.Instance.Get<PlayersService>();
+            _gameCycleState = GameContextService.Instance.Get<GameCycle>();
 
             _playersService.PlayerJoined += OnPlayerJoin;
             _gameCycleState.Changed += OnGameCycleChange;

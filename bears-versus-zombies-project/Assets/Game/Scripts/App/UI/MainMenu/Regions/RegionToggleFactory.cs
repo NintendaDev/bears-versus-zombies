@@ -1,41 +1,49 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System;
+using Cysharp.Threading.Tasks;
 using Fusion;
 using Modules.AssetsManagement.AddressablesOperations;
 using Modules.AssetsManagement.StaticData;
-using Modules.Services;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
+using Object = UnityEngine.Object;
 
 namespace SampleGame.App.UI
 {
-    public sealed class RegionToggleFactory : MonoBehaviour
+    public sealed class RegionToggleFactory : IDisposable
     {
-        private IAddressablesService _addressablesService;
-        private MainMenuAssets _assetsConfig;
-
+        private readonly IAddressablesService _addressablesService;
+        private readonly MainMenuAssets _assetsConfig;
+        private readonly IInstantiator _container;
+        private readonly GameFacade _gameFacade;
         private RegionToggle _prefab;
-        private GameFacade _gameFacade;
 
-        private void OnDestroy()
+        public RegionToggleFactory(IInstantiator container, GameFacade gameFacade, IStaticDataService staticDataService,
+            IAddressablesService addressablesService)
+        {
+            _container = container;
+            _gameFacade = gameFacade;
+            _addressablesService = addressablesService;
+            _assetsConfig = staticDataService.GetConfiguration<MainMenuAssets>();
+        }
+
+        public void Dispose()
         {
             _addressablesService.Release(_assetsConfig.RegionToggleReference);
         }
 
         public async UniTask InitializeAsync()
         {
-            _gameFacade = ServiceLocator.Instance.Get<GameFacade>();
-            IStaticDataService staticData = ServiceLocator.Instance.Get<IStaticDataService>();
-            _addressablesService = ServiceLocator.Instance.Get<IAddressablesService>();
-            _assetsConfig = staticData.GetConfiguration<MainMenuAssets>();
-
-            await LoadAssetsAsync();
+            GameObject regionToggleObject = await _addressablesService
+                .LoadAsync<GameObject>(_assetsConfig.RegionToggleReference);
+            
+            _prefab = regionToggleObject.GetComponent<RegionToggle>();
         }
 
-        public async UniTask<RegionToggle> CreateAsync(RegionInfo regionInfo, ToggleGroup toggleGroup, Transform parent)
+        public RegionToggle Create(RegionInfo regionInfo, ToggleGroup toggleGroup, Transform parent)
         {
-            RegionToggle toggle = Instantiate(_prefab, parent);
+            RegionToggle toggle = _container.InstantiatePrefab(_prefab, parent).GetComponent<RegionToggle>();
             RegionTogglePresenter presenter = toggle.GetComponent<RegionTogglePresenter>();
-            await presenter.InitializeAsync();
             
             presenter.UpdateRegion(regionInfo);
             toggle.Link(toggleGroup);
@@ -44,14 +52,6 @@ namespace SampleGame.App.UI
                 toggle.Select();
 
             return toggle;
-        }
-        
-        private async UniTask LoadAssetsAsync()
-        {
-            GameObject regionToggleObject = await _addressablesService
-                .LoadAsync<GameObject>(_assetsConfig.RegionToggleReference);
-            
-            _prefab = regionToggleObject.GetComponent<RegionToggle>();
         }
     }
 }

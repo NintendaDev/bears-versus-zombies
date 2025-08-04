@@ -1,15 +1,17 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using Sirenix.OdinInspector;
-using UnityEngine;
 
 namespace Modules.SaveSystem.SaveLoad
 {
-    public abstract class GameSerializer<TService, TData> : MonoBehaviour, IGameSerializer
-        where TService : MonoBehaviour
+    public abstract class GameSerializer<TService, TData> : IGameSerializer
     {
-        [SerializeField, Required] private TService _service;
-
+        private readonly TService _service;
+        
+        public GameSerializer(TService service)
+        {
+            _service = service;
+        }
+        
         private string Key => typeof(TData).Name;
 
         public void Serialize(IDictionary<string, string> saveState)

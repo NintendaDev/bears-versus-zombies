@@ -1,8 +1,7 @@
-﻿using Cysharp.Threading.Tasks;
-using Fusion;
-using Modules.Services;
+﻿using Fusion;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Zenject;
 
 namespace SampleGame.App.UI
 {
@@ -13,36 +12,21 @@ namespace SampleGame.App.UI
 
         private GameLocalizationSystem _localizationSystem;
         private SessionInfo _lastSessionInfo;
-        private bool _isInitialized;
+
+        [Inject]
+        private void Construct(GameLocalizationSystem gameLocalizationSystem)
+        {
+            _localizationSystem = gameLocalizationSystem;
+        }
 
         private void OnEnable()
         {
-            Subscribe();
+            _localizationSystem.LocalizationChanged += OnLocalizationChange;
         }
 
         private void OnDisable()
         {
-            Unsubscribe();
-        }
-
-        public UniTask InitializeAsync()
-        {
-            if (_isInitialized)
-                return UniTask.CompletedTask;
-            
-            _localizationSystem = ServiceLocator.Instance.Get<GameLocalizationSystem>();
-            _isInitialized = true;
-            Subscribe();
-            
-            return UniTask.CompletedTask;
-        }
-
-        private void Subscribe()
-        {
-            if (_isInitialized == false)
-                return;
-            
-            _localizationSystem.LocalizationChanged += OnLocalizationChange;
+            _localizationSystem.LocalizationChanged -= OnLocalizationChange;
         }
         
         public void UpdateSession(SessionInfo sessionInfo)
@@ -57,14 +41,6 @@ namespace SampleGame.App.UI
         private void OnLocalizationChange()
         {
             UpdateSession(_lastSessionInfo);
-        }
-        
-        private void Unsubscribe()
-        {
-            if (_isInitialized == false)
-                return;
-            
-            _localizationSystem.LocalizationChanged -= OnLocalizationChange;
         }
     }
 }

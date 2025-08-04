@@ -1,29 +1,30 @@
 ﻿using Fusion;
-using Modules.LoadingCurtain;
-using Modules.Services;
 using SampleGame.App;
 using SampleGame.App.SceneManagement;
-using SampleGame.Gameplay.GameContext;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace SampleGame.Gameplay.UI
 {
-    public sealed class ExitPresenter : SceneSimulationBehaviour, ISpawned, IDespawned
+    public sealed class ExitPresenter : SimulationBehaviour, ISpawned, IDespawned
     {
         [SerializeField, Required] private Button _button;
         
-        private GameplayToMenuLoader _gameToMenuLoader;
-        private ILoadingCurtain _loadingCurtain;
         private GameFacade _gameFacade;
         private bool _isDisableUnsubscribe;
+        private IGameplayTerminator _gameplayTerminator;
+
+        [Inject]
+        private void Construct(GameFacade gameFacade, IGameplayTerminator gameplayTerminator)
+        {
+            _gameFacade = gameFacade;
+            _gameplayTerminator = gameplayTerminator;
+        }
 
         void ISpawned.Spawned()
         {
-            _gameToMenuLoader = ServiceLocator.Instance.Get<GameplayToMenuLoader>();
-            _gameFacade = ServiceLocator.Instance.Get<GameFacade>();
-            
             _gameFacade.GameClosed += OnGameClose;
             _button.onClick.AddListener(OnButtonClick);
         }
@@ -45,6 +46,6 @@ namespace SampleGame.Gameplay.UI
             _isDisableUnsubscribe = true;
         }
 
-        private async void OnButtonClick() => await _gameToMenuLoader.StartLoadingAsync();
+        private async void OnButtonClick() => await _gameplayTerminator.TerminateAsync();
     }
 }

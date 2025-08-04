@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 namespace Modules.EventBus
 {
-    public sealed class SignalBus : MonoBehaviour, ISignalBus
+    public sealed class SignalBus : ISignalBus
     {
         private readonly string _incorrectCallbackTypeMessage = "Incorrect callback type";
         private Dictionary<string, List<object>> _signalCallbacks = new();

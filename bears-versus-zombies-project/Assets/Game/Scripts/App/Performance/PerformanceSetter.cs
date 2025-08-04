@@ -1,20 +1,18 @@
-﻿using Sirenix.OdinInspector;
+﻿using Unity.VisualScripting;
 using UnityEngine;
 
 namespace SampleGame.App
 {
-    public sealed class PerformanceSetter : MonoBehaviour
+    public sealed class PerformanceSetter : IInitializable
     {
-        [SerializeField, MinValue(30)] private int _targetFrameRate = 60;
-        [SerializeField, MinValue(30)] private bool _setUpOnAwake = true;
-        
-        private void Awake()
+        private readonly int _targetFrameRate;
+
+        public PerformanceSetter(int targetFrameRate)
         {
-            if (_setUpOnAwake)
-                SetUp();
+            _targetFrameRate = targetFrameRate;
         }
 
-        public void SetUp()
+        public void Initialize()
         {
             Application.targetFrameRate = _targetFrameRate;
         }

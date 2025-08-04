@@ -2,6 +2,7 @@
 using Fusion;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Zenject;
 
 namespace SampleGame.Gameplay.GameContext
 {
@@ -46,7 +47,9 @@ namespace SampleGame.Gameplay.GameContext
             }
             else
             {
-                instance = Instantiate(prefab);
+                instance = ProjectContext.Instance.Container
+                    .InstantiatePrefab(prefab, _objectsRoot)
+                    .GetComponent<NetworkObject>();
             }
 
             instance.name = prefab.name;

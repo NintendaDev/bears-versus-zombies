@@ -17,9 +17,6 @@ namespace Modules.Localization.Core.Detectors
                 case SystemLanguage.Russian:
                     return Language.Russian;
 
-                case SystemLanguage.Turkish:
-                    return Language.Turkish;
-
                 default:
                     return Language.English;
             }

@@ -1,5 +1,4 @@
 ﻿using Fusion;
-using Modules.Services;
 using R3;
 using SampleGame.Gameplay.GameContext;
 using Sirenix.OdinInspector;
@@ -12,13 +11,13 @@ namespace SampleGame.Gameplay.UI
         [SerializeField, Required] private TextView _view;
         
         private PlayersWaiter _waiter;
-        private CompositeDisposable _disposable;
+        private CompositeDisposable _disposable = new();
 
         public override void Spawned()
         {
             base.Spawned();
             
-            _waiter = ServiceLocator.Instance.Get<PlayersWaiter>();
+            _waiter = GameContextService.Instance.Get<PlayersWaiter>();
             _disposable = new CompositeDisposable();
             
             _view.Initialize();

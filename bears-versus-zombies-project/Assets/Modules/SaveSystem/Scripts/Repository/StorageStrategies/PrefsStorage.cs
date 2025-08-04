@@ -1,14 +1,18 @@
 ﻿using Cysharp.Threading.Tasks;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Modules.SaveSystem.SaveStrategies
 {
-    public sealed class PrefsStorage : Storage
+    public sealed class PrefsStorage : IStorage
     {
-        [SerializeField, Required] private string _key = "GameSave";
+        private readonly string _key;
 
-        public override UniTask<(bool, string)> TryReadAsync()
+        public PrefsStorage(string key)
+        {
+            _key = key;
+        }
+
+        public UniTask<(bool, string)> TryReadAsync()
         {
             string data = PlayerPrefs.GetString(_key);
             bool isSuccess = string.IsNullOrEmpty(data) == false;
@@ -16,7 +20,7 @@ namespace Modules.SaveSystem.SaveStrategies
             return UniTask.FromResult((isSuccess, data));
         }
 
-        public override UniTask WriteAsync(string data)
+        public UniTask WriteAsync(string data)
         {
             PlayerPrefs.SetString(_key, data);
             

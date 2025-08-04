@@ -1,7 +1,6 @@
 ﻿using Fusion;
 using Fusion.Addons.SimpleKCC;
 using Modules.ObjectsDetection;
-using Modules.Services;
 using SampleGame.Gameplay.GameContext;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -43,7 +42,7 @@ namespace SampleGame.Gameplay.GameObjects
 
         public override void Spawned()
         {
-            _gameCycle = ServiceLocator.Instance.Get<GameCycle>();
+            _gameCycle = GameContextService.Instance.Get<GameCycle>();
             
             foreach (ObjectsRaycaster detector in _raycasters)
                 detector.Initialize();

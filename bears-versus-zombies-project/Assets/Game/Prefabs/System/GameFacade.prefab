@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3178762287166403510}
   - component: {fileID: 7245725200006046834}
-  - component: {fileID: -7581610787792275548}
   m_Layer: 0
   m_Name: GameFacade
   m_TagString: Untagged
@@ -46,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _networkRunnerPrefab: {fileID: 5006952257786793252, guid: e870ba99efce10640b0cf2fa7e8df330, type: 3}
-  _connectionTokenService: {fileID: -7581610787792275548}
+  _connectionTokenService: {fileID: 0}
   _levelSceneAddressablesPath: Assets/Game/Scenes/GameLevel.unity
   _levelSceneReference:
     m_AssetGUID: a8a5ef795a4401947ad5bbaa24e71808
@@ -59,16 +58,3 @@ MonoBehaviour:
   - us
   - asia
   <DefaultRegion>k__BackingField: eu
---- !u!114 &-7581610787792275548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6622770191373072003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9bd06132a79474ab20c787cfff8b663, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _serverDelaySeconds: 0

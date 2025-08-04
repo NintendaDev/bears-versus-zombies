@@ -1,11 +1,9 @@
 ﻿using Fusion;
-using Modules.Services;
 using SampleGame.Gameplay.GameObjects;
-using UnityEngine;
 
 namespace SampleGame.Gameplay.GameContext
 {
-    public sealed class PlayerCameraController : SceneSimulationBehaviour, ISpawned, IDespawned
+    public sealed class PlayerCameraController : SimulationBehaviour, ISpawned, IDespawned
     {
         private PlayerCameraProvider _cameraProvider;
         private PlayersService _playersService;
@@ -13,8 +11,8 @@ namespace SampleGame.Gameplay.GameContext
         
         void ISpawned.Spawned()
         {
-            _cameraProvider = ServiceLocator.Instance.Get<PlayerCameraProvider>();
-            _playersService = ServiceLocator.Instance.Get<PlayersService>();
+            _cameraProvider = GameContextService.Instance.Get<PlayerCameraProvider>();
+            _playersService = GameContextService.Instance.Get<PlayersService>();
 
             _playersService.LocalPlayerJoined += OnLocalPlayerJoin;
         }

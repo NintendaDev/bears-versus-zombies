@@ -4,6 +4,10 @@ namespace SampleGame.App
 {
     public sealed class GameFacadeSerializer : GameSerializer<GameFacade, GameFacadeData>
     {
+        public GameFacadeSerializer(GameFacade service) : base(service)
+        {
+        }
+
         protected override GameFacadeData Serialize(GameFacade service)
         {
             return new GameFacadeData(service.CurrentRegion);

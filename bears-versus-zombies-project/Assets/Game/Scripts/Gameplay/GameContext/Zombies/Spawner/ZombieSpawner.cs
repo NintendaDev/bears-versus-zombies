@@ -1,6 +1,5 @@
 ﻿using System;
 using Fusion;
-using Modules.Services;
 using SampleGame.Gameplay.GameObjects;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -43,7 +42,7 @@ namespace SampleGame.Gameplay.GameContext
 
         public override void Spawned()
         {
-            _factory = ServiceLocator.Instance.Get<ZombieFactory>();
+            _factory = GameContextService.Instance.Get<ZombieFactory>();
         }
 
         public override void FixedUpdateNetwork()

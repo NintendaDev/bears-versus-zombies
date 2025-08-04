@@ -6,7 +6,6 @@ namespace Modules.Localization.Core.Extensions
     {
         private const string EnglishLanguageCode = "en";
         private const string RussianLanguageCode = "ru";
-        private const string TurkishLanguageCode = "tr";
 
         public static string GetLanguageCode(this Language language)
         {
@@ -18,13 +17,7 @@ namespace Modules.Localization.Core.Extensions
                 case Language.Russian:
                     return RussianLanguageCode;
 
-                case Language.Turkish:
-                    return TurkishLanguageCode;
-
                 case Language.None:
-                    return EnglishLanguageCode;
-
-                case Language.Other:
                     return EnglishLanguageCode;
 
                 default:

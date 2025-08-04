@@ -1,22 +1,27 @@
 ﻿using Fusion;
 using Modules.LoadingCurtain;
-using Modules.Services;
 using SampleGame.App;
 using SampleGame.Gameplay.GameContext;
+using Zenject;
 
 namespace SampleGame.Gameplay.UI.Curtain
 {
-    public sealed class GameplayLoadingCurtainController : SceneSimulationBehaviour, ISpawned, IDespawned
+    public sealed class GameplayLoadingCurtainController : SimulationBehaviour, ISpawned, IDespawned
     {
         private ILoadingCurtain _loadingCurtain;
         private IGameInitializeEvent _initializeEvent;
         private GameFacade _gameFacade;
 
+        [Inject]
+        private void Construct(GameFacade gameFacade, ILoadingCurtain loadingCurtain)
+        {
+            _gameFacade = gameFacade;
+            _loadingCurtain = loadingCurtain;
+        }
+
         void ISpawned.Spawned()
         {
-            _loadingCurtain = ServiceLocator.Instance.Get<ILoadingCurtain>();
-            _initializeEvent = ServiceLocator.Instance.Get<IGameInitializeEvent>();
-            _gameFacade = ServiceLocator.Instance.Get<GameFacade>();
+            _initializeEvent = GameContextService.Instance.Get<GameInitializeEventer>();
             
             _initializeEvent.Initialized += OnGameInitialized;
             _gameFacade.HostMigrationStarted += OnHostMigrationStart;

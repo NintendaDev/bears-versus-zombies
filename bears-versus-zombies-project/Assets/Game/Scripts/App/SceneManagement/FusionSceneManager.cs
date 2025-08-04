@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using Cysharp.Threading.Tasks;
 using Fusion;
-using SampleGame.Gameplay.GameContext;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -27,25 +25,38 @@ namespace SampleGame.App.SceneManagement
         protected override IEnumerator OnSceneLoaded(SceneRef sceneRef, Scene scene,
             NetworkLoadSceneParameters sceneParams)
         {
-            SceneInitializer[] sceneInitializers = scene.GetComponents<SceneInitializer>(includeInactive: true);
+            InitPlayersService();
+            RegisterSceneSimulationBehaviours(scene);
             
-            foreach (SceneInitializer sceneInitializer in sceneInitializers)
-                yield return sceneInitializer.InitializeAsync().ToCoroutine();
-            
-            SceneSimulationBehaviour[] sceneSimulationBehaviours = 
-                scene.GetComponents<SceneSimulationBehaviour>(includeInactive: true);
+            yield return base.OnSceneLoaded(sceneRef, scene, sceneParams);
+        }
 
-            foreach (SceneSimulationBehaviour sceneSimulation in sceneSimulationBehaviours)
-                sceneSimulation.RegisterOnRunner();
-            
+        private void InitPlayersService()
+        {
             _playersService.EnableEvents();
 
             if (_isHostMigration)
                 _playersService.ReplayJoinPlayersHostMigration();
             else
                 _playersService.ReplayJoinPlayers();
+        }
 
-            yield return base.OnSceneLoaded(sceneRef, scene, sceneParams);
+        private void RegisterSceneSimulationBehaviours(Scene scene)
+        {
+            SimulationBehaviour[] simulationBehaviours = 
+                scene.GetComponents<SimulationBehaviour>(includeInactive: true);
+
+            foreach (SimulationBehaviour sceneSimulation in simulationBehaviours)
+            {
+                if (sceneSimulation is NetworkBehaviour)
+                    continue;
+                
+                if (sceneSimulation.GetComponentInParent<NetworkRunner>() != null)
+                    continue;
+
+                NetworkRunner runner = NetworkRunner.GetRunnerForGameObject(sceneSimulation.gameObject);
+                runner.AddGlobal(sceneSimulation);
+            }
         }
     }
 }

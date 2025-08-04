@@ -1,5 +1,4 @@
 ﻿using Fusion;
-using Modules.Services;
 using Modules.Wallet;
 using SampleGame.Gameplay.GameContext;
 using Sirenix.OdinInspector;
@@ -8,7 +7,7 @@ using UnityEngine;
 
 namespace SampleGame.Gameplay.UI
 {
-    public sealed class WalletPresenter : SceneSimulationBehaviour, ISpawned, IDespawned
+    public sealed class WalletPresenter : SimulationBehaviour, ISpawned, IDespawned
     {
         [SerializeField, Required] private TMP_Text _view;
         
@@ -16,7 +15,7 @@ namespace SampleGame.Gameplay.UI
         
         void ISpawned.Spawned()
         {
-            _wallet = ServiceLocator.Instance.Get<Wallet>();
+            _wallet = GameContextService.Instance.Get<Wallet>();
             OnWalletChange(_wallet.CurrentValue);
             
             _wallet.Changed += OnWalletChange;

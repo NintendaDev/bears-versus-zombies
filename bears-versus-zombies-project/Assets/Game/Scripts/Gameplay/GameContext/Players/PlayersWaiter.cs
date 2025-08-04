@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Fusion;
-using Modules.Services;
 using R3;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -27,8 +26,8 @@ namespace SampleGame.Gameplay.GameContext
         
         public override void Spawned()
         {
-            _gameCycle = ServiceLocator.Instance.Get<GameCycle>();
-            _playersService = ServiceLocator.Instance.Get<PlayersService>();
+            _gameCycle = GameContextService.Instance.Get<GameCycle>();
+            _playersService = GameContextService.Instance.Get<PlayersService>();
             
             _playersService.PlayerJoined += OnPlayerJoin;
             _playersService.PlayerLeft += OnPlayerLeft;

@@ -2,11 +2,11 @@
 using Cysharp.Threading.Tasks;
 using Fusion;
 using Modules.EventBus;
-using Modules.Services;
 using ObservableCollections;
 using R3;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Zenject;
 
 namespace SampleGame.App.UI
 {
@@ -22,6 +22,14 @@ namespace SampleGame.App.UI
         private GameFacade _gameFacade;
         private ISignalBus _signalBus;
 
+        [Inject]
+        private void Construct(GameFacade gameFacade, ISignalBus signalBus, SessionButtonFactory factory)
+        {
+            _gameFacade = gameFacade;
+            _signalBus = signalBus;
+            _factory = factory;
+        }
+
         private void OnDestroy()
         {
             _disposables.Dispose();
@@ -32,10 +40,6 @@ namespace SampleGame.App.UI
 
         public UniTask InitializeAsync()
         {
-            _factory = ServiceLocator.Instance.Get<SessionButtonFactory>();
-            _gameFacade = ServiceLocator.Instance.Get<GameFacade>();
-            _signalBus = ServiceLocator.Instance.Get<ISignalBus>();
-            
             foreach (Transform parent in _container)
                 Destroy(parent.gameObject);
             
@@ -50,7 +54,7 @@ namespace SampleGame.App.UI
             foreach (KeyValuePair<string, SessionInfo> sessionData in _gameFacade.ActualSessions)
             {
                 if (CanDrawSession(sessionData.Value))
-                    TryCreateButtonAsync(sessionData.Value);
+                    TryCreateButton(sessionData.Value);
             }
             
             _gameFacade.ActualSessions
@@ -94,12 +98,12 @@ namespace SampleGame.App.UI
                    && sessionInfo.IsVisible;
         }
 
-        private async UniTask<bool> TryCreateButtonAsync(SessionInfo sessionInfo)
+        private bool TryCreateButton(SessionInfo sessionInfo)
         {
             if (CanDrawSession(sessionInfo) == false)
                 return false;
 
-            SessionButton button = await _factory.CreateButtonAsync(sessionInfo, _container);
+            SessionButton button = _factory.Create(sessionInfo, _container);
             SessionButtonPresenter presenter = button.GetComponent<SessionButtonPresenter>();
             _buttonsPresenters[sessionInfo.Name] = presenter;
             
@@ -116,7 +120,7 @@ namespace SampleGame.App.UI
 
         private void OnSessionAdd(CollectionAddEvent<KeyValuePair<string, SessionInfo>> collectionAddEvent)
         {
-            TryCreateButtonAsync(collectionAddEvent.Value.Value).Forget();
+            TryCreateButton(collectionAddEvent.Value.Value);
         }
 
         private void OnSessionRemove(CollectionRemoveEvent<KeyValuePair<string, SessionInfo>> collectionRemoveEvent)

@@ -7,27 +7,34 @@ using Modules.SceneManagement;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using Zenject;
 
 namespace SampleGame.App
 {
     public partial class GameFacade : MonoBehaviour, INetworkRunnerCallbacks
     {
         [SerializeField, Required, AssetsOnly] private NetworkRunner _networkRunnerPrefab;
-        [SerializeField, Required] private ConnectionTokenService _connectionTokenService;
         [SerializeField, Required] private string _levelSceneAddressablesPath = "Assets/Game/Scenes/GameLevel.unity";
         [SerializeField, Required] private AssetReference _levelSceneReference;
         
         private const string SingleSessionName = "SingleSession";
         private const int SinglePlayersCount = 1;
         private const int MultiPlayersCount = 2;
-        private readonly ITokenSourceService _tokenSourceService = new TokenSourceService();
+        private readonly ITokenSourceService _cancelTokenSourceService = new CancellationTokenSourceService();
         private readonly ISingleSceneLoader _sceneLoader = new SingleSceneLoader();
         private string _lastSessionName;
         private CancellationTokenSource _connectionCancellationTokenSource;
+        private IConnectionTokenService _connectionTokenService;
+
+        [Inject]
+        private void Construct(IConnectionTokenService connectionTokenService)
+        {
+            _connectionTokenService = connectionTokenService;
+        }
 
         private void OnDestroy()
         {
-            _tokenSourceService.Dispose();
+            _cancelTokenSourceService.Dispose();
         }
 
         public async UniTask InitializeAsync()
@@ -40,7 +47,7 @@ namespace SampleGame.App
         public async UniTask<bool> TryLoadSingleGame()
         {
             _connectionCancellationTokenSource =
-                _tokenSourceService.DisposeAndCreate(_connectionCancellationTokenSource);
+                _cancelTokenSourceService.DisposeAndCreate(_connectionCancellationTokenSource);
 
             _lastSessionName = SingleSessionName;
 
@@ -53,7 +60,7 @@ namespace SampleGame.App
         public async UniTask<bool> TryCreateMultiplayerGame(string sessionName)
         {
             _connectionCancellationTokenSource =
-                _tokenSourceService.DisposeAndCreate(_connectionCancellationTokenSource);
+                _cancelTokenSourceService.DisposeAndCreate(_connectionCancellationTokenSource);
 
             _lastSessionName = sessionName;
             await ShutdownRunnerAsync(ShutdownReason.Ok);
@@ -67,7 +74,7 @@ namespace SampleGame.App
         public async UniTask<bool> TryConnectToMultiplayerGame(string sessionName)
         {
             _connectionCancellationTokenSource =
-                _tokenSourceService.DisposeAndCreate(_connectionCancellationTokenSource);
+                _cancelTokenSourceService.DisposeAndCreate(_connectionCancellationTokenSource);
 
             _lastSessionName = sessionName;
             await ShutdownRunnerAsync(ShutdownReason.Ok);

@@ -1,16 +1,18 @@
 ﻿using System.IO;
 using Cysharp.Threading.Tasks;
-using Sirenix.OdinInspector;
-using UnityEngine;
 
 namespace Modules.SaveSystem.SaveStrategies
 {
-    public sealed class FileStorage : Storage
+    public sealed class FileStorage : IStorage
     {
-        [SerializeField, Required]
-        private string _filePath;
+        private readonly string _filePath;
+        
+        public FileStorage(string filePath)
+        {
+            _filePath = filePath;
+        }
 
-        public override UniTask<(bool, string)> TryReadAsync()
+        public UniTask<(bool, string)> TryReadAsync()
         {
             if (File.Exists(_filePath) == false)
                 return UniTask.FromResult((true, string.Empty));
@@ -23,7 +25,7 @@ namespace Modules.SaveSystem.SaveStrategies
             return UniTask.FromResult((true, data));
         }
 
-        public override UniTask WriteAsync(string data)
+        public UniTask WriteAsync(string data)
         {
             File.WriteAllText(_filePath, data);
             

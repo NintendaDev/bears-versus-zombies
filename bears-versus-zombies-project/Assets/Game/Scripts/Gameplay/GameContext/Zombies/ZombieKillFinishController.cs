@@ -1,5 +1,4 @@
 ﻿using Fusion;
-using Modules.Services;
 
 namespace SampleGame.Gameplay.GameContext
 {
@@ -13,8 +12,8 @@ namespace SampleGame.Gameplay.GameContext
 
         public override void Spawned()
         {
-            _gameCycle = ServiceLocator.Instance.Get<GameCycle>();
-            _spawner = ServiceLocator.Instance.Get<ZombieSpawner>();
+            _gameCycle = GameContextService.Instance.Get<GameCycle>();
+            _spawner = GameContextService.Instance.Get<ZombieSpawner>();
         }
 
         public override void FixedUpdateNetwork()

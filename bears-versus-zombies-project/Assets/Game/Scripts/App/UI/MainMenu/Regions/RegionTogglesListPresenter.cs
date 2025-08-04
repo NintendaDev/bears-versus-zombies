@@ -4,12 +4,12 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Fusion;
 using Modules.AsyncTaskTokens;
-using Modules.Services;
 using ObservableCollections;
 using R3;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 using ZLinq;
 
 namespace SampleGame.App.UI
@@ -31,11 +31,18 @@ namespace SampleGame.App.UI
         private readonly Dictionary<RegionToggle, RegionTogglePresenter> _toggles = new();
         
         private readonly CompositeDisposable _refreshRegionsDisposable = new();
-        private readonly ITokenSourceService _tokenSourceService = new TokenSourceService();
+        private readonly ITokenSourceService _tokenSourceService = new CancellationTokenSourceService();
         private readonly CompositeDisposable _disposables = new();
         private GameFacade _gameFacade;
         private CancellationTokenSource _refreshRegionsCancellationTokenSource;
         private bool _isInitialized;
+
+        [Inject]
+        private void Construct(GameFacade gameFacade, RegionToggleFactory factory)
+        {
+            _gameFacade = gameFacade;
+            _factory = factory;
+        }
 
         private void OnEnable()
         {
@@ -56,9 +63,6 @@ namespace SampleGame.App.UI
 
         public UniTask InitializeAsync()
         {
-            _factory = ServiceLocator.Instance.Get<RegionToggleFactory>();
-            _gameFacade = ServiceLocator.Instance.Get<GameFacade>();
-            
             CreateAllRegionsButtons();
             OnEnable();
             
@@ -129,6 +133,6 @@ namespace SampleGame.App.UI
         }
 
         private void CreateRegionButton(RegionInfo regionInfo) => 
-            _factory.CreateAsync(regionInfo, _toggleGroup, _container).Forget();
+            _factory.Create(regionInfo, _toggleGroup, _container);
     }
 }

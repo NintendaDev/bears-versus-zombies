@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using Modules.AssetsManagement.StaticData;
-using Modules.Services;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace SampleGame.App.UI
 {
@@ -19,21 +18,22 @@ namespace SampleGame.App.UI
         private LanguageToggleFactory _factory;
         private LocalizeRegionsConfig _localizeRegionsConfig;
 
-        public async UniTask InitializeAsync()
+        [Inject]
+        private void Construct(LanguageToggleFactory languageToggleFactory, IStaticDataService staticDataService)
         {
-            _factory = ServiceLocator.Instance.Get<LanguageToggleFactory>();
-            IStaticDataService staticDataService = ServiceLocator.Instance.Get<IStaticDataService>();
+            _factory = languageToggleFactory;
             _localizeRegionsConfig = staticDataService.GetConfiguration<LocalizeRegionsConfig>();
-            
+        }
+
+        public UniTask InitializeAsync()
+        {
             foreach (Transform child in _container)
                 Destroy(child.gameObject);
-
-            List<UniTask> createToggleTasks = new();
             
             foreach (LocalizeRegionsConfig.LocalizeRegionData regionData in _localizeRegionsConfig.Regions)
-                createToggleTasks.Add(_factory.CreateAsync(regionData.Language, _toggleGroup, _container));
+                _factory.Create(regionData.Language, _toggleGroup, _container);
             
-            await UniTask.WhenAll(createToggleTasks);
+            return UniTask.CompletedTask;
         }
     }
 }

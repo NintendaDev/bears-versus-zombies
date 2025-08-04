@@ -1,6 +1,6 @@
 ﻿using Fusion;
-using Modules.Services;
 using SampleGame.App;
+using Zenject;
 
 namespace SampleGame.Gameplay.GameContext
 {
@@ -8,11 +8,10 @@ namespace SampleGame.Gameplay.GameContext
     {
         private GameFacade _gameFacade;
 
-        public override void Spawned()
+        [Inject]
+        private void Construct(GameFacade gameFacade)
         {
-            base.Spawned();
-            
-            _gameFacade = ServiceLocator.Instance.Get<GameFacade>();
+            _gameFacade = gameFacade;
         }
 
         void IAfterSpawned.AfterSpawned()

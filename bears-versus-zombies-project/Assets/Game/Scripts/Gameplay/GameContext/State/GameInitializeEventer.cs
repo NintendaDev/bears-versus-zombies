@@ -1,6 +1,5 @@
 ﻿using System;
 using Fusion;
-using Modules.Services;
 using Modules.Timers;
 using SampleGame.Gameplay.GameObjects;
 using Sirenix.OdinInspector;
@@ -8,7 +7,7 @@ using UnityEngine;
 
 namespace SampleGame.Gameplay.GameContext
 {
-    public sealed class GameInitializeEventer : SceneSimulationBehaviour, ISpawned, IDespawned, IGameInitializeEvent
+    public sealed class GameInitializeEventer : SimulationBehaviour, ISpawned, IDespawned, IGameInitializeEvent
     {
         [SerializeField, MinValue(0)] private float _delayBeforeInitialize = 1f;
         
@@ -25,8 +24,8 @@ namespace SampleGame.Gameplay.GameContext
         
         void ISpawned.Spawned()
         {
-            _playersService = ServiceLocator.Instance.Get<PlayersService>();
-            _cameraProvider = ServiceLocator.Instance.Get<PlayerCameraProvider>();
+            _playersService = GameContextService.Instance.Get<PlayersService>();
+            _cameraProvider = GameContextService.Instance.Get<PlayerCameraProvider>();
             _playersService.LocalPlayerJoined += OnLocalPlayerJoin;
         }
 

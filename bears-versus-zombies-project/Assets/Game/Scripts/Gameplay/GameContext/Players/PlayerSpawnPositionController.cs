@@ -1,12 +1,11 @@
 ﻿using Fusion;
 using Fusion.Addons.SimpleKCC;
-using Modules.Services;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace SampleGame.Gameplay.GameContext
 {
-    public sealed class PlayerSpawnPositionController : SceneSimulationBehaviour, ISpawned, IDespawned
+    public sealed class PlayerSpawnPositionController : SimulationBehaviour, ISpawned, IDespawned
     {
         [SerializeField, Required, SceneObjectsOnly]
         private SpawnPointService _playerSpawnPointService;
@@ -15,7 +14,7 @@ namespace SampleGame.Gameplay.GameContext
 
         void ISpawned.Spawned()
         {
-            _playersService = ServiceLocator.Instance.Get<PlayersService>();
+            _playersService = GameContextService.Instance.Get<PlayersService>();
             _playersService.PlayerJoined += OnPlayerJoin;
         }
 

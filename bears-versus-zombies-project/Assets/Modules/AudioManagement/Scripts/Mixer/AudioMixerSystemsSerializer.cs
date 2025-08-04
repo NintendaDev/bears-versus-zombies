@@ -2,12 +2,16 @@
 
 namespace Modules.AudioManagement.Mixer
 {
-    public sealed class AudioMixerSystemsSerializer : GameSerializer<AudioMixerSystem, AudioMixerData>
+    public sealed class AudioMixerSystemsSerializer : GameSerializer<IAudioMixerSystem, AudioMixerData>
     {
-        protected override AudioMixerData Serialize(AudioMixerSystem service) =>
+        public AudioMixerSystemsSerializer(IAudioMixerSystem service) : base(service)
+        {
+        }
+
+        protected override AudioMixerData Serialize(IAudioMixerSystem service) =>
             new AudioMixerData(service.MusicPercentVolume, service.EffectsPercentVolume);
 
-        protected override void Deserialize(AudioMixerSystem service, AudioMixerData data)
+        protected override void Deserialize(IAudioMixerSystem service, AudioMixerData data)
         {
             service.Reset();
             service.SetMusicPercentVolume(data.MusicPercentVolume);

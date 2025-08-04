@@ -2,20 +2,22 @@ using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using Modules.AssetsManagement.AddressablesOperations;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Modules.AssetsManagement.StaticData
 {
-    public class StaticDataService : MonoBehaviour, IStaticDataService
+    public class StaticDataService : IStaticDataService
     {
-        [SerializeField, Required] 
-        private AddressablesService _addressablesService;
-        
-        [SerializeField, Required] 
-        private StaticDataServiceConfiguration _serviceConfiguration;
+        private readonly AddressablesService _addressablesService;
+        private readonly StaticDataServiceConfiguration _configuration;
         
         private readonly Dictionary<Type, UnityEngine.Object> _configurations = new();
+
+        public StaticDataService(StaticDataServiceConfiguration configuration, AddressablesService addressablesService)
+        {
+            _addressablesService = addressablesService;
+            _configuration = configuration;
+        }
 
         public async UniTask InitializeAsync() => await LoadAllConfigurations();
         
@@ -32,7 +34,7 @@ namespace Modules.AssetsManagement.StaticData
         private async UniTask LoadAllConfigurations()
         {
             ScriptableObject[] rawConfigurations = await _addressablesService
-                .LoadByLabelAsync<ScriptableObject>(_serviceConfiguration.ConfigurationsAssetLabel);
+                .LoadByLabelAsync<ScriptableObject>(_configuration.ConfigurationsAssetLabel);
 
             foreach (ScriptableObject rawConfiguration in rawConfigurations)
             {

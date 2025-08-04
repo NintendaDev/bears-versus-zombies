@@ -43,6 +43,7 @@ namespace SampleGame.App.UI
         public void Initialize(ILobbyPresenter presenter)
         {
             _presenter = presenter;
+            _sessionConnectButton.Initialize();
         }
 
         public override void Show()

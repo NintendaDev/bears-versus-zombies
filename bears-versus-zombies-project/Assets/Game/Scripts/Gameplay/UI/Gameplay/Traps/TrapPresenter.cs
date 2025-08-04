@@ -1,26 +1,24 @@
 ﻿using Fusion;
-using Modules.Services;
 using SampleGame.Gameplay.GameContext;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace SampleGame.Gameplay.UI
 {
-    public sealed class TrapPresenter : SceneSimulationBehaviour, ISpawned, IDespawned
+    public sealed class TrapPresenter : SimulationBehaviour, ISpawned, IDespawned
     {
         [SerializeField] private TrapType _type;
+        [SerializeField] private TrapsSettings _settings;
         [SerializeField, Required] private TrapView _view;
         
-        TrapsSettings _settings;
         private TrapSpawner _trapSpawner;
         private IGameInitializeEvent _gameInitializeEvent;
         private PlayersService _playersService;
 
         void ISpawned.Spawned()
         {
-            _gameInitializeEvent = ServiceLocator.Instance.Get<IGameInitializeEvent>();
-            _settings = ServiceLocator.Instance.Get<TrapsSettings>();
-            _playersService = ServiceLocator.Instance.Get<PlayersService>();
+            _gameInitializeEvent = GameContextService.Instance.Get<GameInitializeEventer>();
+            _playersService = GameContextService.Instance.Get<PlayersService>();
             
             if (_settings.TryGetButtonKey(_type, out string buttonKey))
                 _view.SetButtonKey(buttonKey.ToUpper());

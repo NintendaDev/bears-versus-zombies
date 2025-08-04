@@ -1,9 +1,8 @@
 ﻿using Fusion;
-using Modules.Services;
 
 namespace SampleGame.Gameplay.GameContext
 {
-    public abstract class SceneGameCycleObserver : SceneSimulationBehaviour, ISpawned, IDespawned
+    public abstract class SceneGameCycleObserver : SimulationBehaviour, ISpawned, IDespawned
     {
         private IGameCycleState _gameCycleState;
 
@@ -11,7 +10,7 @@ namespace SampleGame.Gameplay.GameContext
 
         public virtual void Spawned()
         {
-            _gameCycleState = ServiceLocator.Instance.Get<IGameCycleState>();
+            _gameCycleState = GameContextService.Instance.Get<GameCycle>();
             _gameCycleState.Changed += OnGameStateChange;
         }
 

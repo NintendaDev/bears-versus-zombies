@@ -1,21 +1,20 @@
 ﻿using Fusion;
-using Modules.Services;
 
 namespace SampleGame.Gameplay.GameContext
 {
-    public sealed class PlayersLeftInPlayController : SceneSimulationBehaviour, ISpawned, IDespawned
+    public sealed class PlayersLeftInPlayController : SimulationBehaviour, ISpawned, IDespawned
     {
         private PlayersService _playersService;
         private GameCycle _gameCycle;
 
-        public void Spawned()
+        void ISpawned.Spawned()
         {
-            _playersService = ServiceLocator.Instance.Get<PlayersService>();
-            _gameCycle = ServiceLocator.Instance.Get<GameCycle>();
+            _playersService = GameContextService.Instance.Get<PlayersService>();
+            _gameCycle = GameContextService.Instance.Get<GameCycle>();
             _playersService.PlayerLeft += OnPlayerLeft;
         }
 
-        public void Despawned(NetworkRunner runner, bool hasState)
+        void IDespawned.Despawned(NetworkRunner runner, bool hasState)
         {
             _playersService.PlayerLeft -= OnPlayerLeft;
         }

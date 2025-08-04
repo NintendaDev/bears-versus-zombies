@@ -11,7 +11,6 @@ namespace SampleGame.Gameplay.GameObjects
         [SerializeField, MinValue(0)] private float _damageCooldown = 1f;
         
         private Action _dieHandler;
-        private PropertyReader<int> _currentValuePropertyReader;
 
         [Networked]
         [OnChangedRender(nameof(OnCurrentValueChangeRender))]
@@ -43,7 +42,6 @@ namespace SampleGame.Gameplay.GameObjects
         public override void Spawned()
         {
             CurrentValue = MaxValue;
-            _currentValuePropertyReader = GetPropertyReader<int>(nameof(CurrentValue));
         }
 
         public override void Despawned(NetworkRunner runner, bool hasState)
