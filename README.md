@@ -34,6 +34,7 @@ In the lobby menu, you can either create a new session or join an existing one
 ## Technologies Used  
 
 - Photon Fusion 2 (Host Mode)
+- Zenject
 - Addressables
 - R3
 - ZLinq
