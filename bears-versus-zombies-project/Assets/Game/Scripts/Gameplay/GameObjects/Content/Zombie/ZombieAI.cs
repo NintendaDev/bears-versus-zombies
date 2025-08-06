@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Fusion;
 using Fusion.Addons.FSM;
-using Modules.Services;
 using SampleGame.Gameplay.GameContext;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -28,14 +27,12 @@ namespace SampleGame.Gameplay.GameObjects
         
         internal Transform Transform { get; private set; }
 
-        private void Awake()
-        {
-            _gameCycleState = ServiceLocator.Instance.Get<IGameCycleState>();
-        }
-
         public override void Spawned()
         {
             Transform = transform;
+            
+            if (_gameCycleState == null)
+                _gameCycleState = GameContextService.Instance.Get<GameCycle>();
         }
 
         public override void Despawned(NetworkRunner runner, bool hasState)
@@ -54,6 +51,9 @@ namespace SampleGame.Gameplay.GameObjects
 
         void IStateMachineOwner.CollectStateMachines(List<IStateMachine> stateMachines)
         {
+            if (_gameCycleState == null)
+                _gameCycleState = GameContextService.Instance.Get<GameCycle>();
+            
             IdleZombieState idleZombieState = new(zombieAI: this, _view, _gameCycleState);
             MoveZombieState moveZombieState = new(zombieAI: this, _view);
             TakeDamageZombieState takeDamageZombieState = new(zombieAI: this, _health, _view);

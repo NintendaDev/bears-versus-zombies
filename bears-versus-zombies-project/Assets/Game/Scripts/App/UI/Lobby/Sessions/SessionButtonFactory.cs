@@ -1,50 +1,50 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System;
+using Cysharp.Threading.Tasks;
 using Fusion;
 using Modules.AssetsManagement.AddressablesOperations;
 using Modules.AssetsManagement.StaticData;
-using Modules.Services;
 using UnityEngine;
+using Zenject;
 
 namespace SampleGame.App.UI
 {
-    public sealed class SessionButtonFactory : MonoBehaviour
+    public sealed class SessionButtonFactory : IDisposable
     {
-        private IAddressablesService _addressablesService;
-        private MainMenuAssets _assetsConfig;
+        private readonly IInstantiator _instantiator;
+        private readonly IAddressablesService _addressablesService;
+        private readonly MainMenuAssets _assetsConfig;
 
         private SessionButton _prefab;
         private GameFacade _gameFacade;
 
-        private void OnDestroy()
+        public SessionButtonFactory(IInstantiator instantiator, IStaticDataService staticDataService, 
+            IAddressablesService addressablesService)
+        {
+            _instantiator = instantiator;
+            _assetsConfig = staticDataService.GetConfiguration<MainMenuAssets>();
+            _addressablesService = addressablesService;
+        }
+
+        public void Dispose()
         {
             _addressablesService.Release(_assetsConfig.SessionButtonReference);
         }
 
         public async UniTask InitializeAsync()
         {
-            IStaticDataService staticData = ServiceLocator.Instance.Get<IStaticDataService>();
-            _addressablesService = ServiceLocator.Instance.Get<IAddressablesService>();
-            _assetsConfig = staticData.GetConfiguration<MainMenuAssets>();
-
-            await LoadAssetsAsync();
-        }
-        
-        public async UniTask<SessionButton> CreateButtonAsync(SessionInfo sessionInfo, Transform parent)
-        {
-            SessionButton button = Instantiate(_prefab, parent);
-            SessionButtonPresenter presenter = button.GetComponent<SessionButtonPresenter>();
-            await presenter.InitializeAsync();
-            presenter.UpdateSession(sessionInfo);
-
-            return button;
-        }
-        
-        private async UniTask LoadAssetsAsync()
-        {
             GameObject sessionButtonObject = await _addressablesService
                 .LoadAsync<GameObject>(_assetsConfig.SessionButtonReference);
             
             _prefab = sessionButtonObject.GetComponent<SessionButton>();
+        }
+
+        public SessionButton Create(SessionInfo sessionInfo, Transform parent)
+        {
+            SessionButton button = _instantiator.InstantiatePrefab(_prefab, parent).GetComponent<SessionButton>();
+            SessionButtonPresenter presenter = button.GetComponent<SessionButtonPresenter>();
+            presenter.UpdateSession(sessionInfo);
+
+            return button;
         }
     }
 }

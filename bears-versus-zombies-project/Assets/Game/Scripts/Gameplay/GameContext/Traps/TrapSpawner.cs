@@ -1,7 +1,6 @@
 ﻿using System;
 using Fusion;
 using Modules.ObjectsDetection;
-using Modules.Services;
 using Modules.Wallet;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -25,8 +24,8 @@ namespace SampleGame.Gameplay.GameContext
 
         public override void Spawned()
         {
-            _wallet = ServiceLocator.Instance.Get<Wallet>();
-            _factory = ServiceLocator.Instance.Get<TrapFactory>();
+            _wallet = GameContextService.Instance.Get<Wallet>();
+            _factory = GameContextService.Instance.Get<TrapFactory>();
             
             _hits = new CollisionData[MaxHits];
             _input.TrapRequested += OnTrapRequest;

@@ -1,23 +1,18 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Modules.SaveSystem.Repositories;
-using Sirenix.OdinInspector;
-using UnityEngine;
 
 namespace Modules.SaveSystem.SaveLoad
 {
-    public sealed class GameSaveLoader : MonoBehaviour, IGameSaveLoader
+    public sealed class GameSaveLoader : IGameSaveLoader
     {
-        [SerializeField, Required] private GameRepository _repository;
-        [SerializeField, Required] private Transform _serializersRoot;
-        
-        private IGameSerializer[] _serializers;
+        private readonly IGameRepository _repository;
+        private readonly IEnumerable<IGameSerializer> _serializers;
 
-        public UniTask InitializeAsync()
+        public GameSaveLoader(IGameRepository repository, IEnumerable<IGameSerializer> serializers)
         {
-            _serializers = _serializersRoot.GetComponentsInChildren<IGameSerializer>();
-            
-            return UniTask.CompletedTask;
+            _repository = repository;
+            _serializers = serializers;
         }
 
         public async UniTask SaveAsync()

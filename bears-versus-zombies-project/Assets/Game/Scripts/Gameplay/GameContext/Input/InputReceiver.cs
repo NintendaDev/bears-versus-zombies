@@ -1,6 +1,5 @@
 ﻿using System;
 using Fusion;
-using SampleGame.Gameplay.GameObjects;
 using UnityEngine;
 
 namespace SampleGame.Gameplay.GameContext

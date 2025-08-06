@@ -1,9 +1,8 @@
-﻿using Cysharp.Threading.Tasks;
-using Modules.EventBus;
+﻿using Modules.EventBus;
 using Modules.SaveSystem.Signals;
-using Modules.Services;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Zenject;
 
 namespace SampleGame.App.UI
 {
@@ -14,52 +13,28 @@ namespace SampleGame.App.UI
 
         private GameLocalizationSystem _localizationSystem;
         private ISignalBus _signalBus;
-        private bool _isInitialized;
+
+        [Inject]
+        private void Construct(ISignalBus signalBus, GameLocalizationSystem localizationSystem)
+        {
+            _signalBus = signalBus;
+            _localizationSystem = localizationSystem;
+        }
 
         private void OnEnable()
         {
-            Subscribe();
+            _toggle.Checked += OnToggleCheck;
         }
 
         private void OnDisable()
         {
-            Unsubscribe();
-        }
-
-        public UniTask InitializeAsync()
-        {
-            if (_isInitialized)
-                return UniTask.CompletedTask;
-            
-            _localizationSystem = ServiceLocator.Instance.Get<GameLocalizationSystem>();
-            _signalBus = ServiceLocator.Instance.Get<ISignalBus>();
-            _isInitialized = true;
-            
-            Subscribe();
-            
-            return UniTask.CompletedTask;
-        }
-
-        private void Subscribe()
-        {
-            if (_isInitialized == false)
-                return;
-            
-            _toggle.Checked += OnToggleCheck;
+            _toggle.Checked -= OnToggleCheck;
         }
 
         private void OnToggleCheck(LanguageToggle toggle)
         {
             _localizationSystem.SetLanguage(toggle.Language);
             _signalBus.Invoke<SaveSignal>();
-        }
-        
-        private void Unsubscribe()
-        {
-            if (_isInitialized == false)
-                return;
-            
-            _toggle.Checked -= OnToggleCheck;
         }
     }
 }

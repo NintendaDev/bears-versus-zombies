@@ -1,11 +1,13 @@
 using Modules.Localization.Core.Types;
-using UnityEngine;
 
 namespace Modules.Localization.Core.Detectors
 {
     public sealed class ConstantLanguageDetector : LanguageDetector
     {
-        [SerializeField] private Language _language;
+        private readonly Language _language;
+
+        public ConstantLanguageDetector(Language language) =>
+            _language = language;
 
         public override Language GetCurrentLanguage() => _language;
     }

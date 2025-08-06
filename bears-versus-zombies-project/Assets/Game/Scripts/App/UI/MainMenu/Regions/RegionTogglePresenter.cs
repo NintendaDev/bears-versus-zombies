@@ -1,11 +1,10 @@
 ﻿using System.Text;
-using Cysharp.Threading.Tasks;
 using Fusion;
 using Modules.EventBus;
 using Modules.SaveSystem.Signals;
-using Modules.Services;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Zenject;
 
 namespace SampleGame.App.UI
 {
@@ -17,40 +16,26 @@ namespace SampleGame.App.UI
         private GameFacade _gameFacade;
         private ISignalBus _signalBus;
         private GameLocalizationSystem _localizationSystem;
-        private bool _isInitialized;
+
+        [Inject]
+        private void Construct(GameFacade gameFacade, ISignalBus signalBus, 
+            GameLocalizationSystem gameLocalizationSystem)
+        {
+            _gameFacade = gameFacade;
+            _signalBus = signalBus;
+            _localizationSystem = gameLocalizationSystem;
+        }
 
         private void OnEnable()
         {
-            Subscribe();
+            _toggle.Checked += OnClick;
+            _localizationSystem.LocalizationChanged += OnLocalizationChange;
         }
 
         private void OnDisable()
         {
-            Unsubscribe();
-        }
-
-        public UniTask InitializeAsync()
-        {
-            if (_isInitialized)
-                return UniTask.CompletedTask;
-            
-            _gameFacade = ServiceLocator.Instance.Get<GameFacade>();
-            _signalBus = ServiceLocator.Instance.Get<ISignalBus>();
-            _localizationSystem = ServiceLocator.Instance.Get<GameLocalizationSystem>();
-            _isInitialized = true;
-            
-            Subscribe();
-
-            return UniTask.CompletedTask;
-        }
-
-        private void Subscribe()
-        {
-            if (_isInitialized == false)
-                return;
-            
-            _toggle.Checked += OnClick;
-            _localizationSystem.LocalizationChanged += OnLocalizationChange;
+            _toggle.Checked -= OnClick;
+            _localizationSystem.LocalizationChanged -= OnLocalizationChange;
         }
 
         public void UpdateRegion(RegionInfo regionInfo)
@@ -77,15 +62,5 @@ namespace SampleGame.App.UI
         {
             UpdateRegion(_toggle.RegionInfo);
         }
-        
-        private void Unsubscribe()
-        {
-            if (_isInitialized == false)
-                return;
-            
-            _toggle.Checked -= OnClick;
-            _localizationSystem.LocalizationChanged -= OnLocalizationChange;
-        }
     }
-    
 }

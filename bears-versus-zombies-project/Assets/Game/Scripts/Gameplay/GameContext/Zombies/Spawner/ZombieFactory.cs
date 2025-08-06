@@ -1,5 +1,4 @@
 ﻿using Fusion;
-using Modules.Services;
 using Modules.Wallet;
 using SampleGame.Gameplay.GameObjects;
 using Sirenix.OdinInspector;
@@ -8,17 +7,16 @@ using Random = UnityEngine.Random;
 
 namespace SampleGame.Gameplay.GameContext
 {
-    public sealed class ZombieFactory : SceneSimulationBehaviour, ISpawned
+    public sealed class ZombieFactory : SimulationBehaviour, ISpawned
     {
-        [SerializeField] private SpawnPointService _spawnPointService;
+        [SerializeField, Required, SceneObjectsOnly] private SpawnPointService _spawnPointService;
+        [SerializeField, Required] private ZombieConfig _config;
         
-        private ZombieConfig _config;
         private Wallet _wallet;
 
         void ISpawned.Spawned()
         {
-            _wallet = ServiceLocator.Instance.Get<Wallet>();
-            _config = ServiceLocator.Instance.Get<ZombieConfig>();
+            _wallet = GameContextService.Instance.Get<Wallet>();
         }
 
         [Button, HideInEditorMode]

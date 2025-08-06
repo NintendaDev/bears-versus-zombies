@@ -6,9 +6,9 @@ namespace SampleGame.App
 {
     public sealed class SaveLoadingOperation : LoadingOperationBase
     {
-        private readonly GameSaveLoader _gameSaveLoader;
+        private readonly IGameSaveLoader _gameSaveLoader;
 
-        public SaveLoadingOperation(GameSaveLoader gameSaveLoader)
+        public SaveLoadingOperation(IGameSaveLoader gameSaveLoader)
         {
             _gameSaveLoader = gameSaveLoader;
         }

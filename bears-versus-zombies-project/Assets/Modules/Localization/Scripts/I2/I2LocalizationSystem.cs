@@ -4,33 +4,33 @@ using I2.Loc;
 using Modules.Localization.Core.Detectors;
 using Modules.Localization.Core.Systems;
 using Modules.Localization.Core.Types;
-using Sirenix.OdinInspector;
-using UnityEngine;
 
 namespace Modules.Localization.I2System
 {
-    public sealed class I2LocalizationSystem : LocalizationSystem
+    public sealed class I2LocalizationSystem : ILocalizationSystem, IDisposable
     {
-        [SerializeField, Required] private LanguageDetector _languageDetector;
-        [SerializeField, Required] private I2LanguagesMapping _languageMapping;
-        
+        private readonly ILanguageDetector _languageDetector;
+        private readonly I2LanguagesMapping _languageMapping;
         private Language _currentLanguage;
 
-        public override Language CurrentLanguage => _currentLanguage;
-        
-        public override event Action LocalizationChanged;
-
-        private void OnEnable()
+        public I2LocalizationSystem(ILanguageDetector languageDetector, I2LanguagesMapping languageMapping)
         {
+            _languageDetector = languageDetector;
+            _languageMapping = languageMapping;
+            
             LocalizationManager.OnLocalizeEvent += InLocalizationChange;
         }
 
-        private void OnDisable()
+        public Language CurrentLanguage => _currentLanguage;
+        
+        public event Action LocalizationChanged;
+
+        public void Dispose()
         {
             LocalizationManager.OnLocalizeEvent -= InLocalizationChange;
         }
         
-        public override UniTask InitializeAsync()
+        public UniTask InitializeAsync()
         {
             string currentLanguageName = _languageDetector.GetCurrentLanguageName();
 
@@ -42,13 +42,13 @@ namespace Modules.Localization.I2System
             return UniTask.CompletedTask;
         }
 
-        public override void SetLanguage(Language language)
+        public void SetLanguage(Language language)
         {
             LocalizationManager.CurrentLanguage = _languageMapping.GetLanguageCode(language);
             _currentLanguage = language;
         }
 
-        public override string MakeTranslatedTextByTerm(string term)
+        public string MakeTranslatedTextByTerm(string term)
         {
             if (LocalizationManager.TryGetTranslation(term, out string translation))
                 return translation;

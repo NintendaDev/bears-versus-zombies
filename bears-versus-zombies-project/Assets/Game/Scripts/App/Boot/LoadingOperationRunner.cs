@@ -1,19 +1,19 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
 using Modules.LoadingTree;
-using UnityEngine;
+using Zenject;
 
 namespace SampleGame.App
 {
-    public sealed class LoadingOperationRunner : MonoBehaviour
+    public sealed class LoadingOperationRunner : IFixedTickable, ILoadingOperationRunner
     {
         private ILoadingOperation _loadingOperation;
         private bool _isLoaded = true;
         private Action<float> _onUpdateProgress;
         
         public bool CanStartLoad => _isLoaded;
-        
-        private void FixedUpdate()
+
+        public void FixedTick()
         {
             if (_isLoaded)
                 return;

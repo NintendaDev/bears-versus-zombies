@@ -3,19 +3,21 @@ using System.Text;
 using Cysharp.Threading.Tasks;
 using Modules.Localization.Core.Systems;
 using Modules.Localization.Core.Types;
-using Sirenix.OdinInspector;
-using UnityEngine;
 
 namespace SampleGame.App
 {
-    public sealed class GameLocalizationSystem : MonoBehaviour, ILocalizationSystem
+    public sealed class GameLocalizationSystem : ILocalizationSystem
     {
-        [SerializeField, Required] private LocalizationSystem _localizationSystem;
-        
         private const string RegionsSuffix = "Regions";
         private const string EnumDelimiter = "_";
         private const string TermsDelimiter = "/";
+        private readonly ILocalizationSystem _localizationSystem;
         private readonly StringBuilder _stringBuilder = new();
+
+        public GameLocalizationSystem(ILocalizationSystem localizationSystem)
+        {
+            _localizationSystem = localizationSystem;
+        }
 
         public Language CurrentLanguage => _localizationSystem.CurrentLanguage;
 

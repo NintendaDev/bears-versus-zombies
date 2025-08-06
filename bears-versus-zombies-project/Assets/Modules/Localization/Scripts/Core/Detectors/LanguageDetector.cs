@@ -1,9 +1,8 @@
 using Modules.Localization.Core.Types;
-using UnityEngine;
 
 namespace Modules.Localization.Core.Detectors
 {
-    public abstract class LanguageDetector : MonoBehaviour, ILanguageDetector
+    public abstract class LanguageDetector : ILanguageDetector
     {
         public abstract Language GetCurrentLanguage();
 

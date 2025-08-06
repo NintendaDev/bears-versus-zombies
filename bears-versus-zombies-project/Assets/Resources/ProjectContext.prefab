@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8961405515061282435}
   - component: {fileID: 3289666488298349205}
-  - component: {fileID: 5523131042600082743}
+  - component: {fileID: 2709442821356284867}
   m_Layer: 0
   m_Name: ProjectContext
   m_TagString: Untagged
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers:
-  - {fileID: 5523131042600082743}
+  - {fileID: 2709442821356284867}
   _installerPrefabs: []
   _parentNewObjectsUnderContext: 1
   _editorReflectionBakingCoverageMode: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
       _missingHandlerDefaultResponse: 2
       _requireStrictUnsubscribe: 0
       _defaultAsyncTickPriority: 1
---- !u!114 &5523131042600082743
+--- !u!114 &2709442821356284867
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,17 +71,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1020021922409100392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f77f937629b84693af56187908e7bf34, type: 3}
+  m_Script: {fileID: 11500000, guid: 5dd7491aa0fd4142b924606ee56aba99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _saveSystemPassword: 8dcad3ac-5304-4f23-992d-94bbff921ad6
+  _staticDataConfig: {fileID: 11400000, guid: 4befb4f252d217547937b5f4a356f8a8, type: 2}
+  _audioMixerConfiguration: {fileID: 11400000, guid: 511f6e623663f5f4d857ea95856f3351, type: 2}
   _targetFrameRate: 60
   _loadingCurtainPrefab: {fileID: 5224352007413807128, guid: 9f799453637ef5c47aad647fdedcac2b, type: 3}
-  _gameFacadePrefab: {fileID: 7245725200006046834, guid: 375834071267a5247a6984ba417700ce, type: 3}
-  _staticDataConfiguration: {fileID: 11400000, guid: 4befb4f252d217547937b5f4a356f8a8, type: 2}
-  _mainMenuAssetReference:
+  _mainMenuSceneReference:
     m_AssetGUID: f1f84dfd5d6ce2f438798721e77ae838
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 1
+  _gameFacadeSettings:
+    _serverDelaySeconds: 0
+    _gameFacadePrefab: {fileID: 7245725200006046834, guid: 375834071267a5247a6984ba417700ce, type: 3}
+  _localizationSettings:
+    _defaultLanguage: 1
+    _languagesMapping: {fileID: 11400000, guid: e55bfe1da2c46654c896c52db43579a8, type: 2}
+  _saveSystemSettings:
+    _aesPassword: 5b54ff5f-f526-407d-9d13-4c5f82727d64
+    _prefsKey: GameSave
+    _savePeriodSeconds: 1

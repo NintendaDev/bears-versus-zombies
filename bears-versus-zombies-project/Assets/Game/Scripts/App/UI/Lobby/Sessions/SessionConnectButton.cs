@@ -13,9 +13,11 @@ namespace SampleGame.App.UI
         
         private GameObject _gameObject;
 
+        private string SessionName => _sessionNameLabel.text;
+        
         public event Action<string> Clicked;
-
-        private void Awake()
+        
+        public void Initialize()
         {
             _gameObject = gameObject;
         }
@@ -24,13 +26,11 @@ namespace SampleGame.App.UI
         {
             _button.onClick.AddListener(OnClick);
         }
-        
+
         private void OnDisable()
         {
             _button.onClick.RemoveListener(OnClick);
         }
-
-        private string SessionName => _sessionNameLabel.text;
 
         public void Enable(string sessionName)
         {

@@ -3,37 +3,36 @@ using Cysharp.Threading.Tasks;
 using Modules.EventBus;
 using Modules.SaveSystem.Signals;
 using R3;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Modules.SaveSystem.SaveLoad
 {
-    public sealed class SaveLoadController : MonoBehaviour
+    public sealed class SaveLoadController : IDisposable
     {
-        [SerializeField, Required] private GameSaveLoader _saveLoader;
-        [SerializeField, Required] private SignalBus _signalBus;
-
+        private readonly IGameSaveLoader _saveLoader;
+        private readonly ISignalBus _signalBus;
         private readonly CompositeDisposable _disposables = new();
-        private const float SavePeriodSeconds = 1f;
         private bool _isRequiredSave;
         private UniTask _saveTask;
 
-        private void OnEnable()
+        public SaveLoadController(IGameSaveLoader saveLoader, ISignalBus signalBus,
+            float savePeriodSeconds)
         {
-            _disposables.Clear();
+            _saveLoader = saveLoader;
+            _signalBus = signalBus;
             
             _signalBus.Subscribe<SaveSignal>(OnSaveSignal);
 
             Observable
-                .Interval(TimeSpan.FromSeconds(SavePeriodSeconds))
+                .Interval(TimeSpan.FromSeconds(savePeriodSeconds))
                 .Subscribe(_ => StartSaveBehaviour())
                 .AddTo(_disposables);
         }
 
-        private void OnDisable()
+        public void Dispose()
         {
             _signalBus.Unsubscribe<SaveSignal>(OnSaveSignal);
-            _disposables.Clear();
+            _disposables.Dispose();
         }
 
         private void OnSaveSignal()

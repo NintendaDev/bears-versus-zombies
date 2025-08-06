@@ -1,23 +1,26 @@
 using Cysharp.Threading.Tasks;
 using Modules.Specifications;
 using Modules.Types;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Modules.AudioManagement.Mixer
 {
-    public sealed class AudioMixerSystem : MonoBehaviour, IAudioMixerSystem
+    public sealed class AudioMixerSystem : IAudioMixerSystem
     {
-        [SerializeField, Required] private AudioMixerConfiguration _mixerConfiguration;
-        
         private const float MinPercent = 0;
         private const float MaxPercent = 1;
         private const float AttenuationLevelMultiplier = 20f;
-        
+
+        private readonly AudioMixerConfiguration _configuration;
         private readonly FloatMemorizedValue _lastMusicVolumePercent = new();
         private readonly FloatMemorizedValue _lastEffectVolumePercent = new();
         private readonly FloatValidator _floatValidator = new();
         private UnityEngine.Audio.AudioMixer _audioMixer;
+
+        public AudioMixerSystem(AudioMixerConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
 
         public float EffectsPercentVolume => _lastEffectVolumePercent.Current;
 
@@ -27,10 +30,10 @@ namespace Modules.AudioManagement.Mixer
 
         public UniTask InitializeAsync()
         {
-            _audioMixer = _mixerConfiguration.AudioMixer;
+            _audioMixer = _configuration.AudioMixer;
 
-            SetMusicPercentVolume(_mixerConfiguration.DefaultMusicVolumePercent);
-            SetEffectsPercentVolume(_mixerConfiguration.DefaultEffectsVolumePercent);
+            SetMusicPercentVolume(_configuration.DefaultMusicVolumePercent);
+            SetEffectsPercentVolume(_configuration.DefaultEffectsVolumePercent);
 
             return UniTask.CompletedTask;
         }
@@ -38,20 +41,20 @@ namespace Modules.AudioManagement.Mixer
         public void SetMusicPercentVolume(float percent)
         {
             _lastMusicVolumePercent.Update(percent);
-            SetVolume(_mixerConfiguration.MusicMixerParameter, percent);
+            SetVolume(_configuration.MusicMixerParameter, percent);
         }
             
         public void SetEffectsPercentVolume(float percent)
         {
             _lastEffectVolumePercent.Update(percent);
-            SetVolume(_mixerConfiguration.EffectsMixerParameter, percent);
+            SetVolume(_configuration.EffectsMixerParameter, percent);
         }
 
         public void Mute() =>
-            SetVolume(_mixerConfiguration.MasterMixerParameter, MinPercent);
+            SetVolume(_configuration.MasterMixerParameter, MinPercent);
 
         public void Unmute() =>
-            SetVolume(_mixerConfiguration.MasterMixerParameter, MaxPercent);
+            SetVolume(_configuration.MasterMixerParameter, MaxPercent);
 
         public void Reset()
         {

@@ -1,17 +1,12 @@
 ﻿using Fusion;
-using Modules.Services;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace SampleGame.Gameplay.GameContext
 {
-    public sealed class TrapFactory : SceneSimulationBehaviour, ISpawned
+    public sealed class TrapFactory : SimulationBehaviour
     {
-        private TrapsSettings _settings;
-        
-        void ISpawned.Spawned()
-        {
-            _settings = ServiceLocator.Instance.Get<TrapsSettings>();
-        }
+        [SerializeField, Required] private TrapsSettings _settings;
 
         public bool TryCreate(TrapType trapType, Vector3 position, Quaternion rotation, out NetworkObject trap)
         {

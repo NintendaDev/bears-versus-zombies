@@ -1,7 +1,4 @@
-﻿using Modules.Services;
-using SampleGame.App;
-
-namespace SampleGame.Gameplay.GameContext
+﻿namespace SampleGame.Gameplay.GameContext
 {
     public sealed class InputAccumulatorController : SceneGameCycleObserver
     {
@@ -10,7 +7,7 @@ namespace SampleGame.Gameplay.GameContext
         public override void Spawned()
         {
             base.Spawned();
-            _inputAccumulator = ServiceLocator.Instance.Get<InputAccumulator>();
+            _inputAccumulator = GameContextService.Instance.Get<InputAccumulator>();
         }
 
         protected override void OnGameStateChange(GameState gameState, FinishReason finishReason)

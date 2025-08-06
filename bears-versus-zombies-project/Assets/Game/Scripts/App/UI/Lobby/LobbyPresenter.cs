@@ -1,9 +1,8 @@
-﻿using Cysharp.Threading.Tasks;
-using Modules.EventBus;
+﻿using Modules.EventBus;
 using Modules.LoadingCurtain;
-using Modules.Services;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Zenject;
 
 namespace SampleGame.App.UI
 {
@@ -18,44 +17,33 @@ namespace SampleGame.App.UI
         private string _selectedSessionName;
         private bool _isInitialized;
 
-        private void OnEnable()
+        [Inject]
+        private void Construct(GameFacade gameFacade, ISignalBus signalBus, ILoadingCurtain loadingCurtain)
         {
-            Subscribe();
-        }
-
-        private void OnDisable()
-        {
-            Unsubscribe();
-        }
-        
-        public UniTask InitializeAsync()
-        {
-            if (_isInitialized)
-                return UniTask.CompletedTask;
-            
-            _gameFacade = ServiceLocator.Instance.Get<GameFacade>();
-            _signalBus = ServiceLocator.Instance.Get<ISignalBus>();
-            _loadingCurtain = ServiceLocator.Instance.Get<ILoadingCurtain>();
+            _gameFacade = gameFacade;
+            _signalBus = signalBus;
+            _loadingCurtain = loadingCurtain;
             
             _view.Initialize(this);
             _view.DisableSessionConnectButton();
-            _isInitialized = true;
-            
-            Subscribe();
-            
-            return UniTask.CompletedTask;
         }
 
-        private void Subscribe()
+        private void OnEnable()
         {
-            if (_isInitialized == false)
-                return;
-            
             _view.BackClicked += OnBackClick;
             _view.SessionConnectClicked += OnSessionConnectClick;
             _view.CreateSessionClicked += OnCreateSessionClick;
             _signalBus.Subscribe<SessionButtonClickSignal>(OnSessionButtonClick);
             _signalBus.Subscribe<SessionButtonDropSignal>(OnSessionButtonDestroy);
+        }
+
+        private void OnDisable()
+        {
+            _view.BackClicked -= OnBackClick;
+            _view.SessionConnectClicked -= OnSessionConnectClick;
+            _view.CreateSessionClicked -= OnCreateSessionClick;
+            _signalBus.Unsubscribe<SessionButtonClickSignal>(OnSessionButtonClick);
+            _signalBus.Unsubscribe<SessionButtonDropSignal>(OnSessionButtonDestroy);
         }
 
         public void OnShow()
@@ -107,18 +95,6 @@ namespace SampleGame.App.UI
 
             _selectedSessionName = string.Empty;
             _view.DisableSessionConnectButton();
-        }
-        
-        private void Unsubscribe()
-        {
-            if (_isInitialized == false)
-                return;
-            
-            _view.BackClicked -= OnBackClick;
-            _view.SessionConnectClicked -= OnSessionConnectClick;
-            _view.CreateSessionClicked -= OnCreateSessionClick;
-            _signalBus.Unsubscribe<SessionButtonClickSignal>(OnSessionButtonClick);
-            _signalBus.Unsubscribe<SessionButtonDropSignal>(OnSessionButtonDestroy);
         }
     }
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 using Fusion;
-using Modules.Services;
 using SampleGame.App;
 using SampleGame.Gameplay.GameContext;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Zenject;
 
 namespace SampleGame.Gameplay.UI
 {
@@ -19,12 +19,16 @@ namespace SampleGame.Gameplay.UI
         private GameFacade _gameFacade;
         private GameLocalizationSystem _localizationService;
 
+        [Inject]
+        private void Construct(GameFacade gameFacade, GameLocalizationSystem localizationService)
+        {
+            _gameFacade = gameFacade;
+            _localizationService = localizationService;
+        }
+
         public override void Spawned()
         {
             base.Spawned();
-            
-            _gameFacade = ServiceLocator.Instance.Get<GameFacade>();
-            _localizationService = ServiceLocator.Instance.Get<GameLocalizationSystem>();
             
             _gameplayScreen.Initialize();
             _finishScreen.Initialize();

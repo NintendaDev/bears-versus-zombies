@@ -25,7 +25,7 @@ namespace SampleGame.App
         {
             int connectionToken = BitConverter.ToInt32(token);
 
-            _validateCancellationTokenSource = _tokenSourceService.DisposeAndCreate(_validateCancellationTokenSource);
+            _validateCancellationTokenSource = _cancelTokenSourceService.DisposeAndCreate(_validateCancellationTokenSource);
 
             if (_pendingConnections.TryAdd(connectionToken, OnConnectionRequestReply.Waiting))
                 await ValidateTokenAsync(token, connectionToken, _validateCancellationTokenSource.Token);

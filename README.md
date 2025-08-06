@@ -34,6 +34,7 @@ In the lobby menu, you can either create a new session or join an existing one
 ## Technologies Used  
 
 - Photon Fusion 2 (Host Mode)
+- Zenject
 - Addressables
 - R3
 - ZLinq
@@ -68,23 +69,33 @@ Sections directly related to the game project itself are located in the `Assets/
 
 ## Project Architecture
 
-The game prototype is built entirely using a component-based approach without any DI frameworks.
-
-This approach was chosen because the architecture of the Photon Fusion 2 framework relies on the use of NetworkBehaviour and SimulationBehaviour, which in turn inherit from MonoBehaviour. These types are tightly coupled with the framework’s network buffers and internal execution cycle.
-
-To align with the framework’s architecture and pipeline, the component-based approach was adopted, as it is straightforward and easier to maintain compared to a mix of different paradigms.
-
-That said, it is still possible to integrate any DI framework into the project if needed. A Service Locator is used as the tool for dependency injection in the project.
-
-An implementation of an approach with minimal use of `MonoBehaviour` with Zenject can be found in my repository [Modular Unity Game Template](https://github.com/NintendaDev/modular-unity-game-template)
-
 ![Architecture Schema](images/game-architecture-schema.png)
+
+The project architecture follows a partial component-based style with the use of Zenject.
+
+In the main menu scene, dependency injection is handled exclusively via Zenject. In the gameplay scene, however, dependencies are injected from two sources:
+
+- GameContextService
+- Zenject ProjectContext
+
+GameContextService is used to access components based on SimulationBehaviour and NetworkBehaviour, while Zenject ProjectContext is used to access global components.
+
+This approach for the gameplay scene was chosen due to the architectural characteristics of Photon Fusion 2.
+
+The framework provides two core classes for building networked games:
+
+- NetworkBehaviour
+- SimulationBehaviour
+
+These classes are tightly coupled with Fusion's internal execution cycle and network buffer synchronization. Both inherit from MonoBehaviour.
+
+Since the framework inherently requires a traditional component-based approach, the decision was made to use Zenject only for global dependency injection, while injecting local dependencies through the GameContextService
+
+Under the hood, GameContextService also utilizes Fusion’s built-in service locator - NetworkRunner.GetSingleton
 
 ### Game Loader
 
-Responsible for initializing the application, it is a `Don't Destroy On Load` object. Its child objects contain global services that are accessible throughout the entire game, such as the save system, localization system, Signal Bus, and others.
-
-The Game Loader starts the loading tree operations, which initialize all global services, load data from the save system, and load and initialize the main menu scene.
+Responsible for initializing the game and loading the main menu. It receives the loading tree as a dependency and executes it. It is a Don't Destroy On Load object, and its presence in the scene structure indicates whether the game has been initialized or not.
 
 ### Game Facade
 
@@ -102,24 +113,38 @@ Each part of the class handles a specific aspect of the interaction with Photon:
   - GameFacede_Connection
   - GameFacede_Disconnect
 
-### Service Locator
+### Network Runner
 
-The Service Locator is unique to each scene and is initialized by the `SceneInitializer`. It retrieves global services from the GameLoader object, while local scene components are initialized via serialized fields in the SceneInitializer.
+This is a preconfigured prefab with network components. It must be instantiated anew each time a new game is created or when connecting to a lobby. Reusing it across different connections is not allowed due to limitations of the framework itself.
 
-Scene components receive their dependencies from the Service Locator either through the `InitializeAsync` method or via the Photon callback `Spawned`.
+### Network Scene Manager
 
-### Scene Initializer
+This is an extension of the standard NetworkSceneManagerDefault class.
 
-This component is responsible for initializing the Service Locator, as well as optionally initializing scene components.
+The class implements additional functionality:
+- Registration of all SimulationBehaviour instances in the NetworkRunner
+- Initialization of the PlayersService
 
-In the main menu scene, after the Service Locator is initialized, the `InitializeAsync` method is called on required scene components in the correct sequence.
+### Poolable Network Object Provider
 
-Within `InitializeAsync`, each component performs its setup and retrieves its dependencies from the Service Locator. This method is used only in the main menu, where no Photon session exists and its callbacks are not triggered.
+This is an extension of the standard NetworkObjectProviderDefault class.
 
-In gameplay scenes, components receive their dependencies via the `Spawned` callback.
+The class adds the following functionality:
+- Ability to spawn objects from a pool
+- Dependency injection into the spawned objects using Zenject ProjectContext
 
-The `SceneInitializer` is executed before `Spawned` is called. This is achieved by modifying NetworkSceneManagerDefault into a custom `FusionSceneManager`.
+### Players Service
 
-During scene loading, before registering all NetworkBehaviour instances in the NetworkRunner, the scene is scanned for a `SceneInitializer` descendant, and its initialization is executed.
+Responsible for:
 
-After that, SimulationBehaviour instances are located and registered in the NetworkRunner. This guarantees that the Service Locator is fully populated with dependencies before scene components are initialized.
+- Spawning players in the scene when they join the game
+- Reconnecting a player to their previous character upon rejoining
+- Providing access to any player's NetworkObject
+
+### Game Context Service
+
+Provides access to any local SimulationBehaviour or NetworkBehaviour and serves as a service locator for gameplay components within the scene.
+
+The service is initialized by components present in the scene. If a required scene component is not found, it falls back to NetworkRunner.GetSingleton.
+
+Relying solely on `NetworkRunner.GetSingleton` is not feasible, as it only returns components attached to the same GameObject as the NetworkRunner. Since NetworkRunner is not bound to the scene hierarchy, there arose a need for GameContextService, which provides access to both local scene components and those available through NetworkRunner.

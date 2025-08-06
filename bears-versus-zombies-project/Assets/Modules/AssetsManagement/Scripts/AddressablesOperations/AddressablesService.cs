@@ -2,18 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceLocations;
 
 namespace Modules.AssetsManagement.AddressablesOperations
 {
-    public sealed class AddressablesService : MonoBehaviour, IAddressablesService
+    public sealed class AddressablesService : IDisposable, IAddressablesService
     {
         private readonly Dictionary<string, AsyncOperationHandle> _assetRequests = new();
 
-        private void OnDestroy()
+        public void Dispose()
         {
             foreach (AsyncOperationHandle handler in _assetRequests.Values)
                 Addressables.Release(handler);

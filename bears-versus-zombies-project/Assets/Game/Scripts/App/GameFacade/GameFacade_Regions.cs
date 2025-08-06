@@ -37,7 +37,7 @@ namespace SampleGame.App
 
         private async UniTask<IEnumerable<RegionInfo>> GetRegionsAsync(CancellationToken cancellationToken = default)
         {
-            _lobbyCancellationTokenSource = _tokenSourceService.DisposeAndCreate(_lobbyCancellationTokenSource);
+            _lobbyCancellationTokenSource = _cancelTokenSourceService.DisposeAndCreate(_lobbyCancellationTokenSource);
             
             CancellationToken linkedToken = CancellationTokenSource.CreateLinkedTokenSource(
                 _lobbyCancellationTokenSource.Token, cancellationToken)

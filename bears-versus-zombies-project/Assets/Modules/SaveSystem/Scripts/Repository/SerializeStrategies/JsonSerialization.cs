@@ -3,11 +3,11 @@ using Newtonsoft.Json;
 
 namespace Modules.SaveSystem.Repositories.SerializeStrategies
 {
-    public sealed class JsonSerialization : Serialization
+    public sealed class JsonSerialization : ISerialization
     {
-        public override string Serialize(Dictionary<string, string> data) => JsonConvert.SerializeObject(data);
+        public string Serialize(Dictionary<string, string> data) => JsonConvert.SerializeObject(data);
 
-        public override Dictionary<string, string> Deserialize(string json) =>
+        public Dictionary<string, string> Deserialize(string json) =>
             JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
     }
 }

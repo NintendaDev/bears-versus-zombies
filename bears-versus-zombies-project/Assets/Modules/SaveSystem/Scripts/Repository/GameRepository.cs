@@ -3,16 +3,21 @@ using Cysharp.Threading.Tasks;
 using Modules.Encrypt;
 using Modules.SaveSystem.Repositories.SerializeStrategies;
 using Modules.SaveSystem.SaveStrategies;
-using Sirenix.OdinInspector;
-using UnityEngine;
 
 namespace Modules.SaveSystem.Repositories
 {
-    public sealed class GameRepository : MonoBehaviour, IGameRepository
+    public sealed class GameRepository : IGameRepository
     {
-        [SerializeField, Required] private string _aesPassword;
-        [SerializeField, Required] private Storage _storage;
-        [SerializeField, Required] private Serialization _serialization;
+        private readonly string _aesPassword;
+        private readonly IStorage _storage;
+        private readonly ISerialization _serialization;
+
+        public GameRepository(string aesPassword, IStorage storage, ISerialization serialization)
+        {
+            _aesPassword = aesPassword;
+            _storage = storage;
+            _serialization = serialization;
+        }
         
         private bool HasEncrypt => string.IsNullOrEmpty(_aesPassword);
 

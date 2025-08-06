@@ -1,6 +1,4 @@
-﻿using Modules.Services;
-
-namespace SampleGame.Gameplay.GameContext
+﻿namespace SampleGame.Gameplay.GameContext
 {
     public sealed class ZombieSpawnController : SceneGameCycleObserver
     {
@@ -10,7 +8,7 @@ namespace SampleGame.Gameplay.GameContext
         {
             base.Spawned();
             
-            _spawner = ServiceLocator.Instance.Get<ZombieSpawner>();
+            _spawner = GameContextService.Instance.Get<ZombieSpawner>();
         }
 
         protected override void OnGameStateChange(GameState gameState, FinishReason finishReason)

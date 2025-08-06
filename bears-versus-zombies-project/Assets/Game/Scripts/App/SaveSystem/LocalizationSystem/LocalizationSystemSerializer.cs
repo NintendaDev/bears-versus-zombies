@@ -3,14 +3,18 @@ using Modules.SaveSystem.SaveLoad;
 
 namespace SampleGame.App
 {
-    public sealed class LocalizationSystemSerializer : GameSerializer<LocalizationSystem, LocalizationSystemData>
+    public sealed class LocalizationSystemSerializer : GameSerializer<ILocalizationSystem, LocalizationSystemData>
     {
-        protected override LocalizationSystemData Serialize(LocalizationSystem service)
+        public LocalizationSystemSerializer(ILocalizationSystem service) : base(service)
+        {
+        }
+
+        protected override LocalizationSystemData Serialize(ILocalizationSystem service)
         {
             return new LocalizationSystemData(service.CurrentLanguage);
         }
 
-        protected override void Deserialize(LocalizationSystem service, LocalizationSystemData data)
+        protected override void Deserialize(ILocalizationSystem service, LocalizationSystemData data)
         {
             service.SetLanguage(data.CurrentLanguage);
         }
