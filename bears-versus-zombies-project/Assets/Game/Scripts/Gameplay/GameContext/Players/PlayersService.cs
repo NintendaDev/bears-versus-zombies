@@ -29,34 +29,7 @@ public sealed class PlayersService : SimulationBehaviour, IPlayerJoined, IPlayer
     public event Action<NetworkObject> LocalPlayerJoined;
     
     public event Action<NetworkObject> PlayerLeft;
-
-    public void EnableEvents()
-    {
-        _canSendEvents = true;
-    }
-
-    public void ReplayJoinPlayers()
-    {
-        foreach (NetworkObject playerObject in _allPlayers.Values)
-            ((IPlayerJoined)this).PlayerJoined(playerObject.InputAuthority);
-    }
     
-    public void ReplayJoinPlayersHostMigration()
-    {
-        if (Runner.IsServer == false)
-            throw new InvalidOperationException("Can't replay join players on client");
-        
-        int localPlayerToken = ReceiveConnectionToken(Runner.LocalPlayer);
-
-        foreach (NetworkObject playerObject in _allPlayers.Values)
-        {
-            ConnectionTokenComponent tokenComponent = playerObject.GetComponent<ConnectionTokenComponent>();
-
-            if (tokenComponent.Token == localPlayerToken)
-                ((IPlayerJoined)this).PlayerJoined(Runner.LocalPlayer);
-        }
-    }
-
     void IPlayerJoined.PlayerJoined(PlayerRef playerRef)
     {
         if (Runner.IsServer)
@@ -112,6 +85,33 @@ public sealed class PlayersService : SimulationBehaviour, IPlayerJoined, IPlayer
     {
         ProcessJoinedPlayers();
         ProcessTimeoutPlayers();
+    }
+    
+    public void EnableEvents()
+    {
+        _canSendEvents = true;
+    }
+
+    public void ReplayJoinPlayers()
+    {
+        foreach (NetworkObject playerObject in _allPlayers.Values)
+            ((IPlayerJoined)this).PlayerJoined(playerObject.InputAuthority);
+    }
+    
+    public void ReplayJoinPlayersHostMigration()
+    {
+        if (Runner.IsServer == false)
+            throw new InvalidOperationException("Can't replay join players on client");
+        
+        int localPlayerToken = ReceiveConnectionToken(Runner.LocalPlayer);
+
+        foreach (NetworkObject playerObject in _allPlayers.Values)
+        {
+            ConnectionTokenComponent tokenComponent = playerObject.GetComponent<ConnectionTokenComponent>();
+
+            if (tokenComponent.Token == localPlayerToken)
+                ((IPlayerJoined)this).PlayerJoined(Runner.LocalPlayer);
+        }
     }
 
     public bool TryGetLocalPlayer(out NetworkObject player) => 

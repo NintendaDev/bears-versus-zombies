@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 namespace SampleGame.App.SceneManagement
 {
-    public sealed class FusionSceneManager : NetworkSceneManagerDefault
+    public sealed class NetworkSceneManager : NetworkSceneManagerDefault
     {
         [SerializeField, Required] private PlayersService _playersService;
         

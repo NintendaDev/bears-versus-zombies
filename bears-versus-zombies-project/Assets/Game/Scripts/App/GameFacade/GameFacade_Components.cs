@@ -11,7 +11,7 @@ namespace SampleGame.App
         
         private PoolableNetworkObjectProvider ObjectProvider { get; set; }
         
-        private FusionSceneManager NetworkSceneManager { get; set; }
+        private NetworkSceneManager NetworkSceneManager { get; set; }
         
         public event Action<NetworkRunner> RunnerChanged;
         
@@ -23,7 +23,7 @@ namespace SampleGame.App
             Runner = Instantiate(_networkRunnerPrefab);
             DontDestroyOnLoad(Runner.gameObject);
             
-            NetworkSceneManager = Runner.GetComponentInChildren<FusionSceneManager>();
+            NetworkSceneManager = Runner.GetComponentInChildren<NetworkSceneManager>();
             ObjectProvider = Runner.GetComponentInChildren<PoolableNetworkObjectProvider>();
             
             Runner.AddCallbacks(this);
