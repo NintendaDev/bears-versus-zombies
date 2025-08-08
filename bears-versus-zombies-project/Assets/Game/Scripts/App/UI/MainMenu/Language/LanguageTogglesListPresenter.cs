@@ -1,5 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
-using Modules.AssetsManagement.StaticData;
+using Modules.Localization.Core.Systems;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,23 +15,36 @@ namespace SampleGame.App.UI
         [SerializeField, Required, ChildGameObjectsOnly]
         private ToggleGroup _toggleGroup;
         
-        private LanguageToggleFactory _factory;
-        private LocalizeRegionsConfig _localizeRegionsConfig;
+        private IInstantiator _instantiator;
+        private MainMenuAssetProvider _assetProvider;
+        private ILocalizationManager _localizationManager;
 
         [Inject]
-        private void Construct(LanguageToggleFactory languageToggleFactory, IStaticDataService staticDataService)
+        private void Construct( MainMenuAssetProvider mainMenuAssetProvider, IInstantiator instantiator, 
+            ILocalizationManager localizationManager)
         {
-            _factory = languageToggleFactory;
-            _localizeRegionsConfig = staticDataService.GetConfiguration<LocalizeRegionsConfig>();
+            _assetProvider = mainMenuAssetProvider;
+            _instantiator = instantiator;
+            _localizationManager = localizationManager;
         }
 
         public UniTask InitializeAsync()
         {
             foreach (Transform child in _container)
                 Destroy(child.gameObject);
+
+            foreach (MainMenuAssetProvider.RegionIcon regionIcon in _assetProvider.RegionIcons)
+            {
+                LanguageToggle toggle = _instantiator.InstantiatePrefab(_assetProvider.GetLanguageTogglePrefab(), 
+                        _container).GetComponent<LanguageToggle>();
+                
+                toggle.Initialize(regionIcon.Sprite);
+                toggle.Link(_toggleGroup);
+                toggle.GetComponent<LanguageTogglePresenter>().InitLanguage(regionIcon.Language);
             
-            foreach (LocalizeRegionsConfig.LocalizeRegionData regionData in _localizeRegionsConfig.Regions)
-                _factory.Create(regionData.Language, _toggleGroup, _container);
+                if (_localizationManager.CurrentLanguage == regionIcon.Language)
+                    toggle.Select();
+            }
             
             return UniTask.CompletedTask;
         }

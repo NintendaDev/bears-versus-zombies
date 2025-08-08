@@ -1,47 +1,49 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using Fusion;
 using Fusion.Photon.Realtime;
+using Modules.AssetsManagement.StaticData;
 using Modules.AsyncTaskTokens;
 using Modules.SceneManagement;
-using Sirenix.OdinInspector;
-using UnityEngine;
-using UnityEngine.AddressableAssets;
-using Zenject;
 
 namespace SampleGame.App
 {
-    public partial class GameFacade : MonoBehaviour, INetworkRunnerCallbacks
+    public partial class GameFacade : IDisposable, INetworkRunnerCallbacks
     {
-        [SerializeField, Required, AssetsOnly] private NetworkRunner _networkRunnerPrefab;
-        [SerializeField, Required] private string _levelSceneAddressablesPath = "Assets/Game/Scenes/GameLevel.unity";
-        [SerializeField, Required] private AssetReference _levelSceneReference;
-        
-        private const string SingleSessionName = "SingleSession";
-        private const int SinglePlayersCount = 1;
-        private const int MultiPlayersCount = 2;
         private readonly ITokenSourceService _cancelTokenSourceService = new CancellationTokenSourceService();
         private readonly ISingleSceneLoader _sceneLoader = new SingleSceneLoader();
+        private readonly IStaticDataService _staticDataService;
+        private readonly IConnectionTokenService _connectionTokenService;
+        private readonly INetworkRegionsService _networkRegionsService;
+        private GameFacadeConfig _config;
         private string _lastSessionName;
         private CancellationTokenSource _connectionCancellationTokenSource;
-        private IConnectionTokenService _connectionTokenService;
 
-        [Inject]
-        private void Construct(IConnectionTokenService connectionTokenService)
+        public GameFacade(IStaticDataService staticDataService, IConnectionTokenService connectionTokenService,
+            INetworkRegionsService networkRegionsService)
         {
+            _staticDataService = staticDataService;
             _connectionTokenService = connectionTokenService;
+            _networkRegionsService = networkRegionsService;
         }
 
-        private void OnDestroy()
+        public bool IsRunning => Runner != null && Runner.IsRunning;
+
+        public GameMode GameMode => Runner.GameMode;
+
+        public bool IsClient => Runner.IsClient;
+        
+        public void Dispose()
         {
             _cancelTokenSourceService.Dispose();
         }
 
         public async UniTask InitializeAsync()
         {
+            _config = _staticDataService.GetConfiguration<GameFacadeConfig>();
             CreateNetworkComponents();
-            await RefreshActualRegionsAsync();
-            SetRegion(DefaultRegion);
+            await _networkRegionsService.RefreshActualRegionsAsync();
         }
 
         public async UniTask<bool> TryLoadSingleGame()
@@ -49,11 +51,11 @@ namespace SampleGame.App
             _connectionCancellationTokenSource =
                 _cancelTokenSourceService.DisposeAndCreate(_connectionCancellationTokenSource);
 
-            _lastSessionName = SingleSessionName;
+            _lastSessionName = GameFacadeConfig.SingleSessionName;
 
             return await TryStartGame(GameMode.Single,
-                SingleSessionName,
-                playerCount: SinglePlayersCount,
+                GameFacadeConfig.SingleSessionName,
+                playerCount: GameFacadeConfig.SinglePlayersCount,
                 cancellationToken: default);
         }
 
@@ -67,7 +69,7 @@ namespace SampleGame.App
 
             return await TryStartGame(GameMode.Host,
                 sessionName,
-                playerCount: MultiPlayersCount,
+                playerCount: GameFacadeConfig.MultiPlayersCount,
                 cancellationToken: _connectionCancellationTokenSource.Token);
         }
 
@@ -81,7 +83,7 @@ namespace SampleGame.App
 
             return await TryStartGame(GameMode.Client,
                 sessionName,
-                playerCount: MultiPlayersCount,
+                playerCount: GameFacadeConfig.MultiPlayersCount,
                 cancellationToken: _connectionCancellationTokenSource.Token);
         }
 
@@ -113,6 +115,6 @@ namespace SampleGame.App
             return startResult.Ok;
         }
         
-        private SceneRef GetGameplaySceneRef() => SceneRef.FromPath(_levelSceneAddressablesPath);
+        private SceneRef GetGameplaySceneRef() => SceneRef.FromPath(_config.LevelSceneAddressablesPath);
     }
 }

@@ -1,4 +1,4 @@
-﻿using Modules.Localization.Core.Types;
+﻿using Modules.UI;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,13 +9,10 @@ namespace SampleGame.App.UI
     {
         [SerializeField, Required, ChildGameObjectsOnly]
         private Image _languageIcon;
-        
-        public Language Language { get; private set; }
 
-        public void Initialize(Sprite sprite, Language language)
+        public void Initialize(Sprite sprite)
         {
             _languageIcon.sprite = sprite;
-            Language = language;
         }
     }
 }

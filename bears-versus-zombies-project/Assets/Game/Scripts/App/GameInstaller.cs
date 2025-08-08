@@ -3,6 +3,7 @@ using Modules.AssetsManagement.StaticData;
 using Modules.AudioManagement.Mixer;
 using Modules.EventBus;
 using Modules.LoadingCurtain;
+using Modules.LoadingTree;
 using SampleGame.App.SceneManagement;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -27,18 +28,16 @@ namespace SampleGame.App
         [SerializeField, Required]
         private AssetReference _mainMenuSceneReference;
         
-        [SerializeField] private GameFacadeInstaller.Settings _gameFacadeSettings;
-        
-        [SerializeField] private LocalizationInstaller.Settings _localizationSettings;
-        
-        [SerializeField] private SaveSystemInstaller.Settings _saveSystemSettings;
-        
         public override void InstallBindings()
         {
-            Container.BindInterfacesTo<PerformanceSetter>()
+            Container.BindInterfacesTo<TargetFrameRateService>()
                 .AsSingle()
                 .WithArguments(_targetFrameRate)
                 .NonLazy();
+            
+            Container.Bind<CoroutineRunner>()
+                .FromNewComponentOnNewGameObject()
+                .AsSingle();
             
             Container.BindInterfacesAndSelfTo<AddressablesService>().AsSingle();
             
@@ -50,21 +49,12 @@ namespace SampleGame.App
                 .FromComponentInNewPrefab(_loadingCurtainPrefab)
                 .AsSingle();
             
-            Container.BindInterfacesTo<LoadingOperationRunner>().AsSingle();
+            Container.BindInterfacesTo<LoadingOperationExecutor>().AsSingle();
             Container.BindInterfacesTo<SignalBus>().AsSingle();
             
-            Container.BindInterfacesTo<GameplayTerminator>()
-                .AsSingle()
-                .WithArguments(_mainMenuSceneReference);
-            
-            LocalizationInstaller.Install(Container, _localizationSettings);
-            SaveSystemInstaller.Install(Container, _saveSystemSettings);
-            
-            Container.BindInterfacesTo<AudioMixerSystem>()
-                .AsSingle()
-                .WithArguments(_audioMixerConfiguration);
-            
-            GameFacadeInstaller.Install(Container, _gameFacadeSettings);
+            NetworkRegionsServiceInstaller.Install(Container);
+            GameUnloaderInstaller.Install(Container, _mainMenuSceneReference);
+            AudioMixerInstaller.Install(Container);
         }
     }
 }

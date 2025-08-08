@@ -1,6 +1,6 @@
 ﻿using Fusion;
 using Modules.Wallet;
-using SampleGame.Gameplay.GameContext;
+using SampleGame.Gameplay.Context;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -15,7 +15,7 @@ namespace SampleGame.Gameplay.UI
         
         void ISpawned.Spawned()
         {
-            _wallet = GameContextService.Instance.Get<Wallet>();
+            _wallet = GameContext.Instance.Get<Wallet>();
             OnWalletChange(_wallet.CurrentValue);
             
             _wallet.Changed += OnWalletChange;

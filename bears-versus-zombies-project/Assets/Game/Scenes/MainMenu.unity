@@ -1250,12 +1250,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d661ab716b2e4a07891e47e4db7cb738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainMenuView: {fileID: 26147457}
-  _lobbyMenuView: {fileID: 713771912}
-  _loadingOperationSettings:
-    _languageTogglesListPresenter: {fileID: 414691246}
-    _regionTogglesListPresenter: {fileID: 1406374036}
-    _sessionButtonListPresenter: {fileID: 320861055}
+  _mainMenuPresenter: {fileID: 26147456}
+  _lobbyPresenter: {fileID: 713771914}
+  _assetProvider: {fileID: 11400000, guid: 0d6aa968463fc3142a29333262c6f471, type: 2}
+  _languageTogglesListPresenter: {fileID: 414691246}
+  _regionTogglesListPresenter: {fileID: 1406374036}
 --- !u!1 &216259236
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,7 +2266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 713771912}
-  _sessionButtonsListPresenter: {fileID: 320861055}
+  _sessionRowsListPresenter: {fileID: 320861055}
 --- !u!114 &713771915
 MonoBehaviour:
   m_ObjectHideFlags: 0

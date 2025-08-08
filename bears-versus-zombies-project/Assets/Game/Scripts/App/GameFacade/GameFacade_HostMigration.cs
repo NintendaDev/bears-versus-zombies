@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Fusion;
-using SampleGame.Gameplay.GameContext;
+using SampleGame.Gameplay.Context;
 using UnityEngine;
 
 namespace SampleGame.App
@@ -24,7 +24,7 @@ namespace SampleGame.App
             await runner.Shutdown();
 
             CreateNetworkComponents();
-            await _sceneLoader.LoadAsync(_levelSceneReference);
+            await _sceneLoader.LoadAsync(_config.LevelSceneReference);
 
             byte[] token = await _connectionTokenService.GetTokenAsync();
             NetworkSceneManager.EnableHostMigrationMode();
@@ -36,7 +36,7 @@ namespace SampleGame.App
                 Scene = GetGameplaySceneRef(),
                 SceneManager = NetworkSceneManager,
                 ObjectProvider = ObjectProvider,
-                PlayerCount = MultiPlayersCount,
+                PlayerCount = GameFacadeConfig.MultiPlayersCount,
                 ConnectionToken = token,
                 HostMigrationToken = hostMigrationToken,
                 HostMigrationResume = OnHostMigrationResume,

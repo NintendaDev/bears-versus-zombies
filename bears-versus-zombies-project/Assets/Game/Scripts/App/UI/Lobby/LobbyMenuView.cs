@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Modules.UI;
+using R3;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace SampleGame.App.UI
@@ -14,48 +14,26 @@ namespace SampleGame.App.UI
         [SerializeField, Required] private Button _createSessionButton;
         [SerializeField, Required] private TMP_InputField _createSessionInput;
         
-        private ILobbyPresenter _presenter;
+        private readonly ReactiveCommand _backClickedCommand = new();
+        private readonly ReactiveCommand<string> _createSessionClickedCommand = new();
+
+        public Observable<Unit> BackClicked => _backClickedCommand.AsObservable();
+
+        public Observable<string> CreateSessionClicked => _createSessionClickedCommand.AsObservable();
         
-        public event UnityAction BackClicked
-        {
-            add => _backButton.onClick.AddListener(value);
-            remove => _backButton.onClick.RemoveListener(value);
-        }
+        public Observable<Unit> SessionConnectClicked => _sessionConnectButton.Clicked;
 
-        public event Action<string> CreateSessionClicked;
-        
-        public event Action<string> SessionConnectClicked
+        public void Initialize()
         {
-            add => _sessionConnectButton.Clicked += value;
-            remove => _sessionConnectButton.Clicked -= value;
-        }
-
-        private void OnEnable()
-        {
-            _createSessionButton.onClick.AddListener(OnCreateSessionClick);
-        }
-
-        private void OnDisable()
-        {
-            _createSessionButton.onClick.RemoveListener(OnCreateSessionClick);
-        }
-
-        public void Initialize(ILobbyPresenter presenter)
-        {
-            _presenter = presenter;
             _sessionConnectButton.Initialize();
-        }
-
-        public override void Show()
-        {
-            base.Show();
-            _presenter.OnShow();
-        }
-
-        public override void Hide()
-        {
-            base.Hide();
-            _presenter.OnHide();
+            
+            _backButton.OnClickAsObservable()
+                .Subscribe( _backClickedCommand.Execute)
+                .AddTo(this);
+            
+            _createSessionButton.OnClickAsObservable()
+                .Subscribe((_) => _createSessionClickedCommand.Execute(_createSessionInput.text))
+                .AddTo(this);
         }
 
         public void EnableSessionConnectButton(string sessionName)
@@ -64,13 +42,5 @@ namespace SampleGame.App.UI
         }
         
         public void DisableSessionConnectButton() => _sessionConnectButton.Disable();
-
-        private void OnCreateSessionClick()
-        {
-            if (string.IsNullOrEmpty(_createSessionInput.text))
-                return;
-            
-            CreateSessionClicked?.Invoke(_createSessionInput.text);
-        }
     }
 }

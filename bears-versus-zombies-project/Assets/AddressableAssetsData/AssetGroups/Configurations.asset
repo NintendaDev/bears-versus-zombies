@@ -15,19 +15,14 @@ MonoBehaviour:
   m_GroupName: Configurations
   m_GUID: fe231c9593ea23c42a523a6588c025f6
   m_SerializeEntries:
-  - m_GUID: 13e9586a10e66f34eaeef02aa9264791
-    m_Address: Assets/Game/Configs/Gameplay/TrapsSettings.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1c16b9e5d7d51a746994e48230844460
-    m_Address: Assets/Game/Configs/App/MainMenuAssets.asset
+  - m_GUID: 511f6e623663f5f4d857ea95856f3351
+    m_Address: Assets/Modules/AudioManagement/Configurations/AudioMixerConfiguration.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - configurations
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 511f6e623663f5f4d857ea95856f3351
-    m_Address: Assets/Modules/AudioManagement/Configurations/AudioMixerConfiguration.asset
+  - m_GUID: 8848415b7d76bac4b86cac89b647d6e1
+    m_Address: Assets/Game/Configs/App/GameFacadeConfig.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - configurations
@@ -40,12 +35,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e6e767a00a2828341b694627ccac36cf
     m_Address: Assets/Game/Configs/Gameplay/GameplayAssets.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - configurations
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fe3ca8f4348698344becb4ccdf2a56e3
-    m_Address: LocalizeRegionsConfig
     m_ReadOnly: 0
     m_SerializedLabels:
     - configurations

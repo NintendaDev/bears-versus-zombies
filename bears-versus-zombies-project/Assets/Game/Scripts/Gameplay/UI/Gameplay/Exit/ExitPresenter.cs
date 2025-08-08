@@ -1,4 +1,5 @@
 ﻿using Fusion;
+using R3;
 using SampleGame.App;
 using SampleGame.App.SceneManagement;
 using Sirenix.OdinInspector;
@@ -11,26 +12,32 @@ namespace SampleGame.Gameplay.UI
     public sealed class ExitPresenter : SimulationBehaviour, ISpawned, IDespawned
     {
         [SerializeField, Required] private Button _button;
-        
+
+        private readonly CompositeDisposable _disposables = new();
         private GameFacade _gameFacade;
         private bool _isDisableUnsubscribe;
-        private IGameplayTerminator _gameplayTerminator;
+        private IGameplayUnloader _gameplayUnloader;
 
         [Inject]
-        private void Construct(GameFacade gameFacade, IGameplayTerminator gameplayTerminator)
+        private void Construct(GameFacade gameFacade, IGameplayUnloader gameplayUnloader)
         {
             _gameFacade = gameFacade;
-            _gameplayTerminator = gameplayTerminator;
+            _gameplayUnloader = gameplayUnloader;
         }
 
         void ISpawned.Spawned()
         {
-            _gameFacade.GameClosed += OnGameClose;
+            _gameFacade.GameClosed
+                .Subscribe((_) => OnGameClose())
+                .AddTo(_disposables);
+            
             _button.onClick.AddListener(OnButtonClick);
         }
 
         void IDespawned.Despawned(NetworkRunner runner, bool hasState)
         {
+            _disposables.Clear();
+            
             if (_isDisableUnsubscribe == false)
                 _button.onClick.RemoveListener(OnButtonClick);
         }
@@ -46,6 +53,6 @@ namespace SampleGame.Gameplay.UI
             _isDisableUnsubscribe = true;
         }
 
-        private async void OnButtonClick() => await _gameplayTerminator.TerminateAsync();
+        private async void OnButtonClick() => await _gameplayUnloader.UnloadAsync();
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Fusion;
 using Modules.LoadingCurtain;
 using SampleGame.App;
-using SampleGame.Gameplay.GameContext;
+using SampleGame.Gameplay.Context;
 using Zenject;
 
 namespace SampleGame.Gameplay.UI.Curtain
@@ -21,7 +21,7 @@ namespace SampleGame.Gameplay.UI.Curtain
 
         void ISpawned.Spawned()
         {
-            _initializeEvent = GameContextService.Instance.Get<GameInitializeEventer>();
+            _initializeEvent = GameContext.Instance.Get<GameInitializeEventer>();
             
             _initializeEvent.Initialized += OnGameInitialized;
             _gameFacade.HostMigrationStarted += OnHostMigrationStart;

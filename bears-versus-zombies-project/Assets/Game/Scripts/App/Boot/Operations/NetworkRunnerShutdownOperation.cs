@@ -13,12 +13,12 @@ namespace SampleGame.App
             _gameFacade = gameFacade;
         }
 
-        public async UniTask<LoadingResult> Run(LoadingBundle bundle)
+        public async UniTask<LoadingResult> RunAsync(LoadingBundle bundle)
         {
-            if (_gameFacade.Runner.IsRunning == false || _gameFacade.Runner == null)
+            if (_gameFacade.IsRunning == false)
                 return LoadingResult.Success();
             
-            if (_gameFacade.Runner.GameMode == GameMode.Single || _gameFacade.Runner.IsClient)
+            if (_gameFacade.GameMode == GameMode.Single || _gameFacade.IsClient)
                 await _gameFacade.ShutdownGameAsync();
             else
                 await _gameFacade.QuitGameAsync();

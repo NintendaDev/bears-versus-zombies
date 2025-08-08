@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Fusion;
 using Fusion.Addons.FSM;
-using SampleGame.Gameplay.GameContext;
+using SampleGame.Gameplay.Context;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -32,7 +32,7 @@ namespace SampleGame.Gameplay.GameObjects
             Transform = transform;
             
             if (_gameCycleState == null)
-                _gameCycleState = GameContextService.Instance.Get<GameCycle>();
+                _gameCycleState = GameContext.Instance.Get<GameCycle>();
         }
 
         public override void Despawned(NetworkRunner runner, bool hasState)
@@ -52,7 +52,7 @@ namespace SampleGame.Gameplay.GameObjects
         void IStateMachineOwner.CollectStateMachines(List<IStateMachine> stateMachines)
         {
             if (_gameCycleState == null)
-                _gameCycleState = GameContextService.Instance.Get<GameCycle>();
+                _gameCycleState = GameContext.Instance.Get<GameCycle>();
             
             IdleZombieState idleZombieState = new(zombieAI: this, _view, _gameCycleState);
             MoveZombieState moveZombieState = new(zombieAI: this, _view);

@@ -7,7 +7,7 @@ namespace SampleGame.App
         private FusionAppSettings CreateAppSettings()
         {
             FusionAppSettings appSettings = PhotonAppSettings.Global.AppSettings.GetCopy();
-            appSettings.FixedRegion = CurrentRegion.ToLower();
+            appSettings.FixedRegion = _networkRegionsService.CurrentRegion.ToLower();
             
             return appSettings;
         }

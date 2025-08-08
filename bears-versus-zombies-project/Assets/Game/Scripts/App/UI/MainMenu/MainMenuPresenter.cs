@@ -1,13 +1,13 @@
-﻿using Fusion.Sockets;
-using Modules.EventBus;
+﻿using Modules.EventBus;
 using Modules.LoadingCurtain;
+using R3;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
 namespace SampleGame.App.UI
 {
-    public sealed class MainMenuPresenter : MonoBehaviour, IMainMenuPresenter
+    public sealed class MainMenuPresenter : MonoBehaviour
     {
         [SerializeField, Required] private MainMenuView _view;
         [SerializeField, Required] private RegionTogglesListPresenter _regionTogglesListPresenter;
@@ -25,33 +25,41 @@ namespace SampleGame.App.UI
             _loadingCurtain = loadingCurtain;
             _signalBus = signalBus;
             
-            _view.Initialize(this);
+            _view.Initialize();
+            
+            _view.SinglePlayerClicked
+                .Subscribe((_) => OnSinglePlayerClick())
+                .AddTo(this);
+            
+            _view.LobbyClicked
+                .Subscribe((_) => OnLobbyClick())
+                .AddTo(this);
+            
+            _gameFacade.Disconnected
+                .Subscribe((_) => OnDisconnect())
+                .AddTo(this);
         }
 
-        private void OnEnable()
-        {
-            _view.SinglePlayerClicked += OnSinglePlayerClick;
-            _view.LobbyClicked += OnLobbyClick;
-            _gameFacade.Disconnected += OnDisconnect;
-        }
-
-        private void OnDisable()
-        {
-            _view.SinglePlayerClicked -= OnSinglePlayerClick;
-            _view.LobbyClicked -= OnLobbyClick;
-            _gameFacade.Disconnected -= OnDisconnect;
-        }
-
-        public void OnShow()
+        public void Show()
         {
             _regionTogglesListPresenter.SelectCurrentRegion();
             _regionTogglesListPresenter.StartAutoRefresh();
+            _view.Show();
             _isShow = true;
         }
 
-        public void OnHide()
+        public void ShowInstance()
+        {
+            _regionTogglesListPresenter.SelectCurrentRegion();
+            _regionTogglesListPresenter.StartAutoRefresh();
+            _view.ShowInstance();
+            _isShow = true;
+        }
+
+        public void Hide()
         {
             _regionTogglesListPresenter.StopAutoRefresh();
+            _view.Hide();
             _isShow = false;
         }
 
@@ -84,7 +92,7 @@ namespace SampleGame.App.UI
             _loadingCurtain.Hide();
         }
 
-        private void OnDisconnect(NetDisconnectReason reason)
+        private void OnDisconnect()
         {
             if (_isShow == false)
                 return;

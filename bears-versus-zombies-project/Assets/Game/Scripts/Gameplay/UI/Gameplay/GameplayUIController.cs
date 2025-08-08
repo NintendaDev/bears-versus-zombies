@@ -1,7 +1,8 @@
 ﻿using System;
 using Fusion;
+using R3;
 using SampleGame.App;
-using SampleGame.Gameplay.GameContext;
+using SampleGame.Gameplay.Context;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
@@ -15,32 +16,33 @@ namespace SampleGame.Gameplay.UI
         
         [SerializeField, Required, ChildGameObjectsOnly] 
         private FinishScreenView _finishScreen;
-        
+
+        private readonly CompositeDisposable _disposables = new();
         private GameFacade _gameFacade;
-        private GameLocalizationSystem _localizationService;
+        private LocalizationManager _localizationService;
 
         [Inject]
-        private void Construct(GameFacade gameFacade, GameLocalizationSystem localizationService)
+        private void Construct(GameFacade gameFacade, LocalizationManager localizationService)
         {
             _gameFacade = gameFacade;
             _localizationService = localizationService;
-        }
-
-        public override void Spawned()
-        {
-            base.Spawned();
-            
             _gameplayScreen.Initialize();
             _finishScreen.Initialize();
-            
-            _gameFacade.GameClosed += OnGameClose;
         }
 
         public override void Despawned(NetworkRunner runner, bool hasState)
         {
             base.Despawned(runner, hasState);
             
-            _gameFacade.GameClosed -= OnGameClose;
+            _gameFacade.GameClosed
+                .Subscribe((_) => OnGameClose())
+                .AddTo(_disposables);
+        }
+
+        protected override void OnSpawnedInternal()
+        {
+            base.OnSpawnedInternal();
+            _disposables.Clear();
         }
 
         protected override void OnGameStateChange(GameState gameState, FinishReason finishReason)

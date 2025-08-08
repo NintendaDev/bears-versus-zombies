@@ -61,7 +61,10 @@ namespace SampleGame.App
         void INetworkRunnerCallbacks.OnSessionListUpdated(NetworkRunner runner, List<SessionInfo> sessionList)
         {
             foreach (SessionInfo sessionInfo in sessionList)
-                _actualSessions[sessionInfo.Name] = sessionInfo;
+            {
+                if (CanUseSession(sessionInfo))
+                    _actualSessions[sessionInfo.Name] = sessionInfo;
+            }
             
             foreach (string sessionName in _actualSessions.
                          AsValueEnumerable().
@@ -73,6 +76,13 @@ namespace SampleGame.App
                     _actualSessions.Remove(sessionName);
                 }
             }
+        }
+        
+        private bool CanUseSession(SessionInfo sessionInfo)
+        {
+            return sessionInfo.IsValid 
+                   && sessionInfo.IsOpen 
+                   && sessionInfo.IsVisible;
         }
     }
 }

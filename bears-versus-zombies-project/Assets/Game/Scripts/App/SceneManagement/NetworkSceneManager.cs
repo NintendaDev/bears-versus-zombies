@@ -4,7 +4,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace SampleGame.App.SceneManagement
+namespace SampleGame.App
 {
     public sealed class NetworkSceneManager : NetworkSceneManagerDefault
     {
@@ -25,10 +25,9 @@ namespace SampleGame.App.SceneManagement
         protected override IEnumerator OnSceneLoaded(SceneRef sceneRef, Scene scene,
             NetworkLoadSceneParameters sceneParams)
         {
-            InitPlayersService();
             RegisterSceneSimulationBehaviours(scene);
-            
             yield return base.OnSceneLoaded(sceneRef, scene, sceneParams);
+            InitPlayersService();
         }
 
         private void InitPlayersService()
@@ -53,9 +52,8 @@ namespace SampleGame.App.SceneManagement
                 
                 if (sceneSimulation.GetComponentInParent<NetworkRunner>() != null)
                     continue;
-
-                NetworkRunner runner = NetworkRunner.GetRunnerForGameObject(sceneSimulation.gameObject);
-                runner.AddGlobal(sceneSimulation);
+                
+                Runner.AddGlobal(sceneSimulation);
             }
         }
     }

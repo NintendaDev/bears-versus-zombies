@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1496540958}
   - component: {fileID: 1496540957}
-  - component: {fileID: 1496540959}
   m_Layer: 0
   m_Name: '[EntryPoint]'
   m_TagString: Untagged
@@ -149,9 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
-  _monoInstallers:
-  - {fileID: 1496540959}
+  _scriptableObjectInstallers:
+  - {fileID: 11400000, guid: 0d5f2e19982752649838950b43fd125f, type: 2}
+  _monoInstallers: []
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -184,25 +183,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1496540959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1496540956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0d8b7b2484849f4ae7ced2d9b169bd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _loadingSettings:
-    _mainMenuSceneReference:
-      m_AssetGUID: f1f84dfd5d6ce2f438798721e77ae838
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_SubObjectGUID: 
-      m_EditorAssetChanged: 1
 --- !u!1 &1725239241
 GameObject:
   m_ObjectHideFlags: 0
