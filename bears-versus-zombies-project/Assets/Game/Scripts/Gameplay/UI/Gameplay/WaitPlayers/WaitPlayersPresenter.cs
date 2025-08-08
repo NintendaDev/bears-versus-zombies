@@ -1,6 +1,6 @@
 ﻿using Fusion;
 using R3;
-using SampleGame.Gameplay.GameContext;
+using SampleGame.Gameplay.Context;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -13,22 +13,22 @@ namespace SampleGame.Gameplay.UI
         private PlayersWaiter _waiter;
         private CompositeDisposable _disposable = new();
 
-        public override void Spawned()
-        {
-            base.Spawned();
-            
-            _waiter = GameContextService.Instance.Get<PlayersWaiter>();
-            _disposable = new CompositeDisposable();
-            
-            _view.Initialize();
-            _view.Hide();
-        }
-
         public override void Despawned(NetworkRunner runner, bool hasState)
         {
             base.Despawned(runner, hasState);
             
             _disposable.Dispose();
+        }
+
+        protected override void OnSpawnedInternal()
+        {
+            base.OnSpawnedInternal();
+            
+            _waiter = GameContext.Instance.Get<PlayersWaiter>();
+            _disposable = new CompositeDisposable();
+            
+            _view.Initialize();
+            _view.Hide();
         }
 
         protected override void OnGameStateChange(GameState gameState, FinishReason finishReason)

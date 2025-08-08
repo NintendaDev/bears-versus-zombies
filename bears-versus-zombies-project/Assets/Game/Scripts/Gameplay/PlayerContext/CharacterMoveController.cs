@@ -1,4 +1,4 @@
-﻿using SampleGame.Gameplay.GameContext;
+﻿using SampleGame.Gameplay.Context;
 using SampleGame.Gameplay.GameObjects;
 using Sirenix.OdinInspector;
 using UnityEngine;

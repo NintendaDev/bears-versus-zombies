@@ -45,7 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e6589720da476459dc6dd71624b071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
+  _scriptableObjectInstallers:
+  - {fileID: 11400000, guid: 340d632a3c6902d4b99282fdee6516bd, type: 2}
+  - {fileID: 11400000, guid: 5de05a93c7158f443831ac4614dcdac7, type: 2}
+  - {fileID: 11400000, guid: e02d3fd3328305b438dd17f8836c4ba9, type: 2}
   _monoInstallers:
   - {fileID: 2709442821356284867}
   _installerPrefabs: []
@@ -84,13 +87,3 @@ MonoBehaviour:
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 1
-  _gameFacadeSettings:
-    _serverDelaySeconds: 0
-    _gameFacadePrefab: {fileID: 7245725200006046834, guid: 375834071267a5247a6984ba417700ce, type: 3}
-  _localizationSettings:
-    _defaultLanguage: 1
-    _languagesMapping: {fileID: 11400000, guid: e55bfe1da2c46654c896c52db43579a8, type: 2}
-  _saveSystemSettings:
-    _aesPassword: 5b54ff5f-f526-407d-9d13-4c5f82727d64
-    _prefsKey: GameSave
-    _savePeriodSeconds: 1

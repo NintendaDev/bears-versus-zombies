@@ -1,4 +1,4 @@
-﻿using Fusion;
+﻿using Modules.UI;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -16,12 +16,9 @@ namespace SampleGame.App.UI
         
         [SerializeField, Required, ChildGameObjectsOnly]
         private TMP_Text _pingLabel;
-        
-        public RegionInfo RegionInfo { get; private set; }
 
-        public void Initialize(RegionInfo regionInfo, string regionCode, string ping)
+        public void Initialize(string regionCode, string ping)
         {
-            RegionInfo = regionInfo;
             _regionCodeLabel.text = regionCode;
             _pingLabel.text = ping;
         }

@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using Modules.AssetsManagement.StaticData;
 using Modules.Specifications;
 using Modules.Types;
 using UnityEngine;
@@ -7,19 +8,20 @@ namespace Modules.AudioManagement.Mixer
 {
     public sealed class AudioMixerSystem : IAudioMixerSystem
     {
+        private readonly IStaticDataService _staticDataService;
         private const float MinPercent = 0;
         private const float MaxPercent = 1;
         private const float AttenuationLevelMultiplier = 20f;
 
-        private readonly AudioMixerConfiguration _configuration;
         private readonly FloatMemorizedValue _lastMusicVolumePercent = new();
         private readonly FloatMemorizedValue _lastEffectVolumePercent = new();
         private readonly FloatValidator _floatValidator = new();
+        private AudioMixerConfiguration _configuration;
         private UnityEngine.Audio.AudioMixer _audioMixer;
 
-        public AudioMixerSystem(AudioMixerConfiguration configuration)
+        public AudioMixerSystem(IStaticDataService staticDataService)
         {
-            _configuration = configuration;
+            _staticDataService = staticDataService;
         }
 
         public float EffectsPercentVolume => _lastEffectVolumePercent.Current;
@@ -30,6 +32,7 @@ namespace Modules.AudioManagement.Mixer
 
         public UniTask InitializeAsync()
         {
+            _configuration = _staticDataService.GetConfiguration<AudioMixerConfiguration>();
             _audioMixer = _configuration.AudioMixer;
 
             SetMusicPercentVolume(_configuration.DefaultMusicVolumePercent);

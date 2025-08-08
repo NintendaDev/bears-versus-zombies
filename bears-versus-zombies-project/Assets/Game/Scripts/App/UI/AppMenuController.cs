@@ -5,14 +5,15 @@ namespace SampleGame.App.UI
 {
     public sealed class AppMenuController : IDisposable
     {
-        private readonly MainMenuView _mainMenuView;
-        private readonly LobbyMenuView _lobbyMenuView;
+        private readonly MainMenuPresenter _mainMenuPresenter;
+        private readonly LobbyPresenter _lobbyPresenter;
         private readonly ISignalBus _signalBus;
 
-        public AppMenuController(MainMenuView mainMenuView, LobbyMenuView lobbyMenuView, ISignalBus signalBus)
+        public AppMenuController(MainMenuPresenter mainMenuPresenter, LobbyPresenter lobbyPresenter, 
+            ISignalBus signalBus)
         {
-            _mainMenuView = mainMenuView;
-            _lobbyMenuView = lobbyMenuView;
+            _mainMenuPresenter = mainMenuPresenter;
+            _lobbyPresenter = lobbyPresenter;
             _signalBus = signalBus;
 
             _signalBus.Subscribe<ShowMainMenuInstanceSignal>(ShowMainMenuInstance);
@@ -30,25 +31,25 @@ namespace SampleGame.App.UI
         private void ShowMainMenuInstance()
         {
             HideAll();
-            _mainMenuView.ShowInstance();
+            _mainMenuPresenter.ShowInstance();
         }
 
         private void HideAll()
         {
-            _mainMenuView.Hide();
-            _lobbyMenuView.Hide();
+            _mainMenuPresenter.Hide();
+            _lobbyPresenter.Hide();
         }
 
         private void ShowMainMenu()
         {
             HideAll();
-            _mainMenuView.Show();
+            _mainMenuPresenter.Show();
         }
 
         private void ShowLobby()
         {
             HideAll();
-            _lobbyMenuView.Show();
+            _lobbyPresenter.Show();
         }
     }
 }

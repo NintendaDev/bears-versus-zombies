@@ -10,7 +10,6 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
-using ZLinq;
 
 namespace SampleGame.App.UI
 {
@@ -24,24 +23,26 @@ namespace SampleGame.App.UI
         
         [SerializeField, MinValue(10)] 
         private float _regionsRefreshDelaySeconds = 180;
-        
-        private RegionToggleFactory _factory;
 
         [ShowInInspector, Sirenix.OdinInspector.ReadOnly]
-        private readonly Dictionary<RegionToggle, RegionTogglePresenter> _toggles = new();
+        private readonly Dictionary<RegionTogglePresenter, RegionToggle> _toggles = new();
         
         private readonly CompositeDisposable _refreshRegionsDisposable = new();
         private readonly ITokenSourceService _tokenSourceService = new CancellationTokenSourceService();
         private readonly CompositeDisposable _disposables = new();
-        private GameFacade _gameFacade;
+        private INetworkRegionsService _networkRegionsService;
         private CancellationTokenSource _refreshRegionsCancellationTokenSource;
         private bool _isInitialized;
+        private MainMenuAssetProvider _assetProvider;
+        private IInstantiator _instantiator;
 
         [Inject]
-        private void Construct(GameFacade gameFacade, RegionToggleFactory factory)
+        private void Construct(INetworkRegionsService networkRegionsService, MainMenuAssetProvider assetProvider,
+            IInstantiator instantiator)
         {
-            _gameFacade = gameFacade;
-            _factory = factory;
+            _networkRegionsService = networkRegionsService;
+            _assetProvider = assetProvider;
+            _instantiator = instantiator;
         }
 
         private void OnEnable()
@@ -51,8 +52,9 @@ namespace SampleGame.App.UI
             
             _disposables.Clear();
             
-            _gameFacade.ActualRegions
-                .ObserveChanged().Subscribe(x => OnRegionChange(x))
+            _networkRegionsService.ActualRegions
+                .ObserveChanged()
+                .Subscribe(x => OnRegionChange(x))
                 .AddTo(_disposables);
         }
 
@@ -78,11 +80,8 @@ namespace SampleGame.App.UI
 
         public void SelectCurrentRegion()
         {
-            foreach (RegionToggle button in _toggles.Keys.AsValueEnumerable()
-                         .Where(x => x.RegionInfo.RegionCode == _gameFacade.CurrentRegion))
-            {
-                button.Select();
-            }
+            ProcessToggleByRegion(_networkRegionsService.CurrentRegion, 
+                toggleAction: (button) => button.Select());
         }
 
         public void StartAutoRefresh()
@@ -95,7 +94,7 @@ namespace SampleGame.App.UI
             Observable.Interval(TimeSpan.FromSeconds(_regionsRefreshDelaySeconds))
                 .Subscribe(_ =>
                 {
-                    _gameFacade.RefreshActualRegionsAsync(_refreshRegionsCancellationTokenSource.Token).Forget();
+                    _networkRegionsService.RefreshActualRegionsAsync(_refreshRegionsCancellationTokenSource.Token).Forget();
                 })
                 .AddTo(_refreshRegionsDisposable);
         }
@@ -110,29 +109,50 @@ namespace SampleGame.App.UI
         {
             RegionInfo regionInfo = collectionChangedEvent.NewItem.Value;
 
-            foreach (RegionToggle button in _toggles.Keys 
-                         .AsValueEnumerable()
-                         .Where(button => button.RegionInfo.RegionCode == regionInfo.RegionCode))
-            {
-                _toggles[button].UpdateRegion(regionInfo);
-            }
+            ProcessToggleByRegion(regionInfo.RegionCode,
+                presenterAction: (presenter) => presenter.UpdateRegion(regionInfo));
         }
 
         private void CreateAllRegionsButtons()
         {
-            foreach (RegionToggle button in _toggles.Keys)
-                Destroy(button.gameObject);
+            foreach (RegionTogglePresenter presenter in _toggles.Keys)
+                Destroy(presenter.gameObject);
             
             foreach (Transform child in _container)
                 Destroy(child.gameObject);
             
             _toggles.Clear();
 
-            foreach (KeyValuePair<string, RegionInfo> regionData in _gameFacade.ActualRegions)
-                CreateRegionButton(regionData.Value);
+            foreach (KeyValuePair<string, RegionInfo> regionData in _networkRegionsService.ActualRegions)
+                CreateRegionToggle(regionData.Value);
         }
-
-        private void CreateRegionButton(RegionInfo regionInfo) => 
-            _factory.Create(regionInfo, _toggleGroup, _container);
+        
+        private void CreateRegionToggle(RegionInfo regionInfo)
+        {
+            RegionToggle toggle = _instantiator.InstantiatePrefab(_assetProvider.GetRegionTogglePrefab(), _container)
+                .GetComponent<RegionToggle>();
+            
+            RegionTogglePresenter presenter = toggle.GetComponent<RegionTogglePresenter>();
+            
+            presenter.UpdateRegion(regionInfo);
+            toggle.Link(_toggleGroup);
+            
+            if (regionInfo.RegionCode == _networkRegionsService.CurrentRegion)
+                toggle.Select();
+        }
+        
+        private void ProcessToggleByRegion(string regionCode, Action<RegionToggle> toggleAction = null,
+            Action<RegionTogglePresenter> presenterAction = null)
+        {
+            foreach (RegionTogglePresenter presenter in _toggles.Keys)
+            {
+                if (presenter.LastRegionInfo.RegionCode != regionCode)
+                    continue;
+                
+                RegionToggle button = _toggles[presenter];
+                toggleAction?.Invoke(button);
+                presenterAction?.Invoke(presenter);
+            }
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Fusion;
 using Modules.ObjectsDetection;
-using SampleGame.Gameplay.GameContext;
+using SampleGame.Gameplay.Context;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;
@@ -32,7 +32,7 @@ namespace SampleGame.Gameplay.GameObjects
 
         public override void Spawned()
         {
-            _gameCycleState = GameContextService.Instance.Get<GameCycle>();
+            _gameCycleState = GameContext.Instance.Get<GameCycle>();
             
             _killHits = new CollisionData[_killRaycaster.MaxHits];
 

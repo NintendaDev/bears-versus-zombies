@@ -1,15 +1,16 @@
 ﻿using Modules.EventBus;
 using Modules.LoadingCurtain;
+using R3;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
 namespace SampleGame.App.UI
 {
-    public sealed class LobbyPresenter : MonoBehaviour, ILobbyPresenter
+    public sealed class LobbyPresenter : MonoBehaviour
     {
         [SerializeField, Required] private LobbyMenuView _view;
-        [SerializeField, Required] private SessionButtonListPresenter _sessionButtonsListPresenter;
+        [SerializeField, Required] private SessionRowListPresenter _sessionRowsListPresenter;
         
         private ISignalBus _signalBus;
         private GameFacade _gameFacade;
@@ -24,47 +25,55 @@ namespace SampleGame.App.UI
             _signalBus = signalBus;
             _loadingCurtain = loadingCurtain;
             
-            _view.Initialize(this);
+            _view.Initialize();
             _view.DisableSessionConnectButton();
+            
+            _view.BackClicked
+                .Subscribe((_) => OnBackClick())
+                .AddTo(this);
+            
+            _view.SessionConnectClicked
+                .Subscribe((_) => OnSessionConnectClick())
+                .AddTo(this);
+            
+            _view.CreateSessionClicked
+                .Subscribe(OnCreateSessionClick)
+                .AddTo(this);
         }
 
         private void OnEnable()
         {
-            _view.BackClicked += OnBackClick;
-            _view.SessionConnectClicked += OnSessionConnectClick;
-            _view.CreateSessionClicked += OnCreateSessionClick;
-            _signalBus.Subscribe<SessionButtonClickSignal>(OnSessionButtonClick);
-            _signalBus.Subscribe<SessionButtonDropSignal>(OnSessionButtonDestroy);
+            _signalBus.Subscribe<SessionRowClickSignal>(OnSessionButtonClick);
+            _signalBus.Subscribe<SessionRowDropSignal>(OnSessionButtonDestroy);
         }
 
         private void OnDisable()
         {
-            _view.BackClicked -= OnBackClick;
-            _view.SessionConnectClicked -= OnSessionConnectClick;
-            _view.CreateSessionClicked -= OnCreateSessionClick;
-            _signalBus.Unsubscribe<SessionButtonClickSignal>(OnSessionButtonClick);
-            _signalBus.Unsubscribe<SessionButtonDropSignal>(OnSessionButtonDestroy);
+            _signalBus.Unsubscribe<SessionRowClickSignal>(OnSessionButtonClick);
+            _signalBus.Unsubscribe<SessionRowDropSignal>(OnSessionButtonDestroy);
         }
 
-        public void OnShow()
+        public void Show()
         {
-            _sessionButtonsListPresenter.OnShow();
+            _sessionRowsListPresenter.Show();
+            _view.Show();
         }
 
-        public void OnHide()
+        public void Hide()
         {
-            _sessionButtonsListPresenter.OnHide();
+            _sessionRowsListPresenter.Hide();
+            _view.Hide();
         }
 
         private void OnBackClick() => SendMainMenuSignal();
 
         private void SendMainMenuSignal() => _signalBus.Invoke<ShowMainMenuSignal>();
 
-        private async void OnSessionConnectClick(string sessionName)
+        private async void OnSessionConnectClick()
         {
             _loadingCurtain.Show();
 
-            if (await _gameFacade.TryConnectToMultiplayerGame(sessionName) == false)
+            if (await _gameFacade.TryConnectToMultiplayerGame(_selectedSessionName) == false)
             {
                 SendMainMenuSignal();
                 _loadingCurtain.Hide();
@@ -82,13 +91,13 @@ namespace SampleGame.App.UI
             }
         }
 
-        private void OnSessionButtonClick(SessionButtonClickSignal signal)
+        private void OnSessionButtonClick(SessionRowClickSignal signal)
         {
             _selectedSessionName = signal.SessionName;
             _view.EnableSessionConnectButton(signal.SessionName);
         }
 
-        private void OnSessionButtonDestroy(SessionButtonDropSignal signal)
+        private void OnSessionButtonDestroy(SessionRowDropSignal signal)
         {
             if (_selectedSessionName != signal.SessionName)
                 return;

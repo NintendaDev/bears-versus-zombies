@@ -1,5 +1,5 @@
 ﻿using Fusion;
-using SampleGame.Gameplay.GameContext;
+using SampleGame.Gameplay.Context;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -17,8 +17,8 @@ namespace SampleGame.Gameplay.UI
 
         void ISpawned.Spawned()
         {
-            _gameInitializeEvent = GameContextService.Instance.Get<GameInitializeEventer>();
-            _playersService = GameContextService.Instance.Get<PlayersService>();
+            _gameInitializeEvent = GameContext.Instance.Get<GameInitializeEventer>();
+            _playersService = GameContext.Instance.Get<PlayersService>();
             
             if (_settings.TryGetButtonKey(_type, out string buttonKey))
                 _view.SetButtonKey(buttonKey.ToUpper());

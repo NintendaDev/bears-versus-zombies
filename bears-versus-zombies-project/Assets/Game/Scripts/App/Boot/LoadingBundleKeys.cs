@@ -2,8 +2,6 @@
 {
     public static class LoadingBundleKeys
     {
-        public const string DiContainer = nameof(DiContainer);
-        
-        public const string LoadingSceneReference = nameof(LoadingSceneReference);
+        public static string LoadingOperationKey = "LoadingOperation";
     }
 }

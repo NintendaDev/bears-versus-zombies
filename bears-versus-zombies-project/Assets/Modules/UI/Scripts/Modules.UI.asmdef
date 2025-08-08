@@ -1,3 +1,16 @@
 {
-	"name": "Modules.UI"
+    "name": "Modules.UI",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e18551f1fa3b94b20a10e6ffb756586a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

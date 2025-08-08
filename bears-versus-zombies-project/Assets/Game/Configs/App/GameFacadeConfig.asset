@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2012c4c9a7b549da8a447fbd203ab757, type: 3}
+  m_Name: GameFacadeConfig
+  m_EditorClassIdentifier: 
+  _networkRunnerPrefab: {fileID: 5006952257786793252, guid: e870ba99efce10640b0cf2fa7e8df330, type: 3}
+  _levelSceneAddressablesPath: Assets/Game/Scenes/GameLevel.unity
+  _levelSceneReference:
+    m_AssetGUID: a8a5ef795a4401947ad5bbaa24e71808
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 1

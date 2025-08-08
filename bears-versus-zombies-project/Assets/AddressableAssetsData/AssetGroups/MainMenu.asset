@@ -16,7 +16,7 @@ MonoBehaviour:
   m_GUID: 580a02f9c3087084f8191da16a359400
   m_SerializeEntries:
   - m_GUID: 193440df316c06f4c8267567eb856363
-    m_Address: SessionButton
+    m_Address: SessionRow
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

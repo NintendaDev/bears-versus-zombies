@@ -1,24 +1,27 @@
-﻿using System;
-using Fusion;
+﻿using Fusion;
 using Fusion.Sockets;
+using R3;
 
 namespace SampleGame.App
 {
     public partial class GameFacade
     {
-        public event Action<NetDisconnectReason> Disconnected;
+        private readonly ReactiveCommand<NetDisconnectReason> _disconnectedCommand = new();
+        private readonly ReactiveCommand _gameCloseCommand = new();
+
+        public Observable<NetDisconnectReason> Disconnected => _disconnectedCommand.AsObservable();
         
-        public event Action GameClosed;
+        public Observable<Unit> GameClosed => _gameCloseCommand.AsObservable();
         
         void INetworkRunnerCallbacks.OnDisconnectedFromServer(NetworkRunner runner, NetDisconnectReason reason)
         {
-            Disconnected?.Invoke(reason);
+            _disconnectedCommand.Execute(reason);
         }
         
         void INetworkRunnerCallbacks.OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason)
         {
             if (shutdownReason == ShutdownReason.DisconnectedByPluginLogic)
-                GameClosed?.Invoke();
+                _gameCloseCommand.Execute(Unit.Default);
         }
     }
 }

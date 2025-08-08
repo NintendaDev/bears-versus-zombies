@@ -1,4 +1,4 @@
-﻿using System;
+﻿using R3;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -10,26 +10,19 @@ namespace SampleGame.App.UI
     {
         [SerializeField, Required] private Button _button;
         [SerializeField, Required] private TMP_Text _sessionNameLabel;
-        
+
+        private readonly ReactiveCommand _clickedCommand = new();
         private GameObject _gameObject;
 
-        private string SessionName => _sessionNameLabel.text;
-        
-        public event Action<string> Clicked;
+        public Observable<Unit> Clicked => _clickedCommand.AsObservable();
         
         public void Initialize()
         {
             _gameObject = gameObject;
-        }
-
-        private void OnEnable()
-        {
-            _button.onClick.AddListener(OnClick);
-        }
-
-        private void OnDisable()
-        {
-            _button.onClick.RemoveListener(OnClick);
+            
+            _button.OnClickAsObservable()
+                .Subscribe(_clickedCommand.Execute)
+                .AddTo(this);
         }
 
         public void Enable(string sessionName)
@@ -41,11 +34,6 @@ namespace SampleGame.App.UI
         public void Disable()
         {
             _gameObject.SetActive(false);
-        }
-
-        private void OnClick()
-        {
-            Clicked?.Invoke(SessionName);
         }
     }
 }

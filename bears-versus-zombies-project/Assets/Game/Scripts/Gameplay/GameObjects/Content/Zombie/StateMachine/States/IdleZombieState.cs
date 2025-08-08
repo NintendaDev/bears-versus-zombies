@@ -1,5 +1,5 @@
 ﻿using Fusion.Addons.FSM;
-using SampleGame.Gameplay.GameContext;
+using SampleGame.Gameplay.Context;
 
 namespace SampleGame.Gameplay.GameObjects
 {

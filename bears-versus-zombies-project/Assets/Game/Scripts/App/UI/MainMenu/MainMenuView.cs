@@ -1,7 +1,8 @@
-﻿using Sirenix.OdinInspector;
+﻿using Modules.UI;
+using R3;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace SampleGame.App.UI
@@ -12,37 +13,22 @@ namespace SampleGame.App.UI
         [SerializeField, Required] private Button _lobbyButton;
         [SerializeField, Required] private TMP_InputField _eventNameInput;
         
-        private IMainMenuPresenter _mainMenuPresenter;
+        private readonly ReactiveCommand _singlePlayerClickedCommand = new();
+        private readonly ReactiveCommand _lobbyClickedCommand = new();
 
-        public event UnityAction SinglePlayerClicked
-        {
-            add => _singlePlayerButton.onClick.AddListener(value);
-            remove => _singlePlayerButton.onClick.RemoveListener(value);
-        }
+        public Observable<Unit> SinglePlayerClicked => _singlePlayerClickedCommand.AsObservable();
         
-        public event UnityAction LobbyClicked
-        {
-            add => _lobbyButton.onClick.AddListener(value);
-            remove => _lobbyButton.onClick.RemoveListener(value);
-        }
+        public Observable<Unit> LobbyClicked => _lobbyClickedCommand.AsObservable();
 
-        public void Initialize(IMainMenuPresenter mainMenuPresenter)
+        public void Initialize()
         {
-            _mainMenuPresenter = mainMenuPresenter;
-        }
-
-        public override void Show()
-        {
-            base.Show();
+            _singlePlayerButton.OnClickAsObservable()
+                .Subscribe(_singlePlayerClickedCommand.Execute)
+                .AddTo(this);
             
-            _mainMenuPresenter.OnShow();
-        }
-
-        public override void Hide()
-        {
-            base.Hide();
-            
-            _mainMenuPresenter.OnHide();
+            _lobbyButton.OnClickAsObservable()
+                .Subscribe( _lobbyClickedCommand.Execute)
+                .AddTo(this);
         }
     }
 }

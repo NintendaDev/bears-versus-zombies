@@ -1,5 +1,7 @@
 ﻿using Modules.EventBus;
+using Modules.Localization.Core.Types;
 using Modules.SaveSystem.Signals;
+using R3;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
@@ -11,29 +13,30 @@ namespace SampleGame.App.UI
         [SerializeField, Required, ChildGameObjectsOnly]
         private LanguageToggle _toggle;
 
-        private GameLocalizationSystem _localizationSystem;
+        private LocalizationManager _localizationManager;
         private ISignalBus _signalBus;
+        
+        public Language Language { get; private set; }
 
         [Inject]
-        private void Construct(ISignalBus signalBus, GameLocalizationSystem localizationSystem)
+        private void Construct(ISignalBus signalBus, LocalizationManager localizationManager)
         {
             _signalBus = signalBus;
-            _localizationSystem = localizationSystem;
+            _localizationManager = localizationManager;
+
+            _toggle.Checked
+                .Subscribe(OnToggleCheck)
+                .AddTo(this);
         }
 
-        private void OnEnable()
+        public void InitLanguage(Language language)
         {
-            _toggle.Checked += OnToggleCheck;
-        }
-
-        private void OnDisable()
-        {
-            _toggle.Checked -= OnToggleCheck;
+            Language = language;
         }
 
         private void OnToggleCheck(LanguageToggle toggle)
         {
-            _localizationSystem.SetLanguage(toggle.Language);
+            _localizationManager.SetLanguage(Language);
             _signalBus.Invoke<SaveSignal>();
         }
     }
