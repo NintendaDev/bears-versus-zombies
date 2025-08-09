@@ -11,7 +11,7 @@ namespace Modules.UI
         private Slider _slider;
 
         [SerializeField, MinValue(0)] 
-        private float _animationSpeed = 0.5f;
+        private float _animationSpeed = 0.75f;
 
         private Tween _tween;
         private GameObject _gameObject;

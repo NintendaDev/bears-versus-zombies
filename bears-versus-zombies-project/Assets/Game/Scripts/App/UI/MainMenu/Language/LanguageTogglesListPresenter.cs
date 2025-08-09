@@ -18,12 +18,14 @@ namespace SampleGame.App.UI
         private IInstantiator _instantiator;
         private MainMenuAssetProvider _assetProvider;
         private ILocalizationManager _localizationManager;
+        private RegionsIconsProvider _regionsIconsProvider;
 
         [Inject]
-        private void Construct( MainMenuAssetProvider mainMenuAssetProvider, IInstantiator instantiator, 
-            ILocalizationManager localizationManager)
+        private void Construct( MainMenuAssetProvider mainMenuAssetProvider, RegionsIconsProvider regionsIconsProvider,
+            IInstantiator instantiator, ILocalizationManager localizationManager)
         {
             _assetProvider = mainMenuAssetProvider;
+            _regionsIconsProvider = regionsIconsProvider;
             _instantiator = instantiator;
             _localizationManager = localizationManager;
         }
@@ -33,7 +35,7 @@ namespace SampleGame.App.UI
             foreach (Transform child in _container)
                 Destroy(child.gameObject);
 
-            foreach (MainMenuAssetProvider.RegionIcon regionIcon in _assetProvider.RegionIcons)
+            foreach (RegionsIconsProvider.RegionIcon regionIcon in _regionsIconsProvider.RegionIcons)
             {
                 LanguageToggle toggle = _instantiator.InstantiatePrefab(_assetProvider.GetLanguageTogglePrefab(), 
                         _container).GetComponent<LanguageToggle>();

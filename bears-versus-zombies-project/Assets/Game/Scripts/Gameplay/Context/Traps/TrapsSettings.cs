@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SampleGame.Gameplay.Context
 {
-    [CreateAssetMenu(fileName = "new TrapsSettings", menuName = "SampleGame/TrapsSettings")]
+    [CreateAssetMenu(fileName = "new TrapsSettings", menuName = "SampleGame/Gameplay/TrapsSettings")]
     public sealed class TrapsSettings : ScriptableObject
     {
         [SerializeField] private TrapData[] _prefabs;

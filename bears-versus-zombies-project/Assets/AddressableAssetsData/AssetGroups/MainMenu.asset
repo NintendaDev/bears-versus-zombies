@@ -25,11 +25,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6586d10b406c5d4498113ae14ad8e7d0
-    m_Address: Russian
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 85d6087ccd846124d8d2ac253a741a86
     m_Address: BackButton
     m_ReadOnly: 0
@@ -42,11 +37,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dc42e980e16168645b8c48d3aa554896
     m_Address: SimpleButton
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e2ad5c3c985208d4eacb452f4bfcf17b
-    m_Address: English
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

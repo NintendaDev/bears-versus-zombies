@@ -6,8 +6,8 @@ using UnityEngine;
 namespace SampleGame.Gameplay.Context
 {
     [CreateAssetMenu(
-        fileName = "PoolableNetworkObjectCatalog",
-        menuName = "SampleGame/New PoolableNetworkObjectCatalog"
+        fileName = "new PoolableNetworkObjectCatalog",
+        menuName = "SampleGame/Network/PoolableNetworkObjectCatalog"
     )]
     public sealed class PoolableNetworkObjectCatalog : ScriptableObject
     {
