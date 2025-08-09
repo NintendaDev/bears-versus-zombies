@@ -1253,6 +1253,7 @@ MonoBehaviour:
   _mainMenuPresenter: {fileID: 26147456}
   _lobbyPresenter: {fileID: 713771914}
   _assetProvider: {fileID: 11400000, guid: 0d6aa968463fc3142a29333262c6f471, type: 2}
+  _regionsIconsProvider: {fileID: 11400000, guid: 1ae56923346d794408ce73975e48f260, type: 2}
   _languageTogglesListPresenter: {fileID: 414691246}
   _regionTogglesListPresenter: {fileID: 1406374036}
 --- !u!1 &216259236

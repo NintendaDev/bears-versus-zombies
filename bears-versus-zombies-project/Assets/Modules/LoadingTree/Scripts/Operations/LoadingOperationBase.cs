@@ -17,5 +17,13 @@ namespace Modules.LoadingTree
         }
 
         protected abstract UniTask<LoadingResult> RunInternal(LoadingBundle bundle);
+        
+        protected void SetProgress(float progress)
+        {
+            if (progress < 0 || progress > 1)
+                throw new System.ArgumentException("progress must be between 0 and 1");
+            
+            _progress = progress;
+        }
     }
 }

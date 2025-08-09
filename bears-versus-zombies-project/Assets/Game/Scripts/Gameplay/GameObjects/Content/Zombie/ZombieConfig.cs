@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SampleGame.Gameplay.GameObjects
 {
-    [CreateAssetMenu(fileName = "new ZombieConfig", menuName = "SampleGame/Zombies/ZombieConfig")]
+    [CreateAssetMenu(fileName = "new ZombieConfig", menuName = "SampleGame/Gameplay/Zombies/ZombieConfig")]
     public sealed class ZombieConfig : ScriptableObject
     {
         [SerializeField, Required] private NetworkPrefabRef _prefabReference;

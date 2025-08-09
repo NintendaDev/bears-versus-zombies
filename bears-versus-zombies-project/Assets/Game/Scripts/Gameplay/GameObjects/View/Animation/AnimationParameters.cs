@@ -3,7 +3,7 @@
 namespace SampleGame.GameObjects.View
 {
     [CreateAssetMenu(fileName = "new AnimationParameters", 
-        menuName = "SampleGame/AnimationParameters")]
+        menuName = "SampleGame/Animation/AnimationParameters")]
     public sealed class AnimationParameters : ScriptableObject
     {
         [field: SerializeField] public string IsIdleParameterName { get; private set; } = "IsIdle";

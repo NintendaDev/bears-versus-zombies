@@ -1180,7 +1180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 6221044886540674935}
-  _animationSpeed: 0.5
+  _animationSpeed: 0.75
 --- !u!114 &6221044886540674935
 MonoBehaviour:
   m_ObjectHideFlags: 0
