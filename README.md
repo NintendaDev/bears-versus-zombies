@@ -1,4 +1,7 @@
 # BEARS VERSUS ZOMBIES
+
+A prototype of a networked top-down shooter built with Unity 6 and powered by Photon Fusion 2 and Zenject.
+
 ![Demo GIF](images/demo.gif)
 
 The objective of the game is to protect the school bus from waves of zombies and survive.
